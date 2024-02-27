@@ -13,35 +13,30 @@ Apresente uma visão geral do que será abordado nesta parte do documento, enume
 
 As personas levantadas durante o processo de entendimento do problema são apresentadas na Figuras que se seguem.
 
-![Capturar](https://user-images.githubusercontent.com/104511336/228982853-3b1f38d8-3384-4113-99ca-37a03f2f102b.PNG) 
+![imagem2](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t1-pmv-ads-2024-1-e4-projdogsfriends/assets/81536287/48a888ca-3f57-4c83-acbb-41eba41f9de6)
 
-![Capturar 2](https://user-images.githubusercontent.com/104511336/228982885-caba2134-86b7-4e59-bf73-f16d79ead89a.PNG)
+![imagem1](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t1-pmv-ads-2024-1-e4-projdogsfriends/assets/81536287/f484b7ad-2cfd-4f1a-9d3c-4a0e52ada188)
 
-![capturar 3](https://user-images.githubusercontent.com/104511336/228982931-8c7c7304-0c5a-4ae5-a2f8-f72a65c3cfe7.PNG)
-
+![imagem 3](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t1-pmv-ads-2024-1-e4-projdogsfriends/assets/81536287/d66823bd-3e71-4cf8-9bb0-92b69f3a7fb3)
 ## Histórias de Usuários
 
 Com base na análise das personas forma identificadas as seguintes histórias de usuários:
 
-|EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE` |PARA ... `MOTIVO/VALOR`                 |
+EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE` |PARA ... `MOTIVO/VALOR`                 |
 |--------------------|------------------------------------|----------------------------------------|
-|Usuário do sistema  | Registrar minhas tarefas           | Não esquecer de fazê-las               |
-|Administrador       | Alterar permissões                 | Permitir que possam administrar contas |
+|Genivaldo Alves | Ter uma ferramenta fácil de acessar e segura       | Para que possa contratar o serviço e ficar tranquilo em seu trabalho .          |
+|Marta Helena | Ter profissionais qualificados.       | Se sentir segura em contratar o serviço.           |
+|Antonella Soares |Ter um trabalho de algo que ela goste e possa conciliar com seus estudos.           | para que ela administre seu horário de trabalho..  
 
-Apresente aqui as histórias de usuário que são relevantes para o projeto de sua solução. As Histórias de Usuário consistem em uma ferramenta poderosa para a compreensão e elicitação dos requisitos funcionais e não funcionais da sua aplicação. Se possível, agrupe as histórias de usuário por contexto, para facilitar consultas recorrentes à essa parte do documento.
-
-> **Links Úteis**:
-> - [Histórias de usuários com exemplos e template](https://www.atlassian.com/br/agile/project-management/user-stories)
-> - [Como escrever boas histórias de usuário (User Stories)](https://medium.com/vertice/como-escrever-boas-users-stories-hist%C3%B3rias-de-usu%C3%A1rios-b29c75043fac)
-> - [User Stories: requisitos que humanos entendem](https://www.luiztools.com.br/post/user-stories-descricao-de-requisitos-que-humanos-entendem/)
-> - [Histórias de Usuários: mais exemplos](https://www.reqview.com/doc/user-stories-example.html)
-> - [9 Common User Story Mistakes](https://airfocus.com/blog/user-story-mistakes/)
+stakes/)
 
 ## Modelagem do Processo de Negócio 
 
 ### Análise da Situação Atual
 
-Apresente aqui os problemas existentes que viabilizam sua proposta. Apresente o modelo do sistema como ele funciona hoje. Caso sua proposta seja inovadora e não existam processos claramente definidos, apresente como as tarefas que o seu sistema pretende implementar são executadas atualmente, mesmo que não se utilize tecnologia computacional. 
+Tão importante quanto a alimentação, passear com o cachorro todos os dias traz diversos benefícios para a saúde física e mental do animal.
+Além de ele fazer atividade física, prevenindo diversas doenças como obesidade, é durante a caminhada que o cão alivia o estresse e a energia acumulada. 
+Durante o passeio, ele também faz a socialização com outros animais e pessoas, colocando seu instinto em prática. 
 
 ### Descrição Geral da Proposta
 
@@ -70,64 +65,55 @@ Obs.: todas as informações para gerar os indicadores devem estar no diagrama d
 
 ## Requisitos
 
-As tabelas que se seguem apresentam os requisitos funcionais e não funcionais que detalham o escopo do projeto. Para determinar a prioridade de requisitos, aplicar uma técnica de priorização de requisitos e detalhar como a técnica foi aplicada.
+O escopo funcional do projeto é definido por meio dos requisitos funcionais que descrevem as possibilidades interação dos usuários, bem como os requisitos não funcionais descrevem os aspectos que o sistema deverá apresentar de maneira geral. Estes requisitos são apresentados a seguir.
 
 ### Requisitos Funcionais
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-|RF-001| Permitir que o usuário cadastre tarefas | ALTA | 
-|RF-002| Emitir um relatório de tarefas no mês   | MÉDIA |
+|RF-001|A aplicação deve permitir ao usuário (Tutor e passeador) cadastrar uma conta | ALTA | 
+RF-002|A aplicação deve permitir ao usuário (Tutor e passeador) fazer o login de sua conta.| ALTA | 
+RF-003|A aplicação deve permitir ao usuário (Tutor e passeador) disponibilizar informações sobre endereço e contato.| ALTA | 
+RF-004|A aplicação deve permitir ao Tutor ter acesso às informações do Passeador.| ALTA | 
+RF-005|A A aplicação deve oferecer uma funcionalidade de pesquisa/filtro para permitir ao Tutor localizar o passeador próximo a sua localidade. | ALTA | 
+RF-006|A aplicação deve apresentar o perfil do Passeador com imagem e informações.| ALTA | 
+RF-007|A aplicação deve permitir que o Tutor faça o pagamento somente pelo app ou pix| ALTA | 
+RF-008|A aplicação deve permitir ao Tutor fazer agendamentos.| ALTA | 
+RF-009A aplicação deve permitir ao Tutor gerenciar seus agendamentos. | ALTA | 
+RF-010|A aplicação deve permitir ao Passeador visualizar sua agenda.| ALTA | 
+RF-011|A aplicação deve permitir ao Passeador aceitar ou negar agendamentos | ALTA |
+RF-012|A aplicação deve permitir ao Passeador visualizar seu faturamento. | ALTA |
+RF-013|A aplicação deverá permitir que as solicitações sejam ordenadas por ordem de chegada | ALTA |
 
 ### Requisitos não Funcionais
 
 |ID     | Descrição do Requisito  |Prioridade |
 |-------|-------------------------|----|
-|RNF-001| O sistema deve ser responsivo para rodar em um dispositivos móvel | MÉDIA | 
-|RNF-002| Deve processar requisições do usuário em no máximo 3s |  BAIXA | 
+|RNF-001| O site deve ser publicado em um ambiente acessível publicamente na Internet (Repl.it, GitHub Pages, Heroku);  | MÉDIA | 
+|RNF-002| Deve processar requisições do usuário em no máximo 3s |  BAIX
+RNF-003| O site deverá ser responsivo permitindo a visualização em um celular de forma adequada. |  BAIXA 
+RNF-004| O site deve ter bom nível de contraste entre os elementos da tela em conformidade. |  BAIXA 
+RNF-005| O site deve ser compatível com os principais navegadores do mercado (Google Chrome, Firefox, Microsoft Edge) |  BAIXA A | 
 
-Com base nas Histórias de Usuário, enumere os requisitos da sua solução. Classifique esses requisitos em dois grupos:
 
-- [Requisitos Funcionais
- (RF)](https://pt.wikipedia.org/wiki/Requisito_funcional):
- correspondem a uma funcionalidade que deve estar presente na
-  plataforma (ex: cadastro de usuário).
-- [Requisitos Não Funcionais
-  (RNF)](https://pt.wikipedia.org/wiki/Requisito_n%C3%A3o_funcional):
-  correspondem a uma característica técnica, seja de usabilidade,
-  desempenho, confiabilidade, segurança ou outro (ex: suporte a
-  dispositivos iOS e Android).
-Lembre-se que cada requisito deve corresponder à uma e somente uma
-característica alvo da sua solução. Além disso, certifique-se de que
-todos os aspectos capturados nas Histórias de Usuário foram cobertos.
+
 
 ## Restrições
 
-O projeto está restrito pelos itens apresentados na tabela a seguir.
+As questões que limitam a execução desse projeto e que se configuram como obrigações claras para o desenvolvimento do projeto em questão são apresentadas na tabela a seguir.
 
 |ID| Restrição                                             |
 |--|-------------------------------------------------------|
-|01| O projeto deverá ser entregue até o final do semestre |
-|02| Não pode ser desenvolvido um módulo de backend        |
+|01| O projeto deverá ser entregue no final do semestre letivo, não podendo advir a data de 01/12/2023. |
+|02| O aplicativo não deve se restringir às tecnologias básicas da Web no BackEnd        |
+|03| A equipe não pode subcontratar o desenvolvimento do trabalho.  
 
-Enumere as restrições à sua solução. Lembre-se de que as restrições geralmente limitam a solução candidata.
 
-> **Links Úteis**:
-> - [O que são Requisitos Funcionais e Requisitos Não Funcionais?](https://codificar.com.br/requisitos-funcionais-nao-funcionais/)
-> - [O que são requisitos funcionais e requisitos não funcionais?](https://analisederequisitos.com.br/requisitos-funcionais-e-requisitos-nao-funcionais-o-que-sao/)
 
 ## Diagrama de Casos de Uso
 
 O diagrama de casos de uso é o próximo passo após a elicitação de requisitos, que utiliza um modelo gráfico e uma tabela com as descrições sucintas dos casos de uso e dos atores. Ele contempla a fronteira do sistema e o detalhamento dos requisitos funcionais com a indicação dos atores, casos de uso e seus relacionamentos. 
 
-As referências abaixo irão auxiliá-lo na geração do artefato “Diagrama de Casos de Uso”.
-
-> **Links Úteis**:
-> - [Criando Casos de Uso](https://www.ibm.com/docs/pt-br/elm/6.0?topic=requirements-creating-use-cases)
-> - [Como Criar Diagrama de Caso de Uso: Tutorial Passo a Passo](https://gitmind.com/pt/fazer-diagrama-de-caso-uso.html/)
-> - [Lucidchart](https://www.lucidchart.com/)
-> - [Astah](https://astah.net/)
-> - [Diagrams](https://app.diagrams.net/)
 
 # Matriz de Rastreabilidade
 
