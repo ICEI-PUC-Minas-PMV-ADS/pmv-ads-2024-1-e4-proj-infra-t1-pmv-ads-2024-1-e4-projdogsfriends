@@ -1,46 +1,34 @@
 # Introdução
 
-Texto descritivo com a visão geral do projeto abordado. Inclui o contexto, o problema, os objetivos, a justificativa e o público-alvo do projeto.
+Nós, seres humanos, necessitamos diariamente fazer atividades físicas, é essencial para a nossa saúde física e saúde mental. Com os cães não é diferente, eles ficam entediados e isso pode se tornar estressante e prejudicial para a saúde do animal.
+De acordo com o site https://www.equilibrio-petfood.com/ acessado 21/02/2024 são inúmeras as vantagens e benefícios de passear com seu cão, como por exemplo:
+ Diminui pressão arterial: as caminhadas ajudam a diminuir a pressão arterial canina, sendo fundamentais para a saúde e bem-estar geral do animal, pois previnem a hipertensão.
+Fortalece a respiração: os passeios ajudam a fortalecer os pulmões.
+Socialização: a socialização é o processo no qual o cachorro aprende a se relacionar com outros cães, pessoas e com diferentes ambientes e objetos. O cão precisa se socializar desde filhote, mas o processo deve continuar na fase adulta. Assim, evita-se medos, agressividade e comportamentos inapropriados.
+Exercícios físicos: as atividades físicas ajudam a retardar o envelhecimento, pois reduzem a deterioração celular; além de proporcionar um sono melhor e de gastar a energia acumulada, diminuindo a ansiedade.  
+O recomendado pelos veterinários é um passeio de manhã e outro no fim da tarde, mas é importante observar o hábito do cão para montar uma rotina que se adeque na do tutor e do cão.
+É essencial lembrar que antes de colocar o cão em outros ambientes é importante estar com todas as vacinas em dia. A imunização é importante para que os passeios sejam saudáveis.
+
 
 ## Problema
-Nesse momento você deve apresentar o problema que a sua aplicação deve  resolver. No entanto, não é a hora de comentar sobre a aplicação.
-
-Descreva também o contexto em que essa aplicação será usada, se  houver: empresa, tecnologias, etc. Novamente, descreva apenas o que de  fato existir, pois ainda não é a hora de apresentar requisitos  detalhados ou projetos.
-
-Nesse momento, o grupo pode optar por fazer uso  de ferramentas como Design Thinking, que permite um olhar de ponta a ponta para o problema.
-
-> **Links Úteis**:
-> - [Objetivos, Problema de pesquisa e Justificativa](https://medium.com/@versioparole/objetivos-problema-de-pesquisa-e-justificativa-c98c8233b9c3)
-> - [Matriz Certezas, Suposições e Dúvidas](https://medium.com/educa%C3%A7%C3%A3o-fora-da-caixa/matriz-certezas-suposi%C3%A7%C3%B5es-e-d%C3%BAvidas-fa2263633655)
-> - [Brainstorming](https://www.euax.com.br/2018/09/brainstorming/)
-
+O problema que se propõe resolver é a dificuldade das pessoas que buscam uma prática simples que vai além da diversão do animal. Os passeios contribuem para a saúde física e mental do cão, trazendo muitos benefícios para o bem-estar geral.
 ## Objetivos
 
-Aqui você deve descrever os objetivos do trabalho indicando que o objetivo geral é desenvolver um software para solucionar o problema apresentado acima. 
-
-Apresente também alguns (pelo menos 2) objetivos específicos dependendo de onde você vai querer concentrar a sua prática investigativa, ou como você vai aprofundar no seu trabalho.
- 
-> **Links Úteis**:
-> - [Objetivo geral e objetivo específico: como fazer e quais verbos utilizar](https://blog.mettzer.com/diferenca-entre-objetivo-geral-e-objetivo-especifico/)
+## Objetivo
+O objetivo geral deste trabalho é desenvolver uma plataforma para que o usuário, dono do cão, tenha a possibilidade de encontrar um passeador próximo a seu endereço, permitindo ao usuário um atendimento eficaz e personalizado e promovendo uma experiência  gratificante para o animal.
+●	Facilitar a conexão entre os usuários e os passeadores de cães.
+●	Organizar as informações por categoria, para melhorar a experiência de navegação do usuário, possibilitando uma busca por filtros.
+●	Criar métodos de avaliação, para que um usuário possa registrar suas experiências e assim, outros usuários conseguirem visualizar.
+●	Possibilitar que os usuários possam inserir o local para buscar o cão , e  que possam pesquisar por um passeador próximo a sua localização.
+●	Permitir que interessados a serem passeador publiquem sua experiência com cães e se inscrevam para o trabalho;
 
 ## Justificativa
+A criação dessa plataforma atenderá a uma necessidade real na sociedade, muitos tutores de cães, geralmente por falta de tempo, têm se esquecido de cumprir um papel importantíssimo: o de levar o animalzinho para passear. A prática é tão fundamental quanto dar água e alimentar, porque tem benefícios diversos.O ponto destacado para justificar o desenvolvimento deste projeto é uma reportagem exibida no jornal O Tempo https://www.otempo.com.br acessada em 12/02/2024:
+O senso comum aponta que o passeio é importante para o cão gastar energia. Claro, ele precisa do exercício, mas, na verdade, o principal é estimulação neurológica e socialização. O cachorro, principalmente em apartamento, fica o dia inteiro sentindo cheiros que não consegue identificar direito. Quando vai à rua, ele tem uma estimulação pela ção de cheirar”, explica o psicólogo e terapeuta canino Leonardo Curi. “Precisamos entender como eram os antepassados dos cães: eram nômades e andavam o dia inteiro para caçar, para se abrigar. Por aí, a gente já percebe o quanto o passeio é importante”, reforça a médica veterinária Adriane da Costa Val Bicalho, que faz outra observação: “O quintal grande não exclui o passeio, por causa dos outros estímulos”.
 
-Descreva a importância ou a motivação para trabalhar com esta aplicação que você escolheu. Indique as razões pelas quais você escolheu seus objetivos específicos ou as razões para aprofundar em certos aspectos do software.
-
-O grupo de trabalho pode fazer uso de questionários, entrevistas e dados estatísticos, que podem ser apresentados, com o objetivo de esclarecer detalhes do problema que será abordado pelo grupo.
-
-> **Links Úteis**:
-> - [Como montar a justificativa](https://guiadamonografia.com.br/como-montar-justificativa-do-tcc/)
 
 ## Público-Alvo
 
-Descreva quem serão as pessoas que usarão a sua aplicação indicando os diferentes perfis. O objetivo aqui não é definir quem serão os clientes ou quais serão os papéis dos usuários na aplicação. A ideia é, dentro do possível, conhecer um pouco mais sobre o perfil dos usuários: conhecimentos prévios, relação com a tecnologia, relações
-hierárquicas, etc.
+Indivíduos interessados em oferecer uma vida saudável para seu animal e que não têm disponibilidade para sair de casa para levá-los para passear.
 
-Adicione informações sobre o público-alvo por meio de uma descrição textual, diagramas de personas e mapa de stakeholders.
 
-> **Links Úteis**:
-> - [Público-alvo](https://blog.hotmart.com/pt-br/publico-alvo/)
-> - [Como definir o público alvo](https://exame.com/pme/5-dicas-essenciais-para-definir-o-publico-alvo-do-seu-negocio/)
-> - [Público-alvo: o que é, tipos, como definir seu público e exemplos](https://klickpages.com.br/blog/publico-alvo-o-que-e/)
-> - [Qual a diferença entre público-alvo e persona?](https://rockcontent.com/blog/diferenca-publico-alvo-e-persona/)
