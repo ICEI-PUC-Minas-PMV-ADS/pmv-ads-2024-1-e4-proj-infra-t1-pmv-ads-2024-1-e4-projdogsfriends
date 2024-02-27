@@ -12,15 +12,15 @@ O recomendado pelos veterinários é um passeio de manhã e outro no fim da tard
 
 ## Problema
 O problema que se propõe resolver é a dificuldade das pessoas que buscam uma prática simples que vai além da diversão do animal. Os passeios contribuem para a saúde física e mental do cão, trazendo muitos benefícios para o bem-estar geral.
-## Objetivos
+
 
 ## Objetivo
 O objetivo geral deste trabalho é desenvolver uma plataforma para que o usuário, dono do cão, tenha a possibilidade de encontrar um passeador próximo a seu endereço, permitindo ao usuário um atendimento eficaz e personalizado e promovendo uma experiência  gratificante para o animal.
-●	Facilitar a conexão entre os usuários e os passeadores de cães.
-●	Organizar as informações por categoria, para melhorar a experiência de navegação do usuário, possibilitando uma busca por filtros.
-●	Criar métodos de avaliação, para que um usuário possa registrar suas experiências e assim, outros usuários conseguirem visualizar.
-●	Possibilitar que os usuários possam inserir o local para buscar o cão , e  que possam pesquisar por um passeador próximo a sua localização.
-●	Permitir que interessados a serem passeador publiquem sua experiência com cães e se inscrevam para o trabalho;
+-	Facilitar a conexão entre os usuários e os passeadores de cães.
+-	Organizar as informações por categoria, para melhorar a experiência de navegação do usuário, possibilitando uma busca por filtros.
+-	Criar métodos de avaliação, para que um usuário possa registrar suas experiências e assim, outros usuários conseguirem visualizar.
+-	Possibilitar que os usuários possam inserir o local para buscar o cão , e  que possam pesquisar por um passeador próximo a sua localização.
+-	Permitir que interessados a serem passeador publiquem sua experiência com cães e se inscrevam para o trabalho;
 
 ## Justificativa
 A criação dessa plataforma atenderá a uma necessidade real na sociedade, muitos tutores de cães, geralmente por falta de tempo, têm se esquecido de cumprir um papel importantíssimo: o de levar o animalzinho para passear. A prática é tão fundamental quanto dar água e alimentar, porque tem benefícios diversos.O ponto destacado para justificar o desenvolvimento deste projeto é uma reportagem exibida no jornal O Tempo https://www.otempo.com.br acessada em 12/02/2024:
