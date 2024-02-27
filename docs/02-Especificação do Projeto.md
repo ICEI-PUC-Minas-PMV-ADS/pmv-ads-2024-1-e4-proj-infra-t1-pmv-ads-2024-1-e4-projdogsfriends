@@ -90,10 +90,10 @@ RF-013|A aplicação deverá permitir que as solicitações sejam ordenadas por 
 |ID     | Descrição do Requisito  |Prioridade |
 |-------|-------------------------|----|
 |RNF-001| O site deve ser publicado em um ambiente acessível publicamente na Internet (Repl.it, GitHub Pages, Heroku);  | MÉDIA | 
-|RNF-002| Deve processar requisições do usuário em no máximo 3s |  BAIX
+|RNF-002| Deve processar requisições do usuário em no máximo 3s |  BAIXA
 RNF-003| O site deverá ser responsivo permitindo a visualização em um celular de forma adequada. |  BAIXA 
 RNF-004| O site deve ter bom nível de contraste entre os elementos da tela em conformidade. |  BAIXA 
-RNF-005| O site deve ser compatível com os principais navegadores do mercado (Google Chrome, Firefox, Microsoft Edge) |  BAIXA A | 
+RNF-005| O site deve ser compatível com os principais navegadores do mercado (Google Chrome, Firefox, Microsoft Edge) |  BAIXA  | 
 
 
 
