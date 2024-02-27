@@ -1,23 +1,23 @@
-# TÍTULO DO PROJETO
+# Dog's Friend
 
-`CURSO`
+`Tecnologia em Análise e Desenvolvimento de Sistemas`
 
-`DISCIPLINA`
+`Projeto de Aplicação Distribuida Dog's Friend`
 
-`SEMESTRE`
+`EIXO 4`
 
-Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
-
+A criação dessa plataforma atenderá a uma necessidade real na sociedade, muitos tutores de cães, geralmente por falta de tempo, têm se esquecido de cumprir um papel importantíssimo: o de levar o animalzinho para passear. A prática é tão fundamental quanto dar água e alimentar, porque tem benefícios diversos.
 ## Integrantes
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
+* Felipe Corrêa Carneiro
+* Jeosafa Boy Eller
+* Paulo Silas Bandeira
+* Ronald Justiniano Costa
+* Taciana Emanuela Campos Vitorino
 
 ## Orientador
 
-* Nome completo do professor 1
+* Felipe Augusto Lara Soares
 
 ## Instruções de utilização
 
