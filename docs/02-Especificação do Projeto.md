@@ -8,9 +8,6 @@ Apresente uma visão geral do que será abordado nesta parte do documento, enume
 
 ## Personas
 
-
-## Personas
-
 As personas levantadas durante o processo de entendimento do problema são apresentadas na Figuras que se seguem.
 
 ![imagem2](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t1-pmv-ads-2024-1-e4-projdogsfriends/assets/81536287/48a888ca-3f57-4c83-acbb-41eba41f9de6)
