@@ -12,14 +12,14 @@ Layout padrão da aplicação que será utilizado em todas as páginas com a def
        <th>Login</th>
     </tr>
     <tr>
-    <td width="300" >
+    <td width="300" style="text-align:center" >
        <img width="200" style="margin-right: 20px"  src="./prototipo/Home.png">
     </td>
-      <td width="300" >
+      <td width="300" style="text-align:center">
         <img width="200" style="margin-right: 20px"  src="./prototipo/Register.png">
     </td>
-       <td width="300" >
-       <img width="200" height="450" style="margin-right: 20px" src="./prototipo/Login.png">
+       <td width="300" style="text-align:center" >
+       <img width="200" height="450" style="margin-right: 20px;" src="./prototipo/Login.png">
     </td>
     </tr>
 </table>
@@ -31,13 +31,13 @@ Layout padrão da aplicação que será utilizado em todas as páginas com a def
        <th>Login</th>
     </tr>
     <tr>
-    <td width="300" >
+    <td width="300" style="text-align:center">
        <img width="200" style="margin-right: 20px"  src="./prototipo/Perfil.png">
     </td>
-      <td width="300" >
+      <td width="300" style="text-align:center">
         <img width="200" style="margin-right: 20px"  src="./prototipo/Map.png">
     </td>
-       <td width="300" >
+       <td width="300" style="text-align:center">
        <img width="200" height="450" style="margin-right: 20px" src="./prototipo/Login.png">
     </td>
     </tr>

@@ -21,13 +21,13 @@ O diagrama apresenta o estudo do fluxo de interação do usuário com o sistema 
        <th>Login</th>
     </tr>
     <tr>
-    <td width="300" >
+    <td width="300" style="text-align:center">
        <img width="200" style="margin-right: 20px"  src="./wireframes/Home.png">
     </td>
-      <td width="300" >
+      <td width="300" style="text-align:center">
         <img width="200" style="margin-right: 20px"  src="./wireframes/Cadastro.png">
     </td>
-       <td width="300" >
+       <td width="300" style="text-align:center">
        <img width="200" height="450" style="margin-right: 20px" src="./wireframes/Login.png">
     </td>
     </tr>
@@ -39,13 +39,13 @@ O diagrama apresenta o estudo do fluxo de interação do usuário com o sistema 
        <th>Perfil</th>
     </tr>
     <tr>
-    <td width="300" >
+    <td width="300" style="text-align:center">
        <img width="200" style="margin-right: 20px"  src="./wireframes/Dashboard.png">
     </td>
-      <td width="300" >
+      <td width="300" style="text-align:center">
         <img width="200" style="margin-right: 20px"  src="./wireframes/Search.png">
     </td>
-       <td width="300" >
+       <td width="300" style="text-align:center">
        <img width="200" height="450" style="margin-right: 20px" src="./wireframes/Perfil.png">
     </td>
     </tr>
@@ -78,13 +78,13 @@ O diagrama apresenta o estudo do fluxo de interação do usuário com o sistema 
        <th>Sucesso</th>
     </tr>
     <tr>
-    <td width="300" >
+    <td width="300" style="text-align:center">
        <img width="200" style="margin-right: 20px"  src="./wireframes/Pagamento.png">
     </td>
-      <td width="300" >
+      <td width="300" style="text-align:center">
         <img width="200" style="margin-right: 20px"  src="./wireframes/Pix.png">
     </td>
-       <td width="300" >
+       <td width="300" style="text-align:center">
        <img width="200" height="450" style="margin-right: 20px" src="./wireframes/Sucesso.png">
     </td>
     </tr>
