@@ -13,13 +13,13 @@ Layout padrão da aplicação que será utilizado em todas as páginas com a def
     </tr>
     <tr>
     <td width="300" style="text-align:center" >
-       <img width="200" style="margin-right: 20px"  src="./prototipo/Home.png">
+       <img width="200" style="margin-right: 20px"  src="./img/prototipo/Home.png">
     </td>
       <td width="300" style="text-align:center">
-        <img width="200" style="margin-right: 20px"  src="./prototipo/Register.png">
+        <img width="200" style="margin-right: 20px"  src="./img/prototipo/Register.png">
     </td>
        <td width="300" style="text-align:center" >
-       <img width="200" height="450" style="margin-right: 20px;" src="./prototipo/Login.png">
+       <img width="200" height="450" style="margin-right: 20px;" src="./img/prototipo/Login.png">
     </td>
     </tr>
 </table>
@@ -32,13 +32,13 @@ Layout padrão da aplicação que será utilizado em todas as páginas com a def
     </tr>
     <tr>
     <td width="300" style="text-align:center">
-       <img width="200" style="margin-right: 20px"  src="./prototipo/Perfil.png">
+       <img width="200" style="margin-right: 20px"  src="./img/prototipo/Perfil.png">
     </td>
       <td width="300" style="text-align:center">
-        <img width="200" style="margin-right: 20px"  src="./prototipo/Map.png">
+        <img width="200" style="margin-right: 20px"  src="./img/prototipo/Map.png">
     </td>
        <td width="300" style="text-align:center">
-       <img width="200" height="450" style="margin-right: 20px" src="./prototipo/Login.png">
+       <img width="200" height="450" style="margin-right: 20px" src="./img/prototipo/Login.png">
     </td>
     </tr>
 </table>
