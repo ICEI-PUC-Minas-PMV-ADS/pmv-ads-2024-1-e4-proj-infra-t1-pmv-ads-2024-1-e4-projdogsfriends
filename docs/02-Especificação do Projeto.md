@@ -37,19 +37,46 @@ Durante o passeio, ele também faz a socialização com outros animais e pessoas
 
 ### Descrição Geral da Proposta
 
-Apresente aqui uma descrição da sua proposta abordando seus limites e suas ligações com as estratégias e objetivos do negócio. Apresente aqui as oportunidades de melhorias.
+Os processos de negócio são realizados por meio de um aplicativo, que é acessado tanto pelo tutor quanto pelo profissional. O aplicativo é responsável por intermediar o contato entre os dois, permitindo que o tutor encontre um profissional, faça o agendamento e pague pelo serviço, e que o profissional aceite ou recuse o agendamento, realize o treinamento e registre a conclusão do serviço.
 
-### Processo 1 – NOME DO PROCESSO
+### Overview do Processo
 
-Apresente aqui o nome e as oportunidades de melhorias para o processo 1. Em seguida, apresente o modelo do processo 1, descrito no padrão BPMN. 
+O processo de negócio é composto por dois processos principais: **agendamento do treinamento** e **realização do treinamento**. Além desses, há um processo de **cadastro de profissionais**, um **processo de cadastro de Pets** e **um processo de pagamento**. Como podemos ver no diagrama de processos a seguir.
 
-![Processo 1](img/02-bpmn-proc1.png)
+![Overview do Processo](img/Processos/diagrama-completo.png)
 
-### Processo 2 – NOME DO PROCESSO
 
-Apresente aqui o nome e as oportunidades de melhorias para o processo 2. Em seguida, apresente o modelo do processo 2, descrito no padrão BPMN.
+### Processo 1 – Agendamento do Treinamento
 
-![Processo 2](img/02-bpmn-proc2.png)
+Neste processo, o tutor do pet tem a oportunidade de agendar um treinamento com um profissional. O tutor acessa o aplicativo, procura por profissionais disponíveis, escolhe um de acordo com suas preferências e faz o agendamento. O profissional recebe uma notificação sobre o novo agendamento e pode aceitá-lo ou recusá-lo.
+
+![Processo 1](img/Processos/cliente-processo.png)
+
+### Processo 2 – Realização do Treinamento
+
+Após o agendamento ser aceito pelo profissional, o treinamento é realizado. O profissional vai até o local indicado pelo tutor, realiza o treinamento com o pet e, em seguida, registra no aplicativo que o treinamento foi concluído. O tutor recebe uma notificação sobre a conclusão do treinamento e pode avaliar o profissional.
+
+![Processo 2](img/Processos/treino-processo.png)
+
+
+### Processo 3 – Cadastro de Profissionais
+
+O profissional interessado em prestar serviços de treinamento de pets se cadastra no aplicativo, informando seus dados pessoais, profissionais e bancários. O cadastro é analisado e, se aprovado, o profissional passa a fazer parte do banco de dados do aplicativo.
+
+![Processo 3](img/Processos/treinador.png)
+
+### Processo 4 – Cadastro de Pets
+
+O tutor do pet cadastra o animal no aplicativo, informando seus dados pessoais e de saúde. O cadastro é aprovado e o pet passa a fazer parte do banco de dados do aplicativo.
+
+![Processo 4](img/Processos/pet-processo.png)
+
+
+### Processo 5 – Pagamento
+
+Após a conclusão do treinamento, o tutor paga pelo serviço. O pagamento é feito pelo aplicativo, que repassa o valor ao profissional.
+
+![Processo 5](img/Processos/pagamento-processo.png)
 
 ## Indicadores de Desempenho
 
