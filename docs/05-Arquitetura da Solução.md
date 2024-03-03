@@ -14,7 +14,9 @@ O diagrama de classes ilustra graficamente como será a estrutura do software, e
 
 As referências abaixo irão auxiliá-lo na geração do artefato “Diagrama de Classes”.
 
-> - [Diagramas de Classes](./img/diagramas/driagrama.png)
+<p align="center">
+    <img src="./img/diagramas/driagrama.png">    
+</p>
 
 
 ## Modelo ER  (Projeto Conceitual)
