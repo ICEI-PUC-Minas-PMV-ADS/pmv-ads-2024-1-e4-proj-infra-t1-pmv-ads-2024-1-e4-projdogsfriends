@@ -9,7 +9,6 @@ Exercícios físicos: as atividades físicas ajudam a retardar o envelhecimento,
 O recomendado pelos veterinários é um passeio de manhã e outro no fim da tarde, mas é importante observar o hábito do cão para montar uma rotina que se adeque na do tutor e do cão.
 É essencial lembrar que antes de colocar o cão em outros ambientes é importante estar com todas as vacinas em dia. A imunização é importante para que os passeios sejam saudáveis.
 
-
 ## Problema
 O problema que se propõe resolver é a dificuldade das pessoas que buscam uma prática simples que vai além da diversão do animal. Os passeios contribuem para a saúde física e mental do cão, trazendo muitos benefícios para o bem-estar geral.
 

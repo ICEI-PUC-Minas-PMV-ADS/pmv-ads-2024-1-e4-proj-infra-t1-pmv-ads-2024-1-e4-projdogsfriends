@@ -54,7 +54,6 @@ Entregar um arquivo banco.sql contendo os scripts de criação das tabelas do ba
 Explique como a hospedagem e o lançamento da plataforma foi feita.
 
 
-
 ## Qualidade de Software
 
 A norma ISO/25010 define um modelo de qualidade de software que inclui oito características principais, cada uma com subcaracterísticas. A tabela abaixo apresenta essas características e subcaracterísticas:

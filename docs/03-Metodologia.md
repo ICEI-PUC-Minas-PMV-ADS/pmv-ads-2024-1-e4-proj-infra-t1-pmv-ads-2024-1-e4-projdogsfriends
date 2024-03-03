@@ -6,7 +6,6 @@
 Nossa ferramenta principal, será o GitHub, que utilizaremos na sua forma típica de repositório, armazenando toda manutenção dos códigos. Paralelo a esta modalidade de repositório, também será usado para os gerenciamentos de backlog do produto, e das sprints individualizadas, este gerenciamento será feito através da aba “Project”.
                                                              |
 
-
 ## Controle de Versão
 
 A ferramenta de controle de versão adotada no projeto foi o
