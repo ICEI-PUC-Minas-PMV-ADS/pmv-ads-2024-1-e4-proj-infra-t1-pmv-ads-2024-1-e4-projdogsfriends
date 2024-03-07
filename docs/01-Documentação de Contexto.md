@@ -1,7 +1,7 @@
 # Introdução
 
 Nós, seres humanos, necessitamos diariamente fazer atividades físicas, é essencial para a nossa saúde física e saúde mental. Com os cães não é diferente, eles ficam entediados e isso pode se tornar estressante e prejudicial para a saúde do animal.
-De acordo com o site https://www.equilibrio-petfood.com/ acessado 21/02/2024 são inúmeras as vantagens e benefícios de passear com seu cão, como por exemplo:
+De acordo com a reportagem exibida no petfood, são inúmeras as vantagens e benefícios de passear com seu cão, como por exemplo:
  Diminui pressão arterial: as caminhadas ajudam a diminuir a pressão arterial canina, sendo fundamentais para a saúde e bem-estar geral do animal, pois previnem a hipertensão.
 Fortalece a respiração: os passeios ajudam a fortalecer os pulmões.
 Socialização: a socialização é o processo no qual o cachorro aprende a se relacionar com outros cães, pessoas e com diferentes ambientes e objetos. O cão precisa se socializar desde filhote, mas o processo deve continuar na fase adulta. Assim, evita-se medos, agressividade e comportamentos inapropriados.
@@ -10,7 +10,8 @@ O recomendado pelos veterinários é um passeio de manhã e outro no fim da tard
 É essencial lembrar que antes de colocar o cão em outros ambientes é importante estar com todas as vacinas em dia. A imunização é importante para que os passeios sejam saudáveis.
 
 ## Problema
-O problema que se propõe resolver é a dificuldade das pessoas que buscam uma prática simples que vai além da diversão do animal. Os passeios contribuem para a saúde física e mental do cão, trazendo muitos benefícios para o bem-estar geral.
+O desafio em questão consiste na dificuldade enfrentada por indivíduos que buscam uma abordagem descomplicada que vá além da mera diversão para seus animais de estimação. Os passeios não apenas proporcionam entretenimento para os cães, mas também desempenham um papel crucial na promoção de sua saúde física e mental, resultando em uma melhoria significativa em seu bem-estar geral.
+Os passeios diários com o cão são essenciais para garantir não apenas a sua saúde física, mas também o seu bem-estar emocional e mental. Ao oferecer exercícios regulares, os passeios ajudam a manter o peso adequado do cão, prevenindo problemas de saúde relacionados à obesidade, como diabetes e doenças cardíacas. Além disso, proporcionam estímulo mental, permitindo que o animal explore novos ambientes, cheiros e interaja com outros cães e pessoas, o que é crucial para a sua saúde emocional. A rotina diária de passeios também estabelece uma estrutura e disciplina na vida do cão, ajudando a reduzir comportamentos indesejados causados pelo tédio ou excesso de energia. Portanto, os passeios diários não são apenas uma atividade física, mas uma parte fundamental da rotina do cão, garantindo sua saúde e felicidade a longo prazo.
 
 
 ## Objetivo
@@ -22,8 +23,8 @@ O objetivo geral deste trabalho é desenvolver uma plataforma para que o usuári
 -	Permitir que interessados a serem passeador publiquem sua experiência com cães e se inscrevam para o trabalho;
 
 ## Justificativa
-A criação dessa plataforma atenderá a uma necessidade real na sociedade, muitos tutores de cães, geralmente por falta de tempo, têm se esquecido de cumprir um papel importantíssimo: o de levar o animalzinho para passear. A prática é tão fundamental quanto dar água e alimentar, porque tem benefícios diversos.O ponto destacado para justificar o desenvolvimento deste projeto é uma reportagem exibida no jornal O Tempo https://www.otempo.com.br acessada em 12/02/2024:
-O senso comum aponta que o passeio é importante para o cão gastar energia. Claro, ele precisa do exercício, mas, na verdade, o principal é estimulação neurológica e socialização. O cachorro, principalmente em apartamento, fica o dia inteiro sentindo cheiros que não consegue identificar direito. Quando vai à rua, ele tem uma estimulação pela ção de cheirar”, explica o psicólogo e terapeuta canino Leonardo Curi. “Precisamos entender como eram os antepassados dos cães: eram nômades e andavam o dia inteiro para caçar, para se abrigar. Por aí, a gente já percebe o quanto o passeio é importante”, reforça a médica veterinária Adriane da Costa Val Bicalho, que faz outra observação: “O quintal grande não exclui o passeio, por causa dos outros estímulos”.
+A criação dessa plataforma atenderá a uma necessidade real na sociedade.
+Os passeios com cães têm sido reconhecidos como uma prática benéfica para a saúde e bem-estar tanto dos animais quanto de seus tutores.  Os principais benefícios dos passeios com cães com base em estudos científicos recentes. Descobriu-se que os passeios oferecem uma forma eficaz de exercício físico para os cães, contribuindo para a manutenção de uma boa saúde cardiovascular, muscular e geral. Além disso, os passeios promovem a estimulação mental dos cães, proporcionando oportunidades de exploração e interação social que são essenciais para o seu bem-estar emocional. Em termos de saúde humana, os passeios com cães também foram associados a benefícios, como a redução do estresse, aumento da atividade física e melhoria da qualidade de vida. Além disso, os passeios podem fortalecer o vínculo entre o tutor e o cão, resultando em uma relação mais satisfatória e enriquecedora para ambas as partes. Esta revisão destaca a importância dos passeios com cães como uma prática acessível e eficaz para promover a saúde e o bem-estar tanto dos animais quanto de seus tutores.
 
 
 ## Público-Alvo
