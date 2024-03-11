@@ -50,4 +50,9 @@ Esta revisão destaca a importância dos passeios com cães como uma prática ac
 
 Indivíduos interessados em oferecer uma vida saudável para seu animal e que não têm disponibilidade para sair de casa para levá-los para passear.
 
+---
 
+## Artigo científico:
+
+1. https://wsava.org/wp-content/uploads/2020/01/WSAVA-Animal-Welfare-Guidelines-2018-PORTUGUESE.pdf
+2. https://www.scielo.br/j/pusp/a/BJvpLMPJfmJSH6nLWYRVTft/
