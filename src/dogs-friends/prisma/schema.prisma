@@ -9,7 +9,7 @@ datasource db {
 
 // Table representing Clients
 model Cliente {
-  id          String     @id @default(uuid()) @map("_id") @db.ObjectId
+  id          String     @id @default(uuid()) @map("_id")
   nome        String
   sobrenome   String
   cpf         String
@@ -32,10 +32,10 @@ model Cliente {
 
 // Table representing Telefones
 model Telefone {
-  id        String  @id @default(uuid()) @map("_id") @db.ObjectId
+  id        String  @id @default(uuid()) @map("_id")
   codigo    Int
   numero    String
-  clienteId String  @db.ObjectId
+  clienteId String
   clientes  Cliente @relation(fields: [clienteId], references: [id])
 
   // @@map("Telefone")
@@ -43,14 +43,14 @@ model Telefone {
 
 // Table representing Passeios
 model Passeio {
-  id          String   @id @default(uuid()) @map("_id") @db.ObjectId
+  id          String   @id @default(uuid()) @map("_id")
   data        DateTime
   hora        DateTime
   observacoes String
-  clienteId   String   @map("id") @db.ObjectId
+  clienteId   String   @map("id")
   passeadorId String
-  pedidoId    String   @db.ObjectId
-  petId       String   @db.ObjectId
+  pedidoId    String
+  petId       String
   clientes    Cliente  @relation(fields: [clienteId], references: [id])
   pedidos     Pedido   @relation(fields: [pedidoId], references: [id])
   pets        Pet      @relation(fields: [petId], references: [id])
@@ -60,16 +60,18 @@ model Passeio {
 
 // Table representing Pets
 model Pet {
-  id          String    @id @default(uuid()) @map("_id") @db.ObjectId
+  id          String    @id @default(uuid()) @map("_id")
   nome        String
   idade       Int
   peso        Float
-  clienteId   String    @db.ObjectId
-  passeadorId String    @db.ObjectId
-  pedidoId    String    @db.ObjectId
-  clientes    Cliente   @relation(fields: [clienteId], references: [id])
+  raca        String
+  especie     String
+  clienteId   String?
+  passeadorId String?
+  pedidoId    String?
+  clientes    Cliente?  @relation(fields: [clienteId], references: [id])
   passeios    Passeio[]
-  pedidos     Pedido    @relation(fields: [pedidoId], references: [id])
+  pedidos     Pedido?   @relation(fields: [pedidoId], references: [id])
   imagens     Imagem[]
 
   @@map("Pets")
@@ -77,13 +79,13 @@ model Pet {
 
 // Table representing Pedidos
 model Pedido {
-  id            String    @id @default(uuid()) @map("_id") @db.ObjectId
+  id            String    @id @default(uuid()) @map("_id")
   precoTotal    Float
   estagioPedido Int
-  clienteId     String    @db.ObjectId
-  passeadorId   String    @db.ObjectId
-  agendamentoId String    @db.ObjectId
-  petId         String    @db.ObjectId
+  clienteId     String
+  passeadorId   String
+  agendamentoId String
+  petId         String
   clientes      Cliente   @relation(fields: [clienteId], references: [id])
   passeios      Passeio[]
   pets          Pet[]
@@ -93,9 +95,9 @@ model Pedido {
 
 // Table representing Imagens
 model Imagem {
-  id    String  @id @default(uuid()) @map("_id") @db.ObjectId
+  id    String  @id @default(uuid()) @map("_id")
   url   String
-  petId String? @db.ObjectId
+  petId String?
   pets  Pet?    @relation(fields: [petId], references: [id])
 
   @@map("Imagens")
