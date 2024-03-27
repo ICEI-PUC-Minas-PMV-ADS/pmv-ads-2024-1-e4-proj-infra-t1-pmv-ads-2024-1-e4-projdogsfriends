@@ -1,0 +1,102 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+// Table representing Clients
+model Cliente {
+  id          String     @id @default(uuid()) @map("_id") @db.ObjectId
+  nome        String
+  sobrenome   String
+  cpf         String
+  email       String
+  senha       String
+  fotoPefil   String
+  uf          String
+  cidade      String
+  bairro      String
+  logradouro  String
+  numero      Int
+  isPasseador Int
+  telefones   Telefone[]
+  passeios    Passeio[]
+  pets        Pet[]
+  pedidos     Pedido[]
+
+  @@map("Cliente")
+}
+
+// Table representing Telefones
+model Telefone {
+  id        String  @id @default(uuid()) @map("_id") @db.ObjectId
+  codigo    Int
+  numero    String
+  clienteId String  @db.ObjectId
+  clientes  Cliente @relation(fields: [clienteId], references: [id])
+
+  // @@map("Telefone")
+}
+
+// Table representing Passeios
+model Passeio {
+  id          String   @id @default(uuid()) @map("_id") @db.ObjectId
+  data        DateTime
+  hora        DateTime
+  observacoes String
+  clienteId   String   @map("id") @db.ObjectId
+  passeadorId String
+  pedidoId    String   @db.ObjectId
+  petId       String   @db.ObjectId
+  clientes    Cliente  @relation(fields: [clienteId], references: [id])
+  pedidos     Pedido   @relation(fields: [pedidoId], references: [id])
+  pets        Pet      @relation(fields: [petId], references: [id])
+
+  @@map("Passeio")
+}
+
+// Table representing Pets
+model Pet {
+  id          String    @id @default(uuid()) @map("_id") @db.ObjectId
+  nome        String
+  idade       Int
+  peso        Float
+  clienteId   String    @db.ObjectId
+  passeadorId String    @db.ObjectId
+  pedidoId    String    @db.ObjectId
+  clientes    Cliente   @relation(fields: [clienteId], references: [id])
+  passeios    Passeio[]
+  pedidos     Pedido    @relation(fields: [pedidoId], references: [id])
+  imagens     Imagem[]
+
+  @@map("Pets")
+}
+
+// Table representing Pedidos
+model Pedido {
+  id            String    @id @default(uuid()) @map("_id") @db.ObjectId
+  precoTotal    Float
+  estagioPedido Int
+  clienteId     String    @db.ObjectId
+  passeadorId   String    @db.ObjectId
+  agendamentoId String    @db.ObjectId
+  petId         String    @db.ObjectId
+  clientes      Cliente   @relation(fields: [clienteId], references: [id])
+  passeios      Passeio[]
+  pets          Pet[]
+
+  @@map("Pedidos")
+}
+
+// Table representing Imagens
+model Imagem {
+  id    String  @id @default(uuid()) @map("_id") @db.ObjectId
+  url   String
+  petId String? @db.ObjectId
+  pets  Pet?    @relation(fields: [petId], references: [id])
+
+  @@map("Imagens")
+}
