@@ -15,7 +15,7 @@ model Cliente {
   cpf         String
   email       String
   senha       String
-  fotoPefil   String
+  fotoPefil   String?
   uf          String
   cidade      String
   bairro      String
