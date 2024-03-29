@@ -13,5 +13,12 @@ export class PetRepository {
       data: petDto
     })
   }
-}
 
+  async findOne(id: string) {
+    return this.prisma.pet.findFirst({
+      where: {
+        id
+      }
+    });
+  }
+}
