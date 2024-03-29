@@ -15,19 +15,30 @@ model Cliente {
   cpf         String
   email       String
   senha       String
-  fotoPefil   String?
-  uf          String
-  cidade      String
-  bairro      String
-  logradouro  String
-  numero      Int
-  isPasseador Int
+  fotoPerfil  String?
+  enderecoId  String
+  isPasseador Boolean?
   telefones   Telefone[]
   passeios    Passeio[]
   pets        Pet[]
   pedidos     Pedido[]
+  enderecos   Endereco[] 
+ 
 
   @@map("Cliente")
+}
+
+model Endereco{
+  id          String  @id @default(uuid()) @map("_id")
+  uf          String?
+  cidade      String?
+  bairro      String?
+  logradouro  String?
+  numero      String?
+  cep         String?
+  clienteId   String
+  clientes    Cliente @relation(fields: [clienteId], references: [id])
+  @@map("Endereco")
 }
 
 // Table representing Telefones
@@ -38,7 +49,7 @@ model Telefone {
   clienteId String
   clientes  Cliente @relation(fields: [clienteId], references: [id])
 
-  // @@map("Telefone")
+   @@map("Telefone")
 }
 
 // Table representing Passeios
@@ -47,10 +58,10 @@ model Passeio {
   data        DateTime
   hora        DateTime
   observacoes String
-  clienteId   String   @map("id")
-  passeadorId String
-  pedidoId    String
-  petId       String
+  clienteId   String   
+  passeadorId String   
+  pedidoId    String  
+  petId       String  
   clientes    Cliente  @relation(fields: [clienteId], references: [id])
   pedidos     Pedido   @relation(fields: [pedidoId], references: [id])
   pets        Pet      @relation(fields: [petId], references: [id])
