@@ -1,8 +1,8 @@
-import { EnderecoDto } from "./endereco.dto";
-import { Endereco } from "@prisma/client";
 import { IsEmail, IsNotEmpty, IsOptional, IsString } from "class-validator";
+import { EditEnderecoDto } from "./edit-endereco.dto";
+import { EnderecoDto } from "src/auth/dto";
 
-export class AuthDto {
+export class EditClienteDto{
     @IsEmail()
     @IsNotEmpty()
     email: string;
@@ -29,15 +29,8 @@ export class AuthDto {
     @IsNotEmpty()
     isPasseador?: boolean
 
-  
-   
-
-   
+     
     @IsNotEmpty()
-    enderecos?: EnderecoDto 
-
-    
-    
+    enderecos: EnderecoDto 
 
 }
-
