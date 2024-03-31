@@ -1,3 +1,5 @@
+import { EnderecoDto } from "./endereco.dto";
+import { Endereco } from "@prisma/client";
 import { IsEmail, IsNotEmpty, IsString } from "class-validator";
 
 export class AuthDto {
@@ -23,24 +25,17 @@ export class AuthDto {
     @IsString()
     fotoPerfil?: string
 
-    @IsString()
-    uf?: string
-
-    @IsString()
-    cidade?: string
-
-    @IsString()
-    @IsNotEmpty()
-    bairro?: string
-
-    @IsString()
-    @IsNotEmpty()
-    logradouro?: string
-
 
     @IsNotEmpty()
-    numero?: number
+    isPasseador?: boolean
 
     @IsNotEmpty()
-    isPasseador?: number
+    enderecoId?: Endereco["id"]
+
+   
+    @IsNotEmpty()
+    enderecos: EnderecoDto 
+    
+
 }
+

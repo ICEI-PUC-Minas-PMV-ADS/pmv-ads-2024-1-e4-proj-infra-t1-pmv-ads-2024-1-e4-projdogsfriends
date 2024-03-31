@@ -13,10 +13,10 @@ model Cliente {
   nome        String
   sobrenome   String
   cpf         String
-  email       String
+  email       String @unique
   senha       String
   fotoPerfil  String?
-  enderecoId  String
+  enderecoId  String @unique
   isPasseador Boolean?
   telefones   Telefone[]
   passeios    Passeio[]
@@ -30,12 +30,12 @@ model Cliente {
 
 model Endereco{
   id          String  @id @default(uuid()) @map("_id")
-  uf          String?
-  cidade      String?
-  bairro      String?
-  logradouro  String?
-  numero      String?
-  cep         String?
+  uf          String
+  cidade      String
+  bairro      String
+  logradouro  String
+  numero      String
+  cep         String
   clienteId   String
   clientes    Cliente @relation(fields: [clienteId], references: [id])
   @@map("Endereco")
