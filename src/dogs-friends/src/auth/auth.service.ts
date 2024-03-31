@@ -12,11 +12,11 @@ export class AuthService{
     
     async create(dto:AuthDto){
 
-       
+        
 
 
         try{
-
+            
             
 
             const cliente = await this.prisma.cliente.create({
@@ -28,10 +28,10 @@ export class AuthService{
                     sobrenome: dto.sobrenome,
                     cpf: dto.cpf,
                     fotoPerfil: dto.fotoPerfil,
-                    enderecoId: dto.enderecoId,
                     isPasseador: dto.isPasseador,
                     enderecos:{
                         create:{
+                            
                             logradouro: dto.enderecos.logradouro,
                             numero: dto.enderecos.numero,
                             bairro: dto.enderecos.bairro,
@@ -52,14 +52,13 @@ export class AuthService{
             })
 
          
-
-
+            
 
             return cliente
 
         }catch(error){
             if(error instanceof PrismaClientKnownRequestError){
-                if(error){
+                if(error.code === 'P2002'){
                     throw new ForbiddenException('Email já cadastrado')
                 }
             }throw error

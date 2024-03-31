@@ -13,28 +13,30 @@ export class AuthDto {
 
     @IsString()
     @IsNotEmpty()
-    nome?: string;
+    nome: string;
 
     @IsString()
     @IsNotEmpty()
-    sobrenome?: string;
+    sobrenome: string;
 
     @IsString()
-    cpf?: string
+    cpf: string
 
-    @IsString()
+    
     fotoPerfil?: string
 
 
     @IsNotEmpty()
-    isPasseador?: boolean
+    isPasseador: boolean
 
-    @IsNotEmpty()
-    enderecoId?: Endereco["id"]
+  
+   
 
    
     @IsNotEmpty()
     enderecos: EnderecoDto 
+
+    
     
 
 }

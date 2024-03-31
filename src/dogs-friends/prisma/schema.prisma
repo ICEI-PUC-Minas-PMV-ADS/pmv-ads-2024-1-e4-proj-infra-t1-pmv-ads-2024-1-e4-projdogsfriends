@@ -12,11 +12,10 @@ model Cliente {
   id          String     @id @default(uuid()) @map("_id")
   nome        String
   sobrenome   String
-  cpf         String
-  email       String @unique
-  senha       String
+  cpf         String @unique
+  email       String @unique  
+  senha       String 
   fotoPerfil  String?
-  enderecoId  String @unique
   isPasseador Boolean?
   telefones   Telefone[]
   passeios    Passeio[]
