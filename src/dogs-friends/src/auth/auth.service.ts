@@ -2,7 +2,7 @@ import { PrismaService } from "src/prisma/service/prisma.service";
 import { AuthDto } from "./dto";
 import { ForbiddenException, Injectable } from "@nestjs/common";
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
-
+import * as argon from 'argon2';
 @Injectable()
 export class AuthService{
     constructor(private prisma: PrismaService){}
@@ -13,7 +13,7 @@ export class AuthService{
     async create(dto:AuthDto){
 
         
-
+        const senha = await argon.hash(dto.senha)
 
         try{
             
@@ -23,7 +23,7 @@ export class AuthService{
 
                 data:{
                     email: dto.email,
-                    senha: dto.senha,
+                    senha,
                     nome: dto.nome,
                     sobrenome: dto.sobrenome,
                     cpf: dto.cpf,
