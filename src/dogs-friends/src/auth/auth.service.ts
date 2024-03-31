@@ -3,9 +3,11 @@ import { AuthDto } from "./dto";
 import { ForbiddenException, Injectable } from "@nestjs/common";
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
 import * as argon from 'argon2';
+import { ConfigService } from "@nestjs/config";
+import { LoginDto } from "./dto/login.dto";
 @Injectable()
 export class AuthService{
-    constructor(private prisma: PrismaService){}
+    constructor(private prisma: PrismaService, private config:ConfigService){}
     
         
        
@@ -64,5 +66,32 @@ export class AuthService{
             }throw error
         }
         
+    }
+
+    async signin(dto: LoginDto){
+        
+        //find user by email
+        const user =
+        await this.prisma.cliente.findUnique({
+            where:{
+                email:dto.email,
+            },
+           
+        });
+        
+         //if user does not exist, throw an error
+         if(!user)
+         throw new ForbiddenException('Credentials not valid');
+         //compare password
+         const pwMatches = await argon.verify(user.senha, dto.senha);
+            if(!pwMatches)
+            throw new ForbiddenException('Credentials not valid');
+            //return a message
+            
+       
+
+        delete user.senha
+        return user   
+       
     }
 }
