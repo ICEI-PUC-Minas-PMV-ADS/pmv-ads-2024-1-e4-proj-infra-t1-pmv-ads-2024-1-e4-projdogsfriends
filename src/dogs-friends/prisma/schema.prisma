@@ -1,0 +1,135 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+// Table representing Clients
+model Cliente {
+  id          String     @id @default(uuid()) @map("_id")
+  nome        String
+  sobrenome   String
+  cpf         String @unique
+  email       String @unique  
+  senha       String 
+  fotoPerfil  String?
+  isPasseador Boolean? @default(false)
+  telefones   Telefone[]
+  pets        Pet[]
+  pedidos     Pedido[]
+  enderecos   Endereco[] 
+ 
+  agendaPasseador AgendaPasseador[]
+  @@map("Cliente")
+}
+
+model Endereco{
+  id          String  @id @default(uuid()) @map("_id")
+  uf          String
+  cidade      String
+  bairro      String
+  logradouro  String
+  numero      String
+  cep         String
+  clienteId   String
+  clientes    Cliente @relation(fields: [clienteId], references: [id])
+  @@map("Endereco")
+}
+
+// Table representing Telefones
+model Telefone {
+  id        String  @id @default(uuid()) @map("_id")
+  codigo    String
+  numero    String
+  clienteId String
+  clientes  Cliente @relation(fields: [clienteId], references: [id])
+
+   @@map("Telefone")
+}
+
+
+// Table representing Pets
+model Pet {
+  id          String    @id @default(uuid()) @map("_id")
+  nome        String
+  idade       Int
+  peso        Float
+  raca        String
+  especie     String
+  clienteId   String?
+  passeadorId String?
+  pedidoId    String?
+  clientes    Cliente?  @relation(fields: [clienteId], references: [id])
+
+  imagens     Imagem[]
+
+  pedidoPet PedidoPet[]
+  @@map("Pets")
+}
+
+// Table representing Pedidos
+model Passeio {
+  id          String   @id @default(uuid()) @map("_id") @db.String
+  realizado Boolean @default(false)
+ 
+  pedido Pedido @relation(fields: [pedidoId], references: [id])
+  pedidoId String @db.String @unique
+
+  @@map("Passeio")
+}
+
+// Table representing Imagens
+model Imagem {
+  id    String  @id @default(uuid()) @map("_id")
+  url   String
+  petId String?
+  pets  Pet?    @relation(fields: [petId], references: [id])
+
+  @@map("Imagens")
+}
+
+model Pedido{
+  id String @id @default(uuid()) @map("_id") @db.String
+  precoTotal Float
+
+  agendaPasseadorId String @db.String 
+  agendaPasseador AgendaPasseador @relation(fields: [agendaPasseadorId], references: [id])
+
+  clienteId String @db.String 
+  cliente Cliente @relation(fields: [clienteId], references: [id])
+
+  passeadorId String @db.String 
+  //passeador Passeador @relation(fields: [passeadorId], references: [id])
+
+  passeio Passeio?
+
+  pedidoPet PedidoPet[]
+}
+
+
+model PedidoPet {
+    id String @id @default(uuid()) @map("_id") @db.String
+
+    pedidoId String @db.String 
+    pedido Pedido @relation(fields: [pedidoId], references: [id])
+    
+    petId String @db.String
+    pet Pet @relation(fields: [petId], references: [id])
+}
+
+
+model AgendaPasseador{
+  id String @id @default(uuid()) @map("_id") @db.String
+  data String
+  hora String
+  ativo Boolean @default(true)
+
+  passeadorId String @db.String
+  cliente Cliente @relation(fields: [passeadorId], references: [id])
+  
+  pedido Pedido[] 
+
+   @@map("AgendaPasseador")
+}
