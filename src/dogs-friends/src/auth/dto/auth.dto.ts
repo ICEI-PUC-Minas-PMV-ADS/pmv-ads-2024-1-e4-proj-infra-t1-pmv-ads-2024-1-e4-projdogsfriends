@@ -27,18 +27,18 @@ export class AuthDto {
     fotoPerfil?: string
 
 
-    @IsNotEmpty()
+    @IsOptional()
     isPasseador?: boolean
 
   
    
 
    
-    @IsNotEmpty()
-    enderecos?: EnderecoDto 
+    // @IsNotEmpty()
+    // enderecos?: EnderecoDto 
 
-    @IsNotEmpty()
-    telefones?: TelefoneDto
+    // @IsNotEmpty()
+    // telefones?: TelefoneDto
 
 }
 

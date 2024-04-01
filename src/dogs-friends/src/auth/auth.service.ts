@@ -32,23 +32,23 @@ export class AuthService {
                     cpf: dto.cpf,
                     fotoPerfil: dto.fotoPerfil,
                     isPasseador: dto.isPasseador,
-                    enderecos: {
-                        create: {
+                    // enderecos: {
+                    //     create: {
 
-                            logradouro: dto.enderecos.logradouro,
-                            numero: dto.enderecos.numero,
-                            bairro: dto.enderecos.bairro,
-                            cidade: dto.enderecos.cidade,
-                            uf: dto.enderecos.uf,
-                            cep: dto.enderecos.cep
-                        }
-                    },
-                    telefones: {
-                        create: {
-                           codigo: dto.telefones.codigo,
-                            numero: dto.telefones.numero
-                        }
-                    }
+                    //         logradouro: dto.enderecos.logradouro,
+                    //         numero: dto.enderecos.numero,
+                    //         bairro: dto.enderecos.bairro,
+                    //         cidade: dto.enderecos.cidade,
+                    //         uf: dto.enderecos.uf,
+                    //         cep: dto.enderecos.cep
+                    //     }
+                    // },
+                    // telefones: {
+                    //     create: {
+                    //        codigo: dto.telefones.codigo,
+                    //         numero: dto.telefones.numero
+                    //     }
+                    // }
 
 
 

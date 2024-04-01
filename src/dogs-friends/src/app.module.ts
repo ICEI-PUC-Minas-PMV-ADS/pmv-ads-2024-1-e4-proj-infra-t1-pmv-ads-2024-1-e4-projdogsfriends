@@ -7,12 +7,15 @@ import { PrismaModule } from './prisma/prisma.module';
 import { AuthService } from './auth/auth.service';
 import { Authmodule } from './auth/auth.module';
 import { ClienteModule } from './cliente/cliente.module';
+import { PedidoModule } from './pedido/pedido.module';
+import { PedidoPetModule } from './pedido-pet/pedido-pet.module';
+import { AgendaPasseadorModule } from './agenda-passeador/agenda-passeador.module';
 
 @Module({
   imports: [ConfigModule.forRoot({
     isGlobal: true,
   }),
-    PetModule, PrismaModule, Authmodule, ClienteModule],
+    PetModule, PrismaModule, Authmodule, ClienteModule, PedidoModule, PedidoPetModule, AgendaPasseadorModule],
   
 })
 export class AppModule { }
