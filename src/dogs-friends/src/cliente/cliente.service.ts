@@ -32,6 +32,14 @@ export class ClienteService {
                         uf: dto.enderecos.uf,
                         cep: dto.enderecos.cep
                     }
+
+                   
+                },
+                telefones: {
+                    create: {
+                        codigo: dto.telefones.codigo,
+                        numero: dto.telefones.numero
+                    }
                 }
 
 

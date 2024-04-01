@@ -1,6 +1,7 @@
 import { EnderecoDto } from "./endereco.dto";
-import { Endereco } from "@prisma/client";
+import { Endereco, Telefone } from "@prisma/client";
 import { IsEmail, IsNotEmpty, IsOptional, IsString } from "class-validator";
+import { TelefoneDto } from "./telefone.dto";
 
 export class AuthDto {
     @IsEmail()
@@ -36,8 +37,8 @@ export class AuthDto {
     @IsNotEmpty()
     enderecos?: EnderecoDto 
 
-    
-    
+    @IsNotEmpty()
+    telefones?: TelefoneDto
 
 }
 
