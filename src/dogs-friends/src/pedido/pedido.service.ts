@@ -37,7 +37,13 @@ export class PedidoService {
   async findAll() {
     return await this.prisma.pedido.findMany({
       include:{
-        cliente: true,    
+        cliente: {
+          select:{
+            nome: true,
+            sobrenome: true,
+            email: true,
+          }
+        },    
         agendaPasseador: true,
       }
     })
@@ -51,7 +57,7 @@ export class PedidoService {
       select:{
         clienteId:false,
         passeadorId:true,
-        agendaPasseador:false,
+        agendaPasseador:true,
 
         cliente:{
           select:{

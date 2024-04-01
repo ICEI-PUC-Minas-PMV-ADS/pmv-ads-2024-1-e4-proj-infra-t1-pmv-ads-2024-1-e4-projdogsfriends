@@ -1,4 +1,4 @@
-import { PrismaService } from "src/prisma/service/prisma.service";
+import { PrismaService } from "../prisma/service/prisma.service";
 import { AuthDto } from "./dto";
 import { ForbiddenException, Injectable } from "@nestjs/common";
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
