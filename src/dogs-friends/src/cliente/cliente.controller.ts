@@ -1,9 +1,9 @@
 import { Body, Controller, Get, Put, UseGuards } from "@nestjs/common";
 import { ClienteService } from "./cliente.service";
 import { EditClienteDto } from "./dto";
-import { GetUser } from "src/decorador";
+import { GetUser } from "../decorador";
 import { Cliente } from "@prisma/client";
-import { JwtGuard } from "src/auth/guard";
+import { JwtGuard } from "../auth/guard";
 
 @UseGuards(JwtGuard)
 @Controller('cliente')

@@ -1,6 +1,6 @@
 import { IsEmail, IsNotEmpty, IsOptional, IsString } from "class-validator";
 import { EditEnderecoDto } from "./edit-endereco.dto";
-import { EnderecoDto, TelefoneDto } from "src/auth/dto";
+import { EnderecoDto, TelefoneDto } from "../../auth/dto";
 
 export class EditClienteDto{
     @IsEmail()
