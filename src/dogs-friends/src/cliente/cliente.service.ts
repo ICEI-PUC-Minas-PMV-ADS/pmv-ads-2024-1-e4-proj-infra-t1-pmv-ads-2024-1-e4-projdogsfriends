@@ -51,6 +51,7 @@ export class ClienteService {
 
         return user;
     }
+   
     async findAll() {
         return this.prisma.cliente.findMany({
           select:{
@@ -63,4 +64,52 @@ export class ClienteService {
       }
 
 
+    async search(term:string, estado="MG"){
+     
+      const clientes = await this.prisma.cliente.findMany({
+            where:{
+              AND: [
+                {
+                    enderecos:{
+                        some:{
+                            cidade:{
+                                contains: term,
+                                mode: 'insensitive',
+                            }
+                        }
+                    },
+                },
+                {
+                    enderecos:{
+                        some:{
+                            uf:{
+                                equals: estado
+                            },                            
+                        }
+                    }
+                }
+              ]
+            },
+            
+            select:{
+                id: true,
+                nome: true,
+                sobrenome: true,
+
+                enderecos:{
+                    where:{
+                        cidade:{
+                            contains: term,
+                            mode: 'insensitive'
+                        },
+                        uf: {
+                            equals: estado
+                        }
+                    }
+                }
+            },
+        })
+         
+        return clientes;
+    }
 }
