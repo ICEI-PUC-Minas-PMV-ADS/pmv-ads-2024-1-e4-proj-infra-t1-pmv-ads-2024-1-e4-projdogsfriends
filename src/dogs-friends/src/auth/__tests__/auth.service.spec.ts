@@ -3,7 +3,7 @@ import { AuthService } from '../auth.service';
 import { PrismaService } from '../../prisma/service/prisma.service';
 import { ConfigService } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
-import { createUserMock } from '../__mock__/auth.createUser.mock';
+import { createUserMock } from '../__mocks__/auth.createUser.mock';
 import { ForbiddenException } from '@nestjs/common/exceptions';
 
 
@@ -57,10 +57,6 @@ describe('AuthService', () => {
     await expect(service.create(createUserMock)).rejects.toThrow()
   })
   
-  // it('should throw ForbiddenException when trying to create a user with an existing email', async () => {
 
-   
-  //   expect(await service.create(createUserMock)).rejects.toThrow(ForbiddenException);
-  // })
 
 });

@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Put, UseGuards } from "@nestjs/common";
+import { Body, Controller, Get, Param, Put, Query, UseGuards } from "@nestjs/common";
 import { ClienteService } from "./cliente.service";
 import { EditClienteDto } from "./dto";
 import { GetUser } from "../decorador";
@@ -28,9 +28,12 @@ export class ClienteController {
     getMe(@GetUser()cliente: Cliente){
         return cliente;
     }
-  
  
-
+    @Get(":term")
+    search(@Query() term: { term: string}){
+     console.log(term) 
+     return this.clienteService.search(term.term)
+    }
 
     
 }

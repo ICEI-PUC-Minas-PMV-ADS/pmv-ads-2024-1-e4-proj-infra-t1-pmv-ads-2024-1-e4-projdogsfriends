@@ -1,4 +1,4 @@
-import { Controller, Get,  Body, Patch, Param, Delete, Post } from '@nestjs/common';
+import { Controller, Get,  Body, Patch, Param, Delete, Post, ParseUUIDPipe } from '@nestjs/common';
 import { AgendaPasseadorService } from './agenda-passeador.service';
 import { CreateAgendaPasseadorDto } from './dto/create-agenda-passeador.dto';
 import { UpdateAgendaPasseadorDto } from './dto/update-agenda-passeador.dto';
@@ -18,17 +18,17 @@ export class AgendaPasseadorController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.agendaPasseadorService.findOne(+id);
+  findOne(@Param('id', new ParseUUIDPipe()) id: string) {
+    return this.agendaPasseadorService.findOne(id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateAgendaPasseadorDto: UpdateAgendaPasseadorDto) {
-    return this.agendaPasseadorService.update(+id, updateAgendaPasseadorDto);
+    return this.agendaPasseadorService.update(id, updateAgendaPasseadorDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.agendaPasseadorService.remove(+id);
+    return this.agendaPasseadorService.remove(id);
   }
 }
