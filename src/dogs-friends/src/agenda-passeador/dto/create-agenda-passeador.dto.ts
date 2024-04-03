@@ -14,7 +14,5 @@ export class CreateAgendaPasseadorDto extends AgendaPasseador{
     @IsString()
     @IsNotEmpty()
     passeadorId: string;
-    
-    ativo?: boolean;
-    pedido?: Prisma.PedidoUncheckedCreateNestedManyWithoutAgendaPasseadorInput;
+     
 }
