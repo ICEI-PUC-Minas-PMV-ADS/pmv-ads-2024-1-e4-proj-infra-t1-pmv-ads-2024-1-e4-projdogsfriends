@@ -1,4 +1,4 @@
-import { Controller, Get,  Body, Patch, Param, Delete, Post, ParseUUIDPipe } from '@nestjs/common';
+import { Controller, Get,  Body, Patch, Param, Delete, Post, ParseUUIDPipe, ParseBoolPipe } from '@nestjs/common';
 import { AgendaPasseadorService } from './agenda-passeador.service';
 import { CreateAgendaPasseadorDto } from './dto/create-agenda-passeador.dto';
 import { UpdateAgendaPasseadorDto } from './dto/update-agenda-passeador.dto';
@@ -10,6 +10,11 @@ export class AgendaPasseadorController {
   @Post()
   create(@Body() createAgendaPasseadorDto: CreateAgendaPasseadorDto) {
     return this.agendaPasseadorService.create(createAgendaPasseadorDto);
+  }
+  @Post(':id')
+  changeStatus(@Param('id', new ParseUUIDPipe()) id: string , @Body('status',new ParseBoolPipe()) status: boolean){
+    console.log(id, status)
+    return this.agendaPasseadorService.changeStatus(id, status)
   }
 
   @Get()
