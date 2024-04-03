@@ -70,6 +70,9 @@ export class ClienteService {
             where:{
               AND: [
                 {
+                    isPasseador: true
+                },
+                {
                     enderecos:{
                         some:{
                             cidade:{
