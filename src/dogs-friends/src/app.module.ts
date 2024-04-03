@@ -12,12 +12,13 @@ import { PedidoPetModule } from './pedido-pet/pedido-pet.module';
 import { AgendaPasseadorModule } from './agenda-passeador/agenda-passeador.module';
 import { EnderecoModule } from './endereco/endereco.module';
 import { PasseioModule } from './passeio/passeio.module';
+import { EmailModule } from './email/email.module';
 
 @Module({
   imports: [ConfigModule.forRoot({
     isGlobal: true,
   }),
-    PetModule, PrismaModule, Authmodule, ClienteModule, PedidoModule, PedidoPetModule, AgendaPasseadorModule, EnderecoModule, PasseioModule],
+    PetModule, PrismaModule, Authmodule, ClienteModule, PedidoModule, PedidoPetModule, AgendaPasseadorModule, EnderecoModule, PasseioModule, EmailModule],
   
 })
 export class AppModule { }

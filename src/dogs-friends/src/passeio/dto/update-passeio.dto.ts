@@ -1,4 +1,6 @@
-import { PartialType } from '@nestjs/mapped-types';
-import { CreatePasseioDto } from './create-passeio.dto';
+import { Passeio } from "../entities/passeio.entity";
 
-export class UpdatePasseioDto extends PartialType(CreatePasseioDto) {}
+
+export class UpdatePasseioDto extends Passeio {
+    realizado?: boolean;
+}

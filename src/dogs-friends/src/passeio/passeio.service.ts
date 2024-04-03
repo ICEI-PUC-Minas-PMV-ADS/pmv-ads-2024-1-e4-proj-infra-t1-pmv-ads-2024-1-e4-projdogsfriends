@@ -1,26 +1,25 @@
-import { Injectable } from '@nestjs/common';
-import { CreatePasseioDto } from './dto/create-passeio.dto';
+import { Injectable, InternalServerErrorException, NotFoundException } from '@nestjs/common';
 import { UpdatePasseioDto } from './dto/update-passeio.dto';
+import { PrismaService } from 'src/prisma/service/prisma.service';
+import { Passeio } from './entities/passeio.entity';
 
 @Injectable()
 export class PasseioService {
-  create(createPasseioDto: CreatePasseioDto) {
-    return 'This action adds a new passeio';
+  constructor(private readonly prisma: PrismaService){} 
+
+  async finishPasseio(id: string): Promise<Passeio>{
+   try {
+    return await this.prisma.passeio.update({
+      where:{id}, 
+      data:{ realizado: true }
+    })
+   } catch (error) {
+    this.handleExeptions(error)
+   }
   }
 
-  findAll() {
-    return `This action returns all passeio`;
-  }
-
-  findOne(id: number) {
-    return `This action returns a #${id} passeio`;
-  }
-
-  update(id: number, updatePasseioDto: UpdatePasseioDto) {
-    return `This action updates a #${id} passeio`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} passeio`;
+  private handleExeptions(error: any){
+    if(error.code === "P2025") throw new NotFoundException()
+    throw new InternalServerErrorException()
   }
 }
