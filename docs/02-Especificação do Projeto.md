@@ -180,7 +180,7 @@ A Matriz de Rastreabilidade de Requisitos é uma ferramenta essencial no desenvo
 
 # Gerenciamento de Projeto
  
-Segundo Vargas (2018), _um projeto é um empreendimento único, caracterizado por uma sequência lógica de eventos, com começo, meio e fim, visando alcançar um objetivo claro e definido, sendo conduzido por pessoas dentro de parâmetros predefinidos de tempo, custo, recursos envolvidos e qualidade_. Com base nessa definição, desenvolvemos a documentação e o aplicativo AutoApp, utilizando também os princípios descritos no PMBoK.
+Segundo Vargas (2018), _um projeto é um empreendimento único, caracterizado por uma sequência lógica de eventos, com começo, meio e fim, visando alcançar um objetivo claro e definido, sendo conduzido por pessoas dentro de parâmetros predefinidos de tempo, custo, recursos envolvidos e qualidade_. Com base nessa definição, desenvolvemos a documentação e o aplicativo PetFriend, utilizando também os princípios descritos no PMBoK.
 
 De acordo com a sexta edição do PMBoK, as dez áreas que compõem os pilares para gerenciar projetos são: Integração, Escopo, Cronograma (Tempo), Custos, Qualidade, Recursos, Comunicações, Riscos, Aquisições e Partes Interessadas. Para o desenvolvimento eficaz de um projeto, é essencial gerenciar todas essas áreas de forma integrada, considerando suas inter-relações. Por exemplo, alterações no escopo podem impactar diretamente o cronograma e os custos do projeto.
 
@@ -231,7 +231,7 @@ Esse quadro permite uma visualização clara das tarefas em andamento, pendentes
 
 ## Gestão de Orçamento
 
-A determinação do orçamento do projeto é uma etapa crucial, dependendo dos resultados de processos anteriores de gerenciamento de custos, bem como de outras áreas, como escopo e tempo. A documentação segue as normas da ABNT para uma apresentação clara e concisa.
+A determinação do orçamento do projeto é uma etapa crucial, dependendo dos resultados de processos anteriores de gerenciamento de custos, bem como de outras áreas, como escopo e tempo.
 
 A imagem abaixo ilustra um exemplo de tabela com o tipo de despesas, custo mensal e total ao longo de cinco meses:
 
