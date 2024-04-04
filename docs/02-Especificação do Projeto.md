@@ -231,7 +231,7 @@ Esse quadro permite uma visualização clara das tarefas em andamento, pendentes
 
 ## Gestão de Orçamento
 
-A determinação do orçamento do projeto é uma etapa crucial, dependendo dos resultados de processos anteriores de gerenciamento de custos, bem como de outras áreas, como escopo e tempo. A documentação segue as normas da ABNT para uma apresentação clara e concisa.
+A determinação do orçamento do projeto é uma etapa crucial, dependendo dos resultados de processos anteriores de gerenciamento de custos, bem como de outras áreas, como escopo e tempo.
 
 A imagem abaixo ilustra um exemplo de tabela com o tipo de despesas, custo mensal e total ao longo de cinco meses:
 
