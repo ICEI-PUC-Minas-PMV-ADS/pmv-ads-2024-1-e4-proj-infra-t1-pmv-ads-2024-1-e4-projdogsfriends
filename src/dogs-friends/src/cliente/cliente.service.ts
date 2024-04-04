@@ -66,6 +66,7 @@ export class ClienteService {
 
     async search(term:string, estado="MG"){
      
+
       const clientes = await this.prisma.cliente.findMany({
             where:{
               AND: [
@@ -75,10 +76,22 @@ export class ClienteService {
                 {
                     enderecos:{
                         some:{
-                            cidade:{
-                                contains: term,
-                                mode: 'insensitive',
-                            }
+                            OR:[
+                                {
+                                    cidade:{
+                                        contains: term,
+                                        mode: 'insensitive',
+                                    }
+                                },
+                                {
+                                    bairro:{
+                                        contains: term,
+                                        mode: 'insensitive'
+                                    }
+                                }
+                                
+                           
+                        ]
                         }
                     },
                 },
@@ -101,10 +114,20 @@ export class ClienteService {
 
                 enderecos:{
                     where:{
-                        cidade:{
-                            contains: term,
-                            mode: 'insensitive'
-                        },
+                        OR:[
+                            {
+                                cidade:{
+                                    contains: term,
+                                    mode: 'insensitive'
+                                }
+                            },
+                            {
+                                bairro:{
+                                    contains: term,
+                                    mode: 'insensitive'
+                                }
+                            }
+                        ],
                         uf: {
                             equals: estado
                         }
