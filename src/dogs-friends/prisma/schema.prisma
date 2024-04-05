@@ -63,7 +63,7 @@ model Pet {
   clienteId   String?
   passeadorId String?
   pedidoId    String?
-  clientes    Cliente?  @relation(fields: [clienteId], references: [id])
+  cliente    Cliente?  @relation(fields: [clienteId], references: [id])
 
   imagens     Imagem[]
 

@@ -33,12 +33,12 @@ export class ClienteController {
     search(
       @Query('term') term: string,
       @Query('estado') estado: string,
-      @Query('take', new ParseIntPipe()) take: string,
-      @Query('skip', new ParseIntPipe()) skip: string
+      @Query('limit', new ParseIntPipe()) limit: string,
+      @Query('offset', new ParseIntPipe()) offset: string
       
       ){
    
-     return this.clienteService.search(term, estado, +take, +skip)
+     return this.clienteService.search(term, estado, +limit, +offset)
     }
 
     
