@@ -111,7 +111,8 @@ export class ClienteService {
                 id: true,
                 nome: true,
                 sobrenome: true,
-
+                sobreMim: true, 
+                
                 enderecos:{
                     where:{
                         OR:[
@@ -131,7 +132,7 @@ export class ClienteService {
                         uf: {
                             equals: estado
                         }
-                    }
+                    },
                 }
             },
         })
