@@ -29,10 +29,9 @@ export class ClienteController {
         return cliente;
     }
  
-    @Get(":term")
-    search(@Query() term: { term: string}){
-     console.log(term) 
-     return this.clienteService.search(term.term)
+    @Get(":term:estado")
+    search(@Query('term') term: string, @Query('estado') estado: string){
+     return this.clienteService.search(term, estado)
     }
 
     
