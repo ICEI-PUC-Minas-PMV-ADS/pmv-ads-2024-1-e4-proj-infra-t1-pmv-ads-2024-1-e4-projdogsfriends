@@ -1,4 +1,4 @@
-import { Injectable } from "@nestjs/common";
+import { BadRequestException, Injectable } from "@nestjs/common";
 import { PrismaService } from "../prisma/service/prisma.service";
 import { EditClienteDto } from "./dto";
 
@@ -64,10 +64,14 @@ export class ClienteService {
       }
 
 
-    async search(term:string, estado="MG"){
-     
+    async search(term:string, estado="MG", take=10, skip=0){     
+      
 
       const clientes = await this.prisma.cliente.findMany({
+          
+            take,
+            skip,
+
             where:{
               AND: [
                 {
@@ -111,7 +115,8 @@ export class ClienteService {
                 id: true,
                 nome: true,
                 sobrenome: true,
-
+                sobreMim: true, 
+                
                 enderecos:{
                     where:{
                         OR:[
@@ -131,7 +136,7 @@ export class ClienteService {
                         uf: {
                             equals: estado
                         }
-                    }
+                    },
                 }
             },
         })
