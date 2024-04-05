@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Put, Query, UseGuards } from "@nestjs/common";
+import { Body, Controller, Get, Param, ParseIntPipe, Put, Query, UseGuards } from "@nestjs/common";
 import { ClienteService } from "./cliente.service";
 import { EditClienteDto } from "./dto";
 import { GetUser } from "../decorador";
@@ -29,9 +29,16 @@ export class ClienteController {
         return cliente;
     }
  
-    @Get(":term:estado")
-    search(@Query('term') term: string, @Query('estado') estado: string){
-     return this.clienteService.search(term, estado)
+    @Get(":term:estado:take:skip")
+    search(
+      @Query('term') term: string,
+      @Query('estado') estado: string,
+      @Query('take', new ParseIntPipe()) take: string,
+      @Query('skip', new ParseIntPipe()) skip: string
+      
+      ){
+   
+     return this.clienteService.search(term, estado, +take, +skip)
     }
 
     
