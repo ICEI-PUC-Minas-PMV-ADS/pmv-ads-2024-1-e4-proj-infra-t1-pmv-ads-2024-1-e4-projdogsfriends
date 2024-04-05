@@ -14,6 +14,7 @@ A criação dessa plataforma atenderá a uma necessidade real na sociedade, muit
 * Paulo Silas Bandeira
 * Ronald Justiniano Costa
 * Taciana Emanuela Campos Vitorino
+* Gabriel Allison
 
 ## Orientador
 
