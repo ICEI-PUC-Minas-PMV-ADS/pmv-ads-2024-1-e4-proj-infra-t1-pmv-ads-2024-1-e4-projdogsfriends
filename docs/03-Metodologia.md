@@ -35,7 +35,7 @@ A equipe está organizada da seguinte maneira:
 
 - __Scrum Master__: [Jeosafa Boy Eller](https://github.com/JEOSAFAELLER);
 - __Product Owner__: Profº Felipe Augusto Lara Soares
-- __Equipe de Desenvolvimento__: [Paulo Silas Barbosa](https://github.com/pauloosilas), [Ronald Justiniano Costa](https://github.com/donRond), [Felipe Corrêa Carneiro](https://github.com/fel-dev); 
+- __Equipe de Desenvolvimento__: [Paulo Silas Barbosa](https://github.com/pauloosilas), [Ronald Justiniano Costa](https://github.com/donRond), [Felipe Corrêa Carneiro](https://github.com/fel-dev), Gabriel Alison; 
 - __Equipe de Design__: [Taciana Emanuela Campos Vitorino](https://github.com/tacivitorino);
 
 ### Processo
