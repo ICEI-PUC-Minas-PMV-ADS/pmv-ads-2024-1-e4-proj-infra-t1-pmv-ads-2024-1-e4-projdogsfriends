@@ -66,7 +66,7 @@ export class PedidoService {
       
       });
       
-      this.sendEmailToPasseador(pedidoResult.passeadorId)
+     // this.sendEmailToPasseador(pedidoResult.passeadorId)
       
       return pedidoResult;
 

@@ -52,7 +52,6 @@ export class ImagemService {
     this.handleExeptions(error)
    }
   }
-
   private handleExeptions(error: any){
     if(error.code === "P2025") throw new NotFoundException()
     throw new InternalServerErrorException()
