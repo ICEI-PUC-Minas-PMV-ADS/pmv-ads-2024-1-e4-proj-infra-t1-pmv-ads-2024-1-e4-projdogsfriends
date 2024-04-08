@@ -17,9 +17,9 @@ export class AgendaPasseadorController {
     return this.agendaPasseadorService.changeStatus(id, status)
   }
 
-  @Get()
-  findAll() {
-    return this.agendaPasseadorService.findAll();
+  @Get('agenda/:passeadorId')
+  findAll(@Param('passeadorId', new ParseUUIDPipe()) passeadorId: string) {
+    return this.agendaPasseadorService.findAll(passeadorId);
   }
 
   @Get(':id')
