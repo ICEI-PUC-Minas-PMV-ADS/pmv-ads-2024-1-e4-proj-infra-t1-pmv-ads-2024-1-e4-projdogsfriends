@@ -29,9 +29,11 @@ export class AgendaPasseadorService {
 
   }
 
-  findAll() {
+  findAll(passeadorId: string) {
     try {
-      return this.prisma.agendaPasseador.findMany({});
+      return this.prisma.agendaPasseador.findMany({
+        where:{passeadorId}
+      });
     } catch (error) {
       throw new InternalServerErrorException('Unable to complete this action')
     }

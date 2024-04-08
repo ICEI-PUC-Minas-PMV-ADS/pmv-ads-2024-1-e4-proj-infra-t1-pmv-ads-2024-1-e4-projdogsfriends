@@ -1,3 +1,11 @@
+
+# Justificativa das escolhas das Ferramentas Utilizadas.
+
+Para o desenvolvimento da API, foi utilizado o framework NestJS, pelo fato de ser um framework rico de módulos e extensões que podem ser facilmente integrados aos projetos para adicionar funcionalidades extras, como autenticação, autorização, envio de emails, etc...
+NestJS é um framework arquitetura modular e orientada a serviços, o que ajuda a manter o código organizado, fácil de escalar.
+
+Para a integração com o banco de dados Mongodb, foi utilizado o ORM(Object-Relational Mapping) Prisma, pelo fato de facilitar a coneção e manipulação de instruções enviadas ao banco de dados.  
+
 # Programação de Funcionalidades
 
 ### Cadastro de Usuário
@@ -184,15 +192,19 @@ Deve ser enviado no corpo da requisição: UF, cidade, bairro, logradouro, núme
 </table>
 
 ### Obter todos as datas e horários disponiveis de um passeador.
+
+É necessario enviar o id do passeador como parametro na URL.
+
 <table>
     <tr>
        <th>rota</th>
        <th>GET</th>
        <th>
-       <a href="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t1-pmv-ads-2024-1-e4-projdogsfriends/blob/main/src/dogs-friends/src/agenda-passeador/agenda-passeador.service.ts">Link do Código Fonte</a></th>       
+       <a href="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t1-pmv-ads-2024-1-e4-projdogsfriends/blob/main/src/dogs-friends/src/agenda-passeador/agenda-passeador.service.ts">Link do Código Fonte</a>
+       </th>       
     </tr>
     <tr>
-    <td width="300" >http://localhost:3000/agenda-passeador</td>
+    <td width="300" >http://localhost:3000/agenda-passeador/agenda/{:passeadorId}</td>
      <td width="300" >
     
 </td>
