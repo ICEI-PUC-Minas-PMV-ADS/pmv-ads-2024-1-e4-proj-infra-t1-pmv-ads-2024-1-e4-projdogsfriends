@@ -1,10 +1,9 @@
 import {Routes, Route} from "react-router-dom"
+import { Home } from "../pages/Home/Home"
+import { AuthRouters } from "../pages/Auth"
+import { PrivateRoutes } from "../pages/private/routes/PrivateRoutes"
 
-import { AuthRouters } from "../Auth"
-import { Home } from "../Home"
-import { PrivateRoutes } from "../private/routes/PrivateRoutes"
 
- 
 
 export const Router = () => {
   return (
