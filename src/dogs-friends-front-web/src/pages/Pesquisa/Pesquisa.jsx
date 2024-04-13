@@ -1,14 +1,17 @@
-import PlaceSerachOrigin from "../../components/google-maps/PlaceSearchOrigin"
-import Map from "../../components/google-maps/map"
+ 
 import Container from "./components/Container"
+import { useCliente } from "./hooks/useCliente"
 
 export const Pesquisa = () => {
+  
+  const {clients} = useCliente();
+
+  console.log(clients)
   return ( 
     
-        <div>
-            <Map />
-            <PlaceSerachOrigin />
-        </div>
+    <Container>            
+                  
+    </Container>
   
   )
 }

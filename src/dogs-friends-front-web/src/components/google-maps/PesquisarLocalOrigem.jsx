@@ -4,7 +4,7 @@ import usePlacesAutocomplete, {
   } from "use-places-autocomplete";
   import useOnclickOutside from "react-cool-onclickoutside";
   
-  export default function PlaceSerachOrigin(){
+  export default function PesquisarLocalOrigem(){
     const {
       ready,
       value,

@@ -64,8 +64,10 @@ export class ClienteService {
       }
 
 
-    async search(term:string, estado="MG", take=10, skip=0){     
-      
+    async search(term:string, estado="MG", take=10, skip=0){    
+   
+      if(isNaN(take) || isNaN(skip))
+        return new BadRequestException('limit or offset should be')  
 
       const clientes = await this.prisma.cliente.findMany({
           

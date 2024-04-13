@@ -33,11 +33,11 @@ export class ClienteController {
     search(
       @Query('term') term: string,
       @Query('estado') estado: string,
-      @Query('limit', new ParseIntPipe()) limit: string,
-      @Query('offset', new ParseIntPipe()) offset: string
+      @Query('limit') limit: number = 10,
+      @Query('offset') offset: number = 0
       
       ){
-   
+         
      return this.clienteService.search(term, estado, +limit, +offset)
     }
 
