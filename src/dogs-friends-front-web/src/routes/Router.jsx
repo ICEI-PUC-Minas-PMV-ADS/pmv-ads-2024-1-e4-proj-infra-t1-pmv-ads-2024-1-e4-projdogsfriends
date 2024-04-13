@@ -1,7 +1,8 @@
 import {Routes, Route} from "react-router-dom"
 import { Home } from "../pages/Home/Home"
 import { AuthRouters } from "../pages/Auth"
-import { PrivateRoutes } from "../pages/private/routes/PrivateRoutes"
+import { PrivateRoutes } from "../pages/routes/PrivateRoutes"
+ 
 
 
 
