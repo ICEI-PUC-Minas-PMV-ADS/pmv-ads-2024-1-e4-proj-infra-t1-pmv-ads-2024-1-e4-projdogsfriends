@@ -65,7 +65,7 @@ export default function Map() {
       >
         {
           <MarkerF 
-            position={{lat:51.487556167896145, lng: -0.12713117500943283}} 
+            position={{lat:-19.92317983503711, lng: -43.93707216224178}} 
             icon={pinIcon}
             visible
             cursor="pointer"
@@ -82,7 +82,7 @@ export default function Map() {
               (
                 <InfoWindowF
                 onCloseClick={() => setIsInfoWindowOpen(false)}
-                position={{lat:51.487556167896145, lng: -0.12713117500943283}}>
+                position={{lat:-19.92317983503711, lng: -43.93707216224178}}>
                 <div>
                 <div className="flex items-center">
                     <img className="w-14 h-14 rounded-full"
