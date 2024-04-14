@@ -1,95 +1,115 @@
+body {
+  min-width: 320px;
+}
+
 .home-container {
-    background-color: #f0f0f0;
-    color: #333;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-  }
-  
-  .home-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+/*
+max-width: 1920px;
+margin: 0 auto;
+*/
+}
 
-    margin-bottom: 20px;
+.home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+
+  margin-bottom: 20px;
+}
+
+.home-logo {
+  order: 1;
+  width: 100px;
+  height: auto;
+}
+
+.home-nav {
+  order: 2;
+  display: flex;
+  gap: 20px;
+  flex-grow: 1;
+  justify-content: flex-end;
+  margin-right: 20px;
+}
+
+.nav-link {
+  color: #1a73e8;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #0052cc;
+}
+
+.home-button-connect {
+  order: 3;
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.home-button-connect:hover {
+  background-color: #0052cc;
+}
+
+.home-message {
+  color: #1a73e8;
+  font-size: 24px;
+}
+
+.home-image {
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.home-footer {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px 0;
+  margin-top: 20px;
+  border-top: 1px solid #ccc;
+}
+
+.social-link {
+  color: #1a73e8;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.social-link:hover {
+  color: #0052cc;
+}
+
+@media (max-width: 600px) {
+  .home-nav {
+    order: 3;
+    flex-grow: 0;
+    margin-right: 0;
   }
-  
-  .home-title {
-    color: #1a73e8;
-    
-    font-size: 24px;
-  }
-  
+
   .home-button-connect {
-    background-color: #1a73e8;
-    color: white;
-    border: none;
-
-    padding: 10px 20px;
-
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    order: 2;
   }
-  
-  .home-button-connect:hover {
 
-    background-color: #0052cc;
-
-    
-
+  .home-header {
+    flex-direction: column;
   }
-  
+
   .home-image {
-    width: 100%;
-    height: auto;
-    margin-bottom: 20px;
+    background: url("img/img1.jpeg") no-repeat center center/cover;
   }
-  
-  .home-description {
-    color: #444;
-    
-    margin-bottom: 20px;
-  }
-  
-  .home-button {
-    background-color: #1a73e8;
-    color: white;
-    border: none;
 
-    padding: 10px 20px;
-
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .home-button:hover {
-    background-color: #0052cc;
-  }
-  
-  .home-message {
-    color: #1a73e8;
-
-    margin-top: 20px;
-  }
-  
   .home-footer {
-    display: flex;
-    justify-content: space-around;
-
-    padding: 20px 0;
-    margin-top: 20px;
-
-    border-top: 1px solid #ccc;
+    flex-direction: column;
   }
-  
-  .social-link {
-    color: #1a73e8;
-    text-decoration: none;
-    transition: color 0.3s ease;
-
-  }
-  
-  .social-link:hover {
-    
-    color: #0052cc;
-
-  }
+}
