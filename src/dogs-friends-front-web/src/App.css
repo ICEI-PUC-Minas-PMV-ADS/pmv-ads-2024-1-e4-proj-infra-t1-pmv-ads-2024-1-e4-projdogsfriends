@@ -79,6 +79,11 @@
 
 }
 
+.bg-white {
+  background-color: white;
+}
+
+
 .Logo {
   height: 10vmin;
   width: auto;
@@ -101,6 +106,10 @@
 .link-utils {
   color: #6c757d;
   font-size: 0.8rem;
+}
+
+nav-link{
+  color: #007bff;
 }
 
 /* depois ver a melhor forma de instalar o boostrap */

@@ -10,7 +10,7 @@ export const Home = () => {
   return (
     <>
       {/* <Header /> */}
-      <div className="home-container">
+      <div className="home-container bg-white">
         <div className="home-content">
           <p className="home-message">
             Bem-vindo ao PetFriend, nossa plataforma para passeios de pets!

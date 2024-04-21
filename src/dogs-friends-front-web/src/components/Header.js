@@ -35,14 +35,16 @@ const Header = () => {
         {isLoggedIn ? (
           <>
             {localizacao.pathname !== "/cliente/me" && (
-              <Link to="cliente/me" className="cliente-me-link">
+              <Link to="cliente/me" className="nav-link">
                 Meus dados
               </Link>
             )}
-            <Link to="Pesquisa">Pesquisar</Link>
+            <Link to="Pesquisa" className="nav-link">
+              Pesquisar
+            </Link>
             {localizacao.pathname === "/cliente/me" && (
               <>
-                <Link to="/" className="cliente-me-link">
+                <Link to="/" className="nav-link">
                   Home
                 </Link>
               </>
