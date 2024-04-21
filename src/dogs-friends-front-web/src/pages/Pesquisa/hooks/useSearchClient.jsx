@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react'
+import { useGeocode } from '../../../hooks/useGeocode'
 
-export const useCliente = () => {
+export const useSearchClient = ( url ) => {
   const [clients, setClients] = useState([])
-  const url = "http://localhost:3000/cliente/search?term=teste&estado=MG"
- 
+
   useEffect(() => {
     (async() => {
         const response = await fetch(url, 
         {   method: 'GET',
             headers: {
                 "Content-Type": "application/json",
-                Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NjliZTdmNi04NTMwLTQ5MmMtODYzNC1mMzNkY2I4NWVmOTQiLCJlbWFpbCI6Im1haWwyQGdtYWlsLmNvbSIsImlhdCI6MTcxMjg5NjYyOSwiZXhwIjoxNzEyODk3NTI5fQ.nODMzePYuFY8FYe9ZHQcSCEq4Bbq81fz0D7K67s_Lyw',
+                Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhYThmNmQ3YS1lOGIzLTRlYjYtOTQ3NS03MzFjNTFiM2UxZTgiLCJlbWFpbCI6Im1haWw2QGdtYWlsLmNvbSIsImlhdCI6MTcxMzMxNzgxMCwiZXhwIjoxNzEzMzE4NzEwfQ.WcjGgFtTBT8j8rgiGp6vBT0PBmeXQEo8vPY4D_yL9fs',
                 body:{}
             }
         });
@@ -19,9 +19,11 @@ export const useCliente = () => {
 
         setClients(res)
     })()   
-  }, [])
+  }, [url])
+
+   
 
   return {
-    clients
+    clients,
   }
 }

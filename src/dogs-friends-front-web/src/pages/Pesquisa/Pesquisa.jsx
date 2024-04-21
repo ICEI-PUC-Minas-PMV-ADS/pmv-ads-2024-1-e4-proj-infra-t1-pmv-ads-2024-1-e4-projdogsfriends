@@ -1,17 +1,44 @@
- 
+import { useState } from "react";
+import { Card } from "./components/Card";
 import Container from "./components/Container"
-import { useCliente } from "./hooks/useCliente"
+import { useSearchClient } from "./hooks/useSearchClient";
+ 
 
-export const Pesquisa = () => {
+const Pesquisa = () => {
+  const [termo, setTermo] = useState("Belo Horizonte");
+  const [uf, setUf] = useState("MG")
+
+  const [activeMarker, setActiveMarker] = useState(0)
+   
+  const url = `http://localhost:3000/cliente/search?term=${termo}&estado=${uf}`
+
+  const {clients } = useSearchClient(url); 
   
-  const {clients} = useCliente();
-
-  console.log(clients)
   return ( 
     
-    <Container>            
-                  
+    <Container 
+      termo={termo} 
+      setUf={setUf} 
+      setTermo={setTermo} 
+      clients={clients} 
+      activeMarker={activeMarker} 
+      setActiveMarker={setActiveMarker}>            
+       
+      
+       {
+          clients.map((client, index) => (
+            <Card 
+                  key={client.id} 
+                  client={client} 
+                  setActiveMarker={setActiveMarker} 
+                  index={index}/>
+          ))
+        }
+       
+      
     </Container>
   
   )
 }
+
+export default Pesquisa
