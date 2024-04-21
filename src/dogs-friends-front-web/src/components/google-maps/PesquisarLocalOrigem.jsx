@@ -4,7 +4,7 @@ import usePlacesAutocomplete, {
   } from "use-places-autocomplete";
   import useOnclickOutside from "react-cool-onclickoutside";
   
-  export default function PesquisarLocalOrigem(){
+  export default function PesquisarLocalOrigem(Props){
     const {
       ready,
       value,
@@ -14,9 +14,11 @@ import usePlacesAutocomplete, {
     } = usePlacesAutocomplete({
        
       requestOptions: {
-         
+         language: 	"pt-BR",
+         componentRestrictions: { country: "BR"},
+        // types: ["(cities)", "(regions)"]
       },
-      debounce: 300,
+      debounce: 400,
     });
     const ref = useOnclickOutside(() => {
       // When the user clicks outside of the component, we can dismiss
@@ -40,8 +42,9 @@ import usePlacesAutocomplete, {
         // Get latitude and longitude via utility functions
         getGeocode({ address: description }).then((results) => {
           const { lat, lng } = getLatLng(results[0]);
-          console.log(description)
-          console.log("📍 Coordinates: ", { lat, lng });
+          Props.setUf(results[0].address_components[2].short_name)
+          Props.setTermo(results[0].address_components[0].short_name)
+           
         });
       };
   
@@ -61,12 +64,14 @@ import usePlacesAutocomplete, {
   
     return (
       <div ref={ref}>
+        
         <input
           value={value}
           onChange={handleInput}
           disabled={!ready}
-          placeholder="Where are you going?"
-          className="bg-black my-2 h-10 font-bold rounded-xl text-white"
+          placeholder="Belo Horizonte..."
+          className="h-10 w-full font-medium text-gray-800 focus:outline-none rounded-lg pl-4
+             shadow-xl shadow-violet-100 outline-violet-900 ring-1 ring-inset ring-gray-200"
         />
         {/* We can use the "status" to decide whether we should display the dropdown or not */}
         {status === "OK" && <ul>{renderSuggestions()}</ul>}

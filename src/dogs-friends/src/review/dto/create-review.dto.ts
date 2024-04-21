@@ -1,6 +1,6 @@
 export class CreateReviewDto {
     nota: number;
-    descricao: string;
+    comentario: string;
     passeadorId: string;
     passeioId: string;
 }

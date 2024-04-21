@@ -141,7 +141,7 @@ model AgendaPasseador{
 model Review {
   id String @id @default(uuid()) @map("_id") @db.String
   nota Float
-  descricao String
+  comentario String
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt 

@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, ParseIntPipe, Put, Query, UseGuards } from "@nestjs/common";
+import { Body, Controller, Get, Param, ParseIntPipe, ParseUUIDPipe, Put, Query, UseGuards } from "@nestjs/common";
 import { ClienteService } from "./cliente.service";
 import { EditClienteDto } from "./dto";
 import { GetUser } from "../decorador";
@@ -27,6 +27,11 @@ export class ClienteController {
   @Get('me')
     getMe(@GetUser()cliente: Cliente){
         return cliente;
+    }
+
+    @Get('passeador/:id')
+    getPasseador(@Param('id', new ParseUUIDPipe()) id: string ){
+      return this.clienteService.findClientePasseador(id)
     }
  
     @Get(":term:estado:take:skip")

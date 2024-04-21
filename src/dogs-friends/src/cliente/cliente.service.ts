@@ -1,4 +1,4 @@
-import { BadRequestException, Injectable } from "@nestjs/common";
+import { BadRequestException, Injectable, InternalServerErrorException, NotFoundException } from "@nestjs/common";
 import { PrismaService } from "../prisma/service/prisma.service";
 import { EditClienteDto } from "./dto";
 
@@ -42,8 +42,6 @@ export class ClienteService {
                     }
                 }
 
-
-
             },
         });
 
@@ -63,6 +61,69 @@ export class ClienteService {
         });
       }
 
+
+    async findClientePasseador(id: string){
+        try{
+         const cliente = await this.prisma.cliente.findUnique({
+            where:{id},
+            select:{
+                nome: true,
+                sobrenome: true,
+                sobreMim: true,
+                fotoPerfil: true,
+                enderecos: {
+                    select:{
+                        uf:true,
+                        cidade:true,
+                        bairro: true,
+                        logradouro: true
+                    }
+                },
+               reviews:{
+                select:{
+                    nota: true,
+                    comentario: true,
+                    createdAt: true,
+                    passeio:{
+                        select:{
+                            pedido:{
+                                select:{
+                                    cliente:{
+                                        select:{
+                                            nome: true,
+                                            fotoPerfil: true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+               }
+            }
+         })
+
+         const {reviews, ...rest} = cliente
+
+         const allReviews = reviews.map((review) => (
+          {
+            nota:review.nota,
+            comentario: review.comentario,
+            createdAt: review.createdAt,
+            nomeCliente: review.passeio.pedido.cliente.nome,
+            fotoCliente: review.passeio.pedido.cliente.fotoPerfil
+          }
+           
+         ))
+
+         rest["reviews"] = allReviews
+
+         return rest
+
+        }catch(error){
+           this.handleExeptions(error)
+        }
+    }  
 
     async search(term:string, estado="MG", take=10, skip=0){    
    
@@ -118,6 +179,7 @@ export class ClienteService {
                 nome: true,
                 sobrenome: true,
                 sobreMim: true, 
+                fotoPerfil: true,
                 
                 enderecos:{
                     where:{
@@ -145,4 +207,9 @@ export class ClienteService {
          
         return clientes;
     }
+
+    private handleExeptions(error: any){
+        if(error.code === "P2025") throw new NotFoundException()
+        throw new InternalServerErrorException()
+      }
 }

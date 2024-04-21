@@ -1,31 +1,64 @@
 
 import { GoogleMap, useJsApiLoader, MarkerF, InfoWindowF } from "@react-google-maps/api";
 import React, { useState } from "react";
+import { Stars } from "../stars/stars";
 
 const containerStyle = {
-    width: '100%',
-    height: '80vh'
-  };
+  width: '100%',
+  height: '100%'
+};
+
+
+const options = {
+  mapTypeControl: false,
+  zoomControl: true,
+  fullscreenControl: false,
+  clickableIcons: false,
+  streetViewControl: false,
+}
+
+const pinIcon = {
+  url: "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/map-marker-512.png",
+  scaledSize: { width: 50, height: 50}
+}
+
+export default function Map({
+    clients,
+    geoClients, 
+    activeMarker, 
+    setActiveMarker, 
+  }) {
+
   
-  const center = {
-    lat: -19.92317983503711,
-    lng:-43.93707216224178
-  };
+  const [zoomMap, setZoomMap] = useState(13)
+  const [isInforWindowOpen, setIsInfoWindowOpen] = useState(true) 
  
-  const options = {
-    mapTypeControl: false,
-    zoomControl: false,
-    fullscreenControl: false,
-    clickableIcons: false,
-    streetViewControl: false
+  const infoMarker = (latlng, client) => {
+    if(!latlng || !client) return;
+    return(
+      <InfoWindowF
+                
+                onCloseClick={() => setIsInfoWindowOpen(false)}
+                position={latlng}>
+                <div>
+                <div className="flex flex-col">
+                    <img className="w-32 h-32 object-cover rounded"
+                    src={`${client.fotoPerfil}`} />
+                      <div className=" items-start">
+                        <h3 className="text-sm font-semibold text-zinc-700">{ client.nome } {client.sobrenome}</h3>
+                        <p>Apaixonado por cães</p>
+                      </div>
+                 
+                  </div>
+                    <Stars number={5}/>
+                </div>
+                </InfoWindowF>
+    )
   }
 
-  const pinIcon = {
-    url: "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/map-marker-512.png",
-    scaledSize: { width: 50, height: 50}
-  }
+  const center = geoClients[0] || {lat: -19.92602331744571, lng: -43.934125605629596}
+ 
   
-export default function Map() {
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API
@@ -33,11 +66,9 @@ export default function Map() {
 
   const [map, setMap] = React.useState(null)
 
-  const onLoad = React.useCallback(function callback(map) {
-    // This is just an example of getting and using the map instance!!! don't just blindly copy!
-    const bounds = new window.google.maps.LatLngBounds(center);
-    map.fitBounds(bounds);
-
+  const onLoad = React.useCallback(function callback(map) {    
+    // const bounds = new window.google.maps.LatLngBounds(center);     
+    // map.fitBounds(bounds);
     setMap(map)
   }, [])
 
@@ -46,66 +77,59 @@ export default function Map() {
   }, [])
 
 
-  function MarkerClicked(){
-    console.log("Click")
+  function MarkerClicked(markerId){
+  
+    setActiveMarker(markerId)
     setIsInfoWindowOpen(true)
   }
 
-  const [isInforWindowOpen, setIsInfoWindowOpen] = useState(false)
 
   return isLoaded ? (
       <GoogleMap
+        mapTypeId="402c2f66b411dfcd"
         mapContainerStyle={containerStyle}
         center={center}
-        zoom={12}
+        zoom={zoomMap}
         onLoad={onLoad}
         onUnmount={onUnmount}
         options={options}
-       onClick={() => setIsInfoWindowOpen(false)}
+        onClick={() => setIsInfoWindowOpen(false)}
+        className="fixed h-[350px] w-full top-0"
       >
         {
-          <MarkerF 
-            position={{lat:-19.92317983503711, lng: -43.93707216224178}} 
-            icon={pinIcon}
-            visible
-            cursor="pointer"
-            draggable
-            onClick={MarkerClicked}
-            // label={{
-            //   text: "Text label",
-            //   className: "text-3xl text-center text-black bg-yellow-500"
-            // }}
-          >
-            
+
+            geoClients.map((latlng, i) => (
+              <MarkerF 
+                key={i}
+                position={latlng} 
+                icon={pinIcon}
+                visible
+                cursor="pointer"
+                //draggable
+                onClick={() => MarkerClicked(i)}
+               
+            >
             {
-              isInforWindowOpen && 
+              isInforWindowOpen && activeMarker === i &&
               (
-                <InfoWindowF
-                onCloseClick={() => setIsInfoWindowOpen(false)}
-                position={{lat:-19.92317983503711, lng: -43.93707216224178}}>
-                <div>
-                <div className="flex items-center">
-                    <img className="w-14 h-14 rounded-full"
-                    src="https://plus.unsplash.com/premium_photo-1683910767532-3a25b821f7ae?q=80&w=1016&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
-                      <div>
-                        <h3>Some Title</h3>
-                        <p>Some Description</p>
-                      </div>
-                 
-                  </div>
-                  <p>Lorem impsum</p>
-                </div>
-                </InfoWindowF>
+                infoMarker(latlng, clients[i])
               )
 
             }
            
+              </MarkerF>
+            ))
 
-          </MarkerF>
+         
+            
+   
+
+          // </MarkerF>
 
           
         /* Child components, such as markers, info windows, etc. */ }
         <></>
       </GoogleMap>
   ) : <></>
+
 }
