@@ -36,3 +36,71 @@
     transform: rotate(360deg);
   }
 }
+
+/* bootstrap? */
+
+.container-fluid {
+  padding: 0;
+  margin: 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.p-3 {
+  padding: 1rem; /* ajuste este valor conforme necessário */
+}
+
+.text-white {
+  color: white;
+}
+
+.text-black {
+  color: black;
+}
+
+.text-muted {
+  color: #6c757d;
+}
+
+/* Componentes */
+
+.bg-f1f1f1 {
+  background-color: #f1f1f1;
+}
+
+.bg-333 {
+  background-color: #333;
+
+}
+
+.Logo {
+  height: 10vmin;
+  width: auto;
+  pointer-events: none;
+}
+
+.social-icon {
+  font-size: 1.25rem;
+
+  &:hover {
+    color: #007bff;
+  }
+
+  /* &.github {
+    color: #333;
+  } */
+
+}
+
+.link-utils {
+  color: #6c757d;
+  font-size: 0.8rem;
+}
+
+/* depois ver a melhor forma de instalar o boostrap */

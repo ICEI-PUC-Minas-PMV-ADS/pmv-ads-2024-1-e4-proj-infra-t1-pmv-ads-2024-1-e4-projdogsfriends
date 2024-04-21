@@ -1,5 +1,5 @@
 body {
-  min-width: 320px;
+  min-width: 420px;
 }
 
 .home-container {
@@ -7,10 +7,10 @@ body {
   color: #333;
   padding: 20px;
   font-family: Arial, sans-serif;
-/*
-max-width: 1920px;
-margin: 0 auto;
-*/
+  /*
+    max-width: 1920px;
+    margin: 0 auto;
+    */
 }
 
 .home-header {
@@ -47,9 +47,9 @@ margin: 0 auto;
   color: #0052cc;
 }
 
-.home-button-connect {
+.home-button-cadastrar {
   order: 3;
-  background-color: #1a73e8;
+  background-color: #007bff;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -57,40 +57,79 @@ margin: 0 auto;
   transition: background-color 0.3s ease;
 }
 
+.home-button-entrar {
+  order: 4;
+  background-color: transparent; /* Sem cor de fundo */
+  color: #007bff;
+  border: 2px solid #007bff;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.home-button-sair {
+  background-color: transparent; /* Sem cor de fundo */
+  color: #007bff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.cliente-me-link {
+    color: #007BFF; 
+    text-decoration: none; /* Remove o sublinhado */
+    padding: 10px 20px;
+    transition: color 0.3s ease;
+}
+
+.home-button-entrar:hover {
+  background-color: #007bff;
+  color: white;
+}
+
 .home-button-connect:hover {
   background-color: #0052cc;
 }
 
+.home-button-sair:hover {
+  color: #0052cc;
+}
+
+.cliente-me-link:hover {
+    color: #0056b3; /* Azul escuro */
+}
+
+.home-content {
+  position: relative;
+}
+
 .home-message {
+  /*color: #1a73e8;*/
+  /*font-size: 24px;*/
+  position: absolute;
+  top: 30%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
   color: #1a73e8;
-  font-size: 24px;
+  text-shadow: 2px 2px 4px #000000;
+  background-color: rgba(255, 255, 255, 0.7);
+
+  padding: 10px;
+
+  font-size: 44px;
 }
 
 .home-image {
   width: 100%;
   height: auto;
   margin-bottom: 20px;
+  /*filter: brightness(100%);*/
 }
 
-.home-footer {
-  display: flex;
-  justify-content: space-around;
-  padding: 20px 0;
-  margin-top: 20px;
-  border-top: 1px solid #ccc;
-}
-
-.social-link {
-  color: #1a73e8;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.social-link:hover {
-  color: #0052cc;
-}
-
-@media (max-width: 600px) {
+@media (max-width: 780px) {
   .home-nav {
     order: 3;
     flex-grow: 0;
@@ -105,11 +144,16 @@ margin: 0 auto;
     flex-direction: column;
   }
 
-  .home-image {
-    background: url("img/img1.jpeg") no-repeat center center/cover;
+  .home-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #1a73e8;
+    font-size: 24px;
   }
 
-  .home-footer {
-    flex-direction: column;
+  .home-image {
+    background: url("img/img1.jpeg") no-repeat center center/cover;
   }
 }
