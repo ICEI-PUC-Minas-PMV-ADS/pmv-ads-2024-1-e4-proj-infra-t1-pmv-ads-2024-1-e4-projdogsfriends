@@ -13,12 +13,12 @@ const Container = ({
     
   return (
     <div className="flex flex-col w-full h-full bg-white relative text-zinc-800">
-        <header className=" bg-white w-full">
+        {/* <header className=" bg-white w-full">
               <div className="flex py-6 border-b-gray-200 border-b-[1px] shadow-sm justify-center">
                 <span>logo</span>
               </div>
                 
-        </header>
+        </header> */}
 
         <main className="flex flex-row ">
       

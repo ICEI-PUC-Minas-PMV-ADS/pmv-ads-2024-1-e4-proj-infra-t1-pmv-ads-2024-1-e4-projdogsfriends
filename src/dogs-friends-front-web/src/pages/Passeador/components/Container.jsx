@@ -7,14 +7,14 @@ const Container = ({ client, activeMarker, setActiveMarker }) => {
   if (client === undefined || client === null) return <></>;
   return (
     <>
-    <header className=" bg-white w-full fixed z-10">
+    {/* <header className=" bg-white w-full fixed z-10">
             <div className="flex py-6 border-b-gray-200 border-b-[1px] shadow-sm justify-center">
               <span>logo</span>
             </div>
               
-      </header> 
+      </header>  */}
 
-    <div className="pt-20 flex md:flex-row flex-col sm:px-12 lg:px-24 2xl:px-72 w-full text-zinc-700">
+    <div className=" flex md:flex-row flex-col sm:px-12 lg:px-24 2xl:px-72 w-full text-zinc-700">
      
       <section className="lg:w-80 flex flex-col items-center gap-2 bg-zinc-100 h-[100vh] md:fixed">      
        <div className="p-5">
