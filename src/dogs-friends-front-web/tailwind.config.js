@@ -6,10 +6,13 @@ module.exports = {
     "./src/components/google-maps/**/*.{html,js,jsx}",
     "./src/components/footer/**/*.{html,js,jsx}",
     "./src/components/calendar/**/*.{html,js,jsx}",
+    "./src/pages/Auth/**/*.{html,js,jsx}",
   ],
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms')
+  ],
 }
 
