@@ -1,8 +1,61 @@
 import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux"
+import { createUser, login } from "../../store/slices/auth";
+
+
+
+
+
 export const Cadastro = () => {
+
+  const { user, isLogged, token } = useSelector(state => state.auth);
+  const dispatch = useDispatch()
+
+
+  const [formData, setFormData] = useState({
+    isPasseador: false,
+    email: '',
+    senha: '',
+    nome: '',
+    sobrenome: '',
+    cpf: '',
+    fotoPerfil: null,
+    sobreMim: '',
+    telefones: {
+      codigo: '',
+      numero: ''
+    },
+    endereco: {
+      cep: '',
+      logradouro: '',
+      numero: '',
+      bairro: '',
+      cidade: '',
+      uf: ''
+    }
+
+  });
+
+  const handleChange = (e) => {
+    const { name, value, type, checked, files } = e.target;
+    const val = type === 'checkbox' ? checked : type === 'file' ? URL.createObjectURL(files[0]) : value;
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: name === 'telefones' || name === 'endereco' ? { ...prevState[name], [e.target.id]: val } : val
+    }));
+  };
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Aqui você pode enviar os dados do novo usuário para onde for necessário
+    console.log('Novo usuário:', formData);
+  };
+
+
   return (
     <div className='container sm:mx-auto sm:w-full sm:max-w-sm'>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="space-y-12">
 
 
@@ -11,15 +64,17 @@ export const Cadastro = () => {
 
             <h2 className="text-base font-semibold leading-7 text-gray-900">Informação Pessoal</h2>
 
-            
+
             <div className="mt-6 space-y-6">
               <div className="relative flex gap-x-3">
                 <div className="flex h-6 items-center">
                   <input
-                    id="comments"
-                    name="comments"
+                    id="isPasseador"
+                    name="isPasseador"
                     type="checkbox"
                     className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-600"
+                    value={formData.isPasseador}
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="text-sm leading-6">
@@ -34,62 +89,72 @@ export const Cadastro = () => {
 
             <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
               <div className="sm:col-span-3">
-                <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-gray-900">
+                <label htmlFor="nome" className="block text-sm font-medium leading-6 text-gray-900">
                   Nome
                 </label>
                 <div className="mt-2">
                   <input
                     type="text"
-                    name="first-name"
-                    id="first-name"
+                    name="nome"
+                    id="nome"
                     autoComplete="given-name"
+                    required
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
+                    value={formData.nome}
+                    onChange={handleChange}
                   />
                 </div>
               </div>
 
               <div className="sm:col-span-3">
-                <label htmlFor="last-name" className="block text-sm font-medium leading-6 text-gray-900">
+                <label htmlFor="sobrenome" className="block text-sm font-medium leading-6 text-gray-900">
                   Sobrenome
                 </label>
                 <div className="mt-2">
                   <input
                     type="text"
-                    name="last-name"
-                    id="last-name"
+                    name="sobrenome"
+                    id="sobrenome"
                     autoComplete="family-name"
+                    required
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
+                    value={formData.sobrenome}
+                    onChange={handleChange}
                   />
                 </div>
               </div>
 
               <div className="sm:col-span-3">
-                <label htmlFor="last-name" className="block text-sm font-medium leading-6 text-gray-900">
+                <label htmlFor="cpf" className="block text-sm font-medium leading-6 text-gray-900">
                   Cpf
                 </label>
                 <div className="mt-2">
                   <input
                     type="text"
-                    name="last-name"
-                    id="last-name"
-                    autoComplete="family-name"
+                    name="cpf"
+                    id="cpf"
+                    autoComplete="cpf"
+                    required
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
+                    value={formData.cpf}
+                    onChange={handleChange}
                   />
                 </div>
               </div>
 
               <div className="sm:col-span-3">
-                <label htmlFor="last-name" className="block text-sm font-medium leading-6 text-gray-900">
+                <label htmlFor="senha" className="block text-sm font-medium leading-6 text-gray-900">
                   Senha
                 </label>
                 <div className="mt-2">
                   <input
-                    id="password"
-                    name="password"
+                    id="senha"
+                    name="senha"
                     type="password"
-                    autoComplete="current-password"
                     required
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
+                    value={formData.senha}
+                    onChange={handleChange}
                   />
                 </div>
               </div>
@@ -103,9 +168,43 @@ export const Cadastro = () => {
                   <input
                     id="email"
                     name="email"
-                    type="email"
-                    autoComplete="email"
+                    type="text"
+                    required
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
+                    value={formData.email}
+                    onChange={handleChange}
+                  />
+                </div>
+              </div>
+
+              <div className="sm:col-span-1">
+                <label htmlFor="codigo" className="block text-sm font-medium leading-6 text-gray-900">
+                  DDD
+                </label>
+                <div className="mt-2">
+                  <input
+                    id="codigo"
+                    name="telefones"
+                    type="text"
+                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
+                    value={formData.telefones.codigo}
+                    onChange={handleChange}
+                  />
+                </div>
+              </div>
+
+              <div className="sm:col-span-3">
+                <label htmlFor="numero" className="block text-sm font-medium leading-6 text-gray-900">
+                  Numero de telefone
+                </label>
+                <div className="mt-2">
+                  <input
+                    id="numero"
+                    name="telefones"
+                    type="text"
+                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
+                    value={formData.telefones.numero}
+                    onChange={handleChange}
                   />
                 </div>
               </div>
@@ -117,16 +216,17 @@ export const Cadastro = () => {
 
 
               <div className="col-span-full">
-                <label htmlFor="street-address" className="block text-sm font-medium leading-6 text-gray-900">
+                <label htmlFor="logradouro" className="block text-sm font-medium leading-6 text-gray-900">
                   Endereço
                 </label>
                 <div className="mt-2">
                   <input
                     type="text"
-                    name="street-address"
-                    id="street-address"
-                    autoComplete="street-address"
+                    name="endereco"
+                    id="logradouro"
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
+                    value={formData.endereco.logradouro}
+                    onChange={handleChange}
                   />
                 </div>
               </div>
@@ -137,91 +237,83 @@ export const Cadastro = () => {
 
 
 
-              <div className="sm:col-span-2 sm:col-start-1">
-                <label htmlFor="city" className="block text-sm font-medium leading-6 text-gray-900">
+              <div className="sm:col-span-3 sm:col-start-1">
+                <label htmlFor="numero" className="block text-sm font-medium leading-6 text-gray-900">
                   Número
                 </label>
                 <div className="mt-2">
                   <input
                     type="text"
-                    name="city"
-                    id="city"
+                    name="endereco"
+                    id="numero"
                     autoComplete="address-level2"
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
+                    value={formData.endereco.numero}
+                    onChange={handleChange}
                   />
                 </div>
               </div>
 
-              <div className="sm:col-span-2">
-                <label htmlFor="region" className="block text-sm font-medium leading-6 text-gray-900">
-                  Complemento
-                </label>
-                <div className="mt-2">
-                  <input
-                    type="text"
-                    name="region"
-                    id="region"
-                    autoComplete="address-level1"
-                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
-                  />
-                </div>
-              </div>
 
-              <div className="sm:col-span-2">
-                <label htmlFor="postal-code" className="block text-sm font-medium leading-6 text-gray-900">
+
+              <div className="sm:col-span-3">
+                <label htmlFor="bairro" className="block text-sm font-medium leading-6 text-gray-900">
                   Bairro
                 </label>
                 <div className="mt-2">
                   <input
                     type="text"
-                    name="postal-code"
-                    id="postal-code"
-                    autoComplete="postal-code"
+                    name="endereco"
+                    id="bairro"
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
+                    value={formData.endereco.bairro}
+                    onChange={handleChange}
                   />
                 </div>
               </div>
 
               <div className="sm:col-span-2 sm:col-start-1">
-                <label htmlFor="city" className="block text-sm font-medium leading-6 text-gray-900">
+                <label htmlFor="cidade" className="block text-sm font-medium leading-6 text-gray-900">
                   Cidade
                 </label>
                 <div className="mt-2">
                   <input
                     type="text"
-                    name="city"
-                    id="city"
-                    autoComplete="address-level2"
+                    name="endereco"
+                    id="cidade"
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
+                    value={formData.endereco.cidade}
+                    onChange={handleChange}
                   />
                 </div>
               </div>
 
-              <div className="sm:col-span-2">
-                <label htmlFor="region" className="block text-sm font-medium leading-6 text-gray-900">
-                  Estado
+              <div className="sm:col-span-1">
+                <label htmlFor="uf" className="block text-sm font-medium leading-6 text-gray-900">
+                  U.F.
                 </label>
                 <div className="mt-2">
                   <input
                     type="text"
-                    name="region"
-                    id="region"
+                    name="endereco"
+                    id="uf"
                     autoComplete="address-level1"
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
+                    value={formData.endereco.uf}
+                    onChange={handleChange}
                   />
                 </div>
               </div>
 
               <div className="sm:col-span-2">
-                <label htmlFor="postal-code" className="block text-sm font-medium leading-6 text-gray-900">
+                <label htmlFor="cep" className="block text-sm font-medium leading-6 text-gray-900">
                   Cep
                 </label>
                 <div className="mt-2">
                   <input
                     type="text"
-                    name="postal-code"
-                    id="postal-code"
-                    autoComplete="postal-code"
+                    name="endereco"
+                    id="cep"
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
                   />
                 </div>
@@ -235,41 +327,53 @@ export const Cadastro = () => {
         </div>
         <div className="border-b border-gray-900/10 pb-12">
           <h2 className="text-base font-semibold leading-7 text-gray-900">Perfil</h2>
-          <p className="mt-1 text-sm leading-6 text-gray-600">
+          <legend className="mt-1 text-sm leading-6 text-gray-600">
             Essa informação será exibida publicamente, então seja cuidadoso com o que você compartilha.
-          </p>
+          </legend>
 
           <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
 
 
             <div className="col-span-full">
-              <label htmlFor="about" className="block text-sm font-medium leading-6 text-gray-900">
+              <label htmlFor="sobreMim" className="block text-sm font-medium leading-6 text-gray-900">
                 Sobre mim
               </label>
               <div className="mt-2">
                 <textarea
-                  id="about"
-                  name="about"
+                  id="sobreMim"
+                  name="sobreMim"
                   rows={3}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
-                  defaultValue={''}
+                  value={formData.sobreMim}
+                  onChange={handleChange}
                 />
               </div>
               <p className="mt-3 text-sm leading-6 text-gray-600">Escreva algumas linhas sobre você</p>
             </div>
 
             <div className="col-span-full">
-              <label htmlFor="photo" className="block text-sm font-medium leading-6 text-gray-900">
+              <label htmlFor="fotoPerfil" className="block text-sm font-medium leading-6 text-gray-900">
                 Foto
               </label>
               <div className="mt-2 flex items-center gap-x-3">
-                <UserCircleIcon className="h-12 w-12 text-gray-300" aria-hidden="true" />
-                <button
-                  type="button"
-                  className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-                >
-                  Trocar
-                </button>
+                {formData.fotoPerfil ? (
+                  <img src={formData.fotoPerfil} alt='Foto de perfil' className='h-12 w-12 rounded-full' />
+                ) : (
+                <UserCircleIcon className="h-12 w-12 text-gray-300" aria-hidden="true" />)}
+                
+                <input
+            id="fotoPerfil"
+            name="fotoPerfil"
+            type="file"
+            className="hidden" 
+            onChange={handleChange}
+          />
+          <label
+            htmlFor="fotoPerfil"
+            className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 cursor-pointer"
+          >
+            Trocar
+          </label>
               </div>
             </div>
 
