@@ -63,7 +63,7 @@ export const Login = () => {
 
       <p className="mt-10 text-center text-sm text-gray-500">
         Não tem cadastro?{' '}
-        <a href="#" className="font-semibold leading-6 text-blue-700 hover:text-indigo-500">
+        <a href="./Cadastro" className="font-semibold leading-6 text-blue-700 hover:text-indigo-500">
           Cadastre-se agora
         </a>
       </p>
