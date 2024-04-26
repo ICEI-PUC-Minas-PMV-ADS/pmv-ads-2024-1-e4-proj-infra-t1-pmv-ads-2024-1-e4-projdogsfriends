@@ -2,15 +2,17 @@ import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { createUser, login } from "../../store/slices/auth";
-
+import toast from "react-hot-toast";
+import { useNavigate } from 'react-router-dom';
 
 
 
 
 export const Cadastro = () => {
 
-  const { user, isLogged, token } = useSelector(state => state.auth);
+
   const dispatch = useDispatch()
+  const navigate = useNavigate();
 
 
   const [formData, setFormData] = useState({
@@ -26,34 +28,53 @@ export const Cadastro = () => {
       codigo: '',
       numero: ''
     },
-    endereco: {
+
+    enderecos: {
       cep: '',
       logradouro: '',
       numero: '',
       bairro: '',
       cidade: '',
       uf: ''
+
     }
+
+
+
 
   });
 
+  const stringifyFormData = JSON.stringify(formData);
+  
+
+
   const handleChange = (e) => {
-    const { name, value, type, checked, files } = e.target;
+    const { name, value, type, checked, files, id } = e.target;
     const val = type === 'checkbox' ? checked : type === 'file' ? URL.createObjectURL(files[0]) : value;
+
+  
     setFormData(prevState => ({
       ...prevState,
-      [name]: name === 'telefones' || name === 'endereco' ? { ...prevState[name], [e.target.id]: val } : val
+      [name]: name === 'telefones' || name === 'enderecos' ? { ...prevState[name], [id]: val } : val
     }));
+  
+
   };
   
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Aqui você pode enviar os dados do novo usuário para onde for necessário
-    console.log('Novo usuário:', formData);
+   
+console.log(stringifyFormData.valueOf())
+    dispatch(createUser(stringifyFormData));
+    toast.success('Usuário cadastrado com sucesso!')
+    return navigate('/auth/login')
+   
   };
 
 
   return (
+
     <div className='container sm:mx-auto sm:w-full sm:max-w-sm'>
       <form onSubmit={handleSubmit}>
         <div className="space-y-12">
@@ -168,7 +189,7 @@ export const Cadastro = () => {
                   <input
                     id="email"
                     name="email"
-                    type="text"
+                    type="email"
                     required
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
                     value={formData.email}
@@ -222,10 +243,10 @@ export const Cadastro = () => {
                 <div className="mt-2">
                   <input
                     type="text"
-                    name="endereco"
+                    name="enderecos"
                     id="logradouro"
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
-                    value={formData.endereco.logradouro}
+                    value={formData.enderecos.logradouro}
                     onChange={handleChange}
                   />
                 </div>
@@ -244,11 +265,11 @@ export const Cadastro = () => {
                 <div className="mt-2">
                   <input
                     type="text"
-                    name="endereco"
+                    name="enderecos"
                     id="numero"
                     autoComplete="address-level2"
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
-                    value={formData.endereco.numero}
+                    value={formData.enderecos.numero}
                     onChange={handleChange}
                   />
                 </div>
@@ -263,10 +284,10 @@ export const Cadastro = () => {
                 <div className="mt-2">
                   <input
                     type="text"
-                    name="endereco"
+                    name="enderecos"
                     id="bairro"
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
-                    value={formData.endereco.bairro}
+                    value={formData.enderecos.bairro}
                     onChange={handleChange}
                   />
                 </div>
@@ -279,10 +300,10 @@ export const Cadastro = () => {
                 <div className="mt-2">
                   <input
                     type="text"
-                    name="endereco"
+                    name="enderecos"
                     id="cidade"
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
-                    value={formData.endereco.cidade}
+                    value={formData.enderecos.cidade}
                     onChange={handleChange}
                   />
                 </div>
@@ -295,11 +316,11 @@ export const Cadastro = () => {
                 <div className="mt-2">
                   <input
                     type="text"
-                    name="endereco"
+                    name="enderecos"
                     id="uf"
                     autoComplete="address-level1"
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
-                    value={formData.endereco.uf}
+                    value={formData.enderecos.uf}
                     onChange={handleChange}
                   />
                 </div>
@@ -312,9 +333,11 @@ export const Cadastro = () => {
                 <div className="mt-2">
                   <input
                     type="text"
-                    name="endereco"
+                    name="enderecos"
                     id="cep"
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
+                    value={formData.enderecos.cep}
+                    onChange={handleChange}
                   />
                 </div>
               </div>
@@ -359,21 +382,21 @@ export const Cadastro = () => {
                 {formData.fotoPerfil ? (
                   <img src={formData.fotoPerfil} alt='Foto de perfil' className='h-12 w-12 rounded-full' />
                 ) : (
-                <UserCircleIcon className="h-12 w-12 text-gray-300" aria-hidden="true" />)}
-                
+                  <UserCircleIcon className="h-12 w-12 text-gray-300" aria-hidden="true" />)}
+
                 <input
-            id="fotoPerfil"
-            name="fotoPerfil"
-            type="file"
-            className="hidden" 
-            onChange={handleChange}
-          />
-          <label
-            htmlFor="fotoPerfil"
-            className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 cursor-pointer"
-          >
-            Trocar
-          </label>
+                  id="fotoPerfil"
+                  name="fotoPerfil"
+                  type="file"
+                  className="hidden"
+                  onChange={handleChange}
+                />
+                <label
+                  htmlFor="fotoPerfil"
+                  className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 cursor-pointer"
+                >
+                  Trocar
+                </label>
               </div>
             </div>
 
@@ -408,10 +431,13 @@ export const Cadastro = () => {
           <button
             type="submit"
             className="rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+            onClick={handleSubmit}
           >
             Salvar
           </button>
+          
         </div>
+      
       </form>
     </div>
   )

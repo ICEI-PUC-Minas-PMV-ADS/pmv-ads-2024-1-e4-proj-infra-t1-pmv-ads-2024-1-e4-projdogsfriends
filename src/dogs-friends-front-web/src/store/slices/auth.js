@@ -1,6 +1,12 @@
 import { api } from "../../api/axios"
 import { setToken, setUser, startLoading } from "./authSlice"
 
+const config = {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  };
+
 
 export const login = (loginUser) => {
     return async (dispatch) => {
@@ -42,12 +48,16 @@ export const tryLoginWithToken = () => {
 }
 
 export const createUser = (newUser) => {
+
+
     return async(dispatch) => {
        try {
-       const {status} = await api.post('auth/create', newUser)
+       const {status} = await api.post('auth/create', newUser, config)
         if(status !== 201) return;
 
-        dispatch(login({email: newUser.email, senha: newUser.senha}))    
+        
+
+       // dispatch(login({email: newUser.email, senha: newUser.senha}))    
             
        } catch (error) {
         console.log(error)
