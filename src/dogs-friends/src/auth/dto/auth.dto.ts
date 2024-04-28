@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { EnderecoDto } from "./endereco.dto";
 import { Endereco, Telefone } from "@prisma/client";
 import { IsEmail, IsNotEmpty, IsOptional, IsString } from "class-validator";
@@ -30,15 +31,17 @@ export class AuthDto {
     @IsOptional()
     isPasseador?: boolean
 
+    @IsString()
+    sobreMim: string
+
   
    
 
    
-    // @IsNotEmpty()
-    // enderecos?: EnderecoDto 
+    enderecos?: EnderecoDto 
 
-    // @IsNotEmpty()
-    // telefones?: TelefoneDto
+    
+    telefones?: TelefoneDto
 
 }
 
