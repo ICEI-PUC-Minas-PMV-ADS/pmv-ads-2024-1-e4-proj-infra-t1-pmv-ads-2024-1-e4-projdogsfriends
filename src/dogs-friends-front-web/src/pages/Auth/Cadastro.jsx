@@ -62,13 +62,28 @@ export const Cadastro = () => {
   };
   
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
    
-console.log(stringifyFormData.valueOf())
-    dispatch(createUser(stringifyFormData));
-    toast.success('Usuário cadastrado com sucesso!')
-    return navigate('/auth/login')
+    try{
+     const response = await dispatch(createUser(stringifyFormData));
+     if(response.status === 201 ){
+      toast.success('Usuário cadastrado com sucesso!')
+      return navigate('/auth/login')
+
+     }else{
+      
+      toast.error('Erro ao cadastrar usuário')
+     }
+
+
+      
+
+    }catch(err){
+      toast.error('Erro ao cadastrar usuário')
+    }
+
+   
    
   };
 
@@ -118,8 +133,7 @@ console.log(stringifyFormData.valueOf())
                     type="text"
                     name="nome"
                     id="nome"
-                    autoComplete="given-name"
-                    required
+                    required = {true}
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
                     value={formData.nome}
                     onChange={handleChange}
