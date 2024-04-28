@@ -45,6 +45,7 @@ export const Cadastro = () => {
   });
 
   const stringifyFormData = JSON.stringify(formData);
+
   
 
 
@@ -64,6 +65,31 @@ export const Cadastro = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!formData.senha || formData.senha.length < 6) {
+      toast.error('A senha deve ter pelo menos 6 caracteres');
+      return;
+    }
+
+    if (!formData.cpf) {
+      toast.error('Por favor, insira seu cpf');
+      return;
+    }
+
+    if (!formData.sobrenome) {
+      toast.error('Por favor, insira seu sobrenome');
+      return;
+    }
+
+    if (!formData.nome) {
+      toast.error('Por favor, insira seu nome');
+      return;
+    }
+
+    if (!formData.email || !/\S+@\S+\.\S+/.test(formData.email)) {
+      toast.error('Insira um e-mail válido');
+      return;
+    }
    
     try{
      const response = await dispatch(createUser(stringifyFormData));
@@ -126,7 +152,7 @@ export const Cadastro = () => {
             <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
               <div className="sm:col-span-3">
                 <label htmlFor="nome" className="block text-sm font-medium leading-6 text-gray-900">
-                  Nome
+                  Nome*
                 </label>
                 <div className="mt-2">
                   <input
@@ -143,7 +169,7 @@ export const Cadastro = () => {
 
               <div className="sm:col-span-3">
                 <label htmlFor="sobrenome" className="block text-sm font-medium leading-6 text-gray-900">
-                  Sobrenome
+                  Sobrenome*
                 </label>
                 <div className="mt-2">
                   <input
@@ -161,7 +187,7 @@ export const Cadastro = () => {
 
               <div className="sm:col-span-3">
                 <label htmlFor="cpf" className="block text-sm font-medium leading-6 text-gray-900">
-                  Cpf
+                  Cpf*
                 </label>
                 <div className="mt-2">
                   <input
@@ -179,7 +205,7 @@ export const Cadastro = () => {
 
               <div className="sm:col-span-3">
                 <label htmlFor="senha" className="block text-sm font-medium leading-6 text-gray-900">
-                  Senha
+                  Senha*
                 </label>
                 <div className="mt-2">
                   <input
@@ -197,7 +223,7 @@ export const Cadastro = () => {
 
               <div className="col-span-full">
                 <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
-                  Email
+                  Email*
                 </label>
                 <div className="mt-2">
                   <input
@@ -414,7 +440,7 @@ export const Cadastro = () => {
               </div>
             </div>
 
-            <div className="col-span-full">
+            {/* <div className="col-span-full">
               <label htmlFor="cover-photo" className="block text-sm font-medium leading-6 text-gray-900">
                 Cover photo
               </label>
@@ -434,7 +460,7 @@ export const Cadastro = () => {
                   <p className="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
 
