@@ -1,9 +1,11 @@
+/* eslint-disable prettier/prettier */
 import { Body, Controller, Get, Param, ParseIntPipe, ParseUUIDPipe, Put, Query, UseGuards } from "@nestjs/common";
 import { ClienteService } from "./cliente.service";
 import { EditClienteDto } from "./dto";
 import { GetUser } from "../decorador";
 import { Cliente } from "@prisma/client";
 import { JwtGuard } from "../auth/guard";
+
 
 @UseGuards(JwtGuard)
 @Controller('cliente')
