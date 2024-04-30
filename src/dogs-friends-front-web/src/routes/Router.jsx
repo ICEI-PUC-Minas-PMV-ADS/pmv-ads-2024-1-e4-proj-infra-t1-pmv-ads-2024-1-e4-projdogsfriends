@@ -28,6 +28,7 @@ export const Router = () => {
         {/*Rotas privadas*/}
         
         <Route path="user/*" element={isLogged ? <PrivateRoutes /> : <Login />} />
+        
     </Routes>
   )
 }
