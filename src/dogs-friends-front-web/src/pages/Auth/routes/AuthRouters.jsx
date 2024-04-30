@@ -7,7 +7,7 @@ export const AuthRouters = () => {
     <Routes>
         <Route path="login" element={<Login />} />
         <Route path="cadastro" element={<Cadastro />} />
-        <Route path="recuperar" element={<RecuperarSenha />} />
+        <Route path="RecuperarSenha" element={<RecuperarSenha />} />
     </Routes>
   )
 }

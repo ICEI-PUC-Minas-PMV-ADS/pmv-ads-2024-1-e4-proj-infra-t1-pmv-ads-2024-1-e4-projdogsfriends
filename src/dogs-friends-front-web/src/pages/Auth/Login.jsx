@@ -36,14 +36,14 @@ export const Login = () => {
         toast.success(`Bem-vindo, ${response.nome}!`)
        
         setTimeout(() => {
-          navigate("/");
+          navigate("/user/pesquisa");
       }, 2000);
       } else {
         toast.error("Erro ao fazer login. Verifique suas credenciais.");
       }
     } catch (error) {
       console.error("Login error:", error);
-      toast.error("Erro ao fazer login. Por favor, tente novamente mais tarde.");
+      toast.error("Erro ao fazer login. Por favor, verifique seu email ou senha.");
     }
   };
 
