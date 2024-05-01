@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import {
   BadRequestException,
   Injectable,
@@ -48,15 +49,67 @@ export class ClienteService {
   }
 
   async findAll() {
-    return this.prisma.cliente.findMany({
-      select: {
-        id: true,
-        email: true,
-        nome: true,
-        sobrenome: true,
-      },
-    });
+    return this.prisma.cliente.findMany(
+      {
+        select: {
+          id: true,
+          nome: true,
+          sobrenome: true,
+          sobreMim: true,
+          fotoPerfil: true,
+          enderecos: {
+            select: {
+              uf: true,
+              cidade: true,
+              bairro: true,
+              logradouro: true,
+              numero: true,
+              cep: true,
+            },
+            
+          },
+          telefones:{
+            select:{
+              codigo:true,
+              numero:true
+            }
+          }
+        },
+      }
+
+    );
   }
+
+  async findMe(email: string){
+    return await this.prisma.cliente.findUnique({
+      where:{email},
+      select:{
+        id:true,
+        nome:true,
+        sobrenome:true,
+        sobreMim:true,
+        fotoPerfil:true,
+        enderecos:{
+          select:{
+            uf:true,
+            cidade:true,
+            bairro:true,
+            logradouro:true,
+            numero:true,
+            cep:true
+          }
+        },
+        telefones:{
+          select:{
+            codigo:true,
+            numero:true
+          }
+        }
+      }
+
+    })
+  }
+
 
   async findClientePasseador(id: string) {
     try {

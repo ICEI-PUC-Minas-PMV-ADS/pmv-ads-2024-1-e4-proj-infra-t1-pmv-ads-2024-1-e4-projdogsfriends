@@ -3,8 +3,11 @@ import { Body, Controller, Get, Param, ParseIntPipe, ParseUUIDPipe, Put, Query, 
 import { ClienteService } from "./cliente.service";
 import { EditClienteDto } from "./dto";
 import { GetUser } from "../decorador";
-import { Cliente } from "@prisma/client";
+import { Cliente, Endereco } from "@prisma/client";
 import { JwtGuard } from "../auth/guard";
+import { TelefoneDto } from "src/auth/dto/telefone.dto";
+import { EnderecoDto } from "src/auth/dto";
+import { Email } from "src/email/entities/email.entity";
 
 
 @UseGuards(JwtGuard)
@@ -27,9 +30,12 @@ export class ClienteController {
   }
 
   @Get('me')
-    getMe(@GetUser()cliente: Cliente){
-        return cliente;
-    }
+  getMe(@GetUser()cliente){
+    return this.clienteService.findMe(cliente.email);
+
+  }
+
+  
 
     @Get('passeador/:id')
     getPasseador(@Param('id', new ParseUUIDPipe()) id: string ){

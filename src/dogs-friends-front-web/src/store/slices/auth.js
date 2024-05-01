@@ -1,5 +1,6 @@
 import { api } from "../../api/axios"
 import { setToken, setUser, startLoading } from "./authSlice"
+import toast from "react-hot-toast";
 
 const config = {
     headers: {
@@ -52,8 +53,8 @@ export const createUser = (newUser) => {
 
     return async(dispatch) => {
        try {
-        const imagePath = await saveImage(newUser.fotoPerfil);
-        newUser.fotoPerfil = imagePath;
+        // const imagePath = await saveImage(newUser.fotoPerfil);
+        // newUser.fotoPerfil = imagePath;
 
        const {status} = await api.post('auth/create', newUser, config)
         if(status !== 201) return;
@@ -63,7 +64,9 @@ export const createUser = (newUser) => {
        // dispatch(login({email: newUser.email, senha: newUser.senha}))    
             
        } catch (error) {
-        console.log(error)
+        toast.error(error.response.data.message)
+        console.log(error.response.data.message)
+
        }
     }
 }

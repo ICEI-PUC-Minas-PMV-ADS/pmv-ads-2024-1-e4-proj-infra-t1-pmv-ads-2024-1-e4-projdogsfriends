@@ -46,22 +46,22 @@ export const Cadastro = () => {
 
   const stringifyFormData = JSON.stringify(formData);
 
-  
+
 
 
   const handleChange = (e) => {
     const { name, value, type, checked, files, id } = e.target;
     const val = type === 'checkbox' ? checked : type === 'file' ? URL.createObjectURL(files[0]) : value;
 
-  
+
     setFormData(prevState => ({
       ...prevState,
       [name]: name === 'telefones' || name === 'enderecos' ? { ...prevState[name], [id]: val } : val
     }));
-  
+
 
   };
-  
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -90,28 +90,42 @@ export const Cadastro = () => {
       toast.error('Insira um e-mail válido');
       return;
     }
-   
-    try{
-     const response = await dispatch(createUser(stringifyFormData));
-     if(response.status === 201 ){
-      toast.success('Usuário cadastrado com sucesso!')
-      return navigate('/auth/login')
 
-     }else{
+    try {
+      const res = await dispatch(createUser(stringifyFormData));
+
+       if(res){
+
+
+        toast.success('Usuário cadastrado com sucesso!')
+        
+        return navigate('/auth/login')
+
+     
+
+
+       }
+
+         
+    
+
+    } catch (error) {
       
-      toast.error('Erro ao cadastrar usuário')
-     }
+      if (error.response && error.response.data && error.response.data.message) {
+        // If the error has a message, you can access it here
+        const errorMessage = error.response.data.message;
+        console.log(errorMessage);
+        toast.error(errorMessage);
+      } else {
+        // If the error doesn't have a message, log the error object
+        console.error(error);
+        toast.error("Erro de cadastro");
+      }
 
 
-      
 
-    }catch(err){
-      toast.error('Erro ao cadastrar usuário')
-    }
-
-   
-   
-  };
+    };
+  }
 
 
   return (
@@ -159,7 +173,7 @@ export const Cadastro = () => {
                     type="text"
                     name="nome"
                     id="nome"
-                    required = {true}
+                    required={true}
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
                     value={formData.nome}
                     onChange={handleChange}
@@ -475,10 +489,11 @@ export const Cadastro = () => {
           >
             Salvar
           </button>
-          
+
         </div>
-      
+
       </form>
     </div>
   )
 }
+
