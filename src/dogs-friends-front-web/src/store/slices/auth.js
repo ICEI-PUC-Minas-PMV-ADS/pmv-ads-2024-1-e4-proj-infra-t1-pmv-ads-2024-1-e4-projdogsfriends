@@ -79,7 +79,7 @@ export const getUser = async(token) => {
             },
             data:{ }
         })    
-            
+          
       return data
     } catch (error) {
         console.log(error)

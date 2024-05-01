@@ -62,7 +62,7 @@ export const Perfil = () => {
 
                 <div class="bg-white overflow-hidden shadow rounded-lg border">
                     <div class="px-4 py-5 sm:px-6">
-                        <h3 class="text-lg leading-6 font-medium text-gray-900">
+                        <h3 className="text-lg leading-6 font-medium text-gray-900">
                             Perfil
                         </h3>
                         <p class="mt-1 max-w-2xl text-sm text-gray-500">
@@ -73,18 +73,18 @@ export const Perfil = () => {
                         <dl class="sm:divide-y sm:divide-gray-200">
                             <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                 <dt class="text-sm font-medium text-gray-500">
-                                   Nome 
+                                    Nome
                                 </dt>
                                 <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                                     {`${user.nome} ${user.sobrenome}`}
                                     <p className="mt-2 text-gray-600">{user.isPasseador ? "Passeador" : "Cliente"}</p>
                                 </dd>
-                                                             
+
 
                             </div>
                             <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                 <dt class="text-sm font-medium text-gray-500">
-                                    Email 
+                                    Email
                                 </dt>
                                 <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                                     {user.email}
@@ -92,10 +92,14 @@ export const Perfil = () => {
                             </div>
                             <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                 <dt class="text-sm font-medium text-gray-500">
-                                    Phone number
+                                    Telefone
                                 </dt>
                                 <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                {`${getValueOrDefault(user, 'telefones.codigo')} ${getValueOrDefault(user, 'telefones.numero')}`}
+                                    {user.telefones.map((telefone, index) => (
+                                        <div key={index}>
+                                            {getValueOrDefault(telefone, 'codigo')} {getValueOrDefault(telefone, 'numero')}
+                                        </div>
+                                    ))}
                                 </dd>
                             </div>
                             <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -103,15 +107,34 @@ export const Perfil = () => {
                                     Endereço
                                 </dt>
                                 <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                    {`${getValueOrDefault(user, 'enderecos.logradouro')} ${getValueOrDefault(user, 'enderecos.numero')}`}
+                                    {user.enderecos.map((endereco, index) => (
+                                        <div key={index}>
+                                            {getValueOrDefault(endereco, 'logradouro')} - {getValueOrDefault(endereco, 'numero')} - {getValueOrDefault( endereco, 'bairro')}
+                                        </div>
+
+                                        
+                                    ))}
 
                                 </dd>
+
+                                <dt class="text-sm font-medium text-gray-500">
+                                   
+                                </dt>
+
 
                                 <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                {`${getValueOrDefault(user, 'enderecos.bairro')} ${getValueOrDefault(user, 'enderecos.cidade')} ${getValueOrDefault(user, 'enderecos.uf')} ${getValueOrDefault(user, 'enderecos.cep')}`}
+                                    {user.enderecos.map((endereco,index) => (
+                                        <div key={index}>
+                                          {` 
+                                          ${getValueOrDefault(endereco, 'cidade')} - 
+                                          ${getValueOrDefault(endereco, 'uf')} - 
+                                          ${getValueOrDefault(endereco, 'cep')}`}
+                                        </div>
+                                    ))}
+                                  
 
                                 </dd>
-                                
+
 
 
                             </div>

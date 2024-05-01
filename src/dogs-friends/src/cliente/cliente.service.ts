@@ -89,6 +89,7 @@ export class ClienteService {
         sobrenome:true,
         sobreMim:true,
         fotoPerfil:true,
+        email:true,
         enderecos:{
           select:{
             uf:true,
