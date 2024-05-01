@@ -68,7 +68,7 @@ export const createUser = (newUser) => {
     }
 }
 
-const getUser = async(token) => {
+export const getUser = async(token) => {
     try {
         const {data} = await api.get('cliente/me', {
             headers:{
