@@ -49,7 +49,7 @@ export const Perfil = () => {
 
 
 
-
+let image = 'https://i.pinimg.com/736x/a9/03/82/a903825e101323babefb26783e1c19af.jpg'
 
 
     return (
@@ -59,25 +59,44 @@ export const Perfil = () => {
             {loading ? (
                 <p>Carregando...</p>
             ) : user ? (
+                
 
                 <div class="bg-white overflow-hidden shadow rounded-lg border">
+
+                    <img src={image} alt='fotoPerfil' className='mx-auto mt-1 w-36 h-36 rounded-full' />
+
                     <div class="px-4 py-5 sm:px-6">
-                        <h3 className="text-lg leading-6 font-medium text-gray-900">
-                            Perfil
+                        <h3 className="text-lg leading-7 font-medium text-gray-900">
+                        {`${user.nome} ${user.sobrenome}`}
                         </h3>
-                        <p class="mt-1 max-w-2xl text-sm text-gray-500">
+                        <legend class="mt-1 text-sm leading-6 text-gray-600" >Sobre mim:</legend>
+                        
+                        <div class="flex items-center sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                       
+                        <p class="mt-1 max-w-2xl text-sm text-gray-900">
                             {user.sobreMim}
                         </p>
+                       
+                        
+
+                       
+                                                
+
+                        </div>
+
+                        
+                        
+                       
                     </div>
                     <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
                         <dl class="sm:divide-y sm:divide-gray-200">
                             <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                 <dt class="text-sm font-medium text-gray-500">
-                                    Nome
+                                    Perfil
                                 </dt>
                                 <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                    {`${user.nome} ${user.sobrenome}`}
-                                    <p className="mt-2 text-gray-600">{user.isPasseador ? "Passeador" : "Cliente"}</p>
+                                    
+                                    <p className="mt-2 text-gray-900 ">{user.isPasseador ? "Passeador" : "Cliente"}</p>
                                 </dd>
 
 

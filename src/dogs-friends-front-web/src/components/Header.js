@@ -48,9 +48,11 @@ const Header = () => {
                 Meus dados
               </Link>
             )}
-            <Link to="Pesquisa" className="nav-link">
+            <Link to="user/pesquisa" className="nav-link">
               Pesquisar
             </Link>
+
+
             {localizacao.pathname === "/cliente/me" && (
               <>
                 <Link to="/" className="nav-link">
@@ -58,9 +60,11 @@ const Header = () => {
                 </Link>
               </>
             )}
-            <button onClick={handleLogout} className="home-button-sair">
+
+            <button onClick={handleLogout} className="nav-link">
               Sair
             </button>
+
           </>
         ) : (
           <>
