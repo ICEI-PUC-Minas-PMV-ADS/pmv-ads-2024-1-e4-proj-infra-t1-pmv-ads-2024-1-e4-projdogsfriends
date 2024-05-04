@@ -13,19 +13,57 @@ export class ClienteService {
   constructor(private prisma: PrismaService) {}
 
   async editCliente(clienteId: string, dto: EditClienteDto) {
-    const user = await this.prisma.cliente.update({
-      where: {
-        id: clienteId,
-      },
-      data: {
-        email: dto.email,
-        nome: dto.nome,
-        sobrenome: dto.sobrenome,
-        cpf: dto.cpf,
-        fotoPerfil: dto.fotoPerfil,
-        isPasseador: dto.isPasseador,
-        enderecos: {
-          create: {
+    try {
+      const cliente = await this.prisma.cliente.findUnique({
+        where: {
+          id: clienteId,
+        },
+        include: {
+          telefones: true,
+          enderecos: true,
+        },
+      });
+  
+      if (!cliente) {
+        throw new Error('Cliente não encontrado');
+      }
+  
+      // Atualiza os campos do cliente
+      const updatedCliente = await this.prisma.cliente.update({
+        where: {
+          id: clienteId,
+        },
+        data: {
+          email: dto.email,
+          nome: dto.nome,
+          sobrenome: dto.sobrenome,
+          cpf: dto.cpf,
+          fotoPerfil: dto.fotoPerfil,
+          isPasseador: dto.isPasseador,
+          sobreMim: dto.sobreMim,
+        },
+      });
+  
+      // Atualiza os telefones existentes
+      for (const telefone of cliente.telefones) {
+        await this.prisma.telefone.update({
+          where: {
+            id: telefone.id,
+          },
+          data: {
+            codigo: dto.telefones.codigo,
+            numero: dto.telefones.numero,
+          },
+        });
+      }
+  
+      // Atualiza os endereços existentes
+      for (const endereco of cliente.enderecos) {
+        await this.prisma.endereco.update({
+          where: {
+            id: endereco.id,
+          },
+          data: {
             logradouro: dto.enderecos.logradouro,
             numero: dto.enderecos.numero,
             bairro: dto.enderecos.bairro,
@@ -33,19 +71,13 @@ export class ClienteService {
             uf: dto.enderecos.uf,
             cep: dto.enderecos.cep,
           },
-        },
-        telefones: {
-          create: {
-            codigo: dto.telefones.codigo,
-            numero: dto.telefones.numero,
-          },
-        },
-      },
-    });
-
-    delete user.senha;
-
-    return user;
+        });
+      }
+  
+      return updatedCliente;
+    } catch (error) {
+      throw error;
+    }
   }
 
   async findAll() {

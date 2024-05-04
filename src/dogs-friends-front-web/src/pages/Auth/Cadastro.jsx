@@ -99,9 +99,7 @@ export const Cadastro = () => {
 
         toast.success('Usuário cadastrado com sucesso!')
         
-        return navigate('/auth/login')
-
-     
+        return navigate('/auth/login')    
 
 
        }
