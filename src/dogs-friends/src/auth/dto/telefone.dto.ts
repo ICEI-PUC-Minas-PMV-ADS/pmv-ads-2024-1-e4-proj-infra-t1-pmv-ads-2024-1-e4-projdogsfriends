@@ -1,4 +1,5 @@
-import { IsEmpty, IsInt, IsString } from "class-validator";
+/* eslint-disable prettier/prettier */
+import { IsEmpty, IsString } from 'class-validator';
 
 export class TelefoneDto{
     

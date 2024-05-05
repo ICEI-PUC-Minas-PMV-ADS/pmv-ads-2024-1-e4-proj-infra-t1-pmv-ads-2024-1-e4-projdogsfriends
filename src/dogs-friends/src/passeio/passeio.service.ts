@@ -1,6 +1,6 @@
 import { Injectable, InternalServerErrorException, NotFoundException } from '@nestjs/common';
 import { UpdatePasseioDto } from './dto/update-passeio.dto';
-import { PrismaService } from 'src/prisma/service/prisma.service';
+import { PrismaService } from '../prisma/service/prisma.service';
 import { Passeio } from './entities/passeio.entity';
 
 @Injectable()
@@ -16,6 +16,29 @@ export class PasseioService {
    } catch (error) {
     this.handleExeptions(error)
    }
+  }
+
+  async getPasseio(id: string){
+    try {
+      return await this.prisma.passeio.findUnique({ 
+        where: {id},
+        select:{
+          id: true,
+          realizado: true,
+          pedido:{
+            select:{
+              passeador:{
+                select:{
+                  id: true,                  
+                }
+              }
+            }
+          }
+        }
+      })
+    } catch (error) {
+      this.handleExeptions(error)
+    }
   }
 
   private handleExeptions(error: any){

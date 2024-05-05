@@ -1,39 +1,39 @@
-import { IsEmail, IsNotEmpty, IsOptional, IsString } from "class-validator";
-import { EditEnderecoDto } from "./edit-endereco.dto";
-import { EnderecoDto, TelefoneDto } from "../../auth/dto";
+import { IsEmail, IsNotEmpty, IsOptional, IsString } from 'class-validator';
+import { EditEnderecoDto } from './edit-endereco.dto';
+import { EnderecoDto, TelefoneDto } from '../../auth/dto';
 
-export class EditClienteDto{
-    @IsEmail()
-    @IsNotEmpty()
-    email: string;
+export class EditClienteDto {
+  @IsEmail()
+  @IsNotEmpty()
+  email: string;
 
-    @IsString()
-    @IsNotEmpty()
-    senha: string;
+  @IsString()
+  @IsNotEmpty()
+  senha: string;
 
-    @IsString()
-    @IsNotEmpty()
-    nome?: string;
+  @IsString()
+  @IsNotEmpty()
+  nome?: string;
 
-    @IsString()
-    @IsNotEmpty()
-    sobrenome?: string;
+  @IsString()
+  @IsNotEmpty()
+  sobrenome?: string;
 
-    @IsString()
-    cpf?: string
+  @IsString()
+  cpf?: string;
 
-    @IsOptional()
-    fotoPerfil?: string
+  @IsOptional()
+  fotoPerfil?: string;
 
+  @IsString()
+  sobreMim?: string;
 
-    @IsNotEmpty()
-    isPasseador?: boolean
+  @IsNotEmpty()
+  isPasseador?: boolean;
 
-     
-    @IsNotEmpty()
-    enderecos: EnderecoDto 
+  @IsNotEmpty()
+  enderecos: EnderecoDto;
 
-    @IsNotEmpty()
-    telefones: TelefoneDto
-
+  @IsNotEmpty()
+  telefones: TelefoneDto;
 }
