@@ -1,4 +1,4 @@
-import { Injectable } from "@nestjs/common";
+import { BadRequestException, Injectable, NotFoundException } from "@nestjs/common";
 import { PrismaService } from "../../prisma/service/prisma.service";
 import { PetDto } from "../dtos/pet.dto";
 import { PetEntity } from "../entities/pet.entity";
@@ -15,10 +15,35 @@ export class PetRepository {
   }
 
   async findOne(id: string) {
-    return this.prisma.pet.findFirst({
-      where: {
-        id
+    try {
+      const pet = await this.prisma.pet.findUnique({
+        where: {
+          id
+        }
+      });
+      if(!pet)  return new NotFoundException('Pet not found')
+      return pet  
+    } catch (error) {
+      throw new BadRequestException()
+    }
+  }
+
+  async petsByClientId(clienteId: string){
+    return this.prisma.pet.findMany({
+      where: {clienteId},
+      
+      select:{
+        id: true,
+        nome: true,
+        idade: true,
+        peso:true,
+        
+        imagens:{
+          select:{
+            url: true
+          }
+        }
       }
-    });
+    })
   }
 }

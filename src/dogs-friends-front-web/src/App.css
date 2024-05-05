@@ -36,3 +36,193 @@
     transform: rotate(360deg);
   }
 }
+
+/* bootstrap? */
+
+.container-fluid {
+  padding: 0;
+  margin: 0;
+}
+
+.container-top {
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  max-width: 50%;
+  padding: 20px;
+  margin: 10px auto;
+  box-shadow: 0px 4px 8px #6c757d;
+  background-color: #8bd48b;
+  border-radius: 10px; /* rounded corners */
+}
+
+.container-agendamento {
+  width: 300px;
+  padding-bottom: 20px;
+  margin: 20px;
+  box-shadow: 0px 4px 8px #6c757d;
+  background-color: white;
+  min-width: 300px;
+  
+}
+
+.container-calendar {
+  width: 100%;
+  max-width: 100%;
+  padding-bottom: 250px;
+  margin: 0;
+}
+
+.card {
+  border: 1px solid #dee2e6;
+  border-radius: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* h1 configuração do boostrap */
+
+.text-primary{
+  color: #007bff;
+}
+
+.p-md-4 {
+  padding: 1.5rem; /* ajuste este valor conforme necessário */
+}
+
+.mt-5 {
+  margin-top: 3rem; /* ajuste este valor conforme necessário */
+}
+
+.h1 {
+  font-size: 2.5rem; /* ajuste este valor conforme necessário */
+}
+
+.p-field {
+  padding: 1rem; /* ajuste este valor conforme necessário */
+}
+
+.p-col-12 {
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 1rem; /* ajuste este valor conforme necessário */
+}
+
+.p-3 {
+  padding: 1rem; /* ajuste este valor conforme necessário */
+}
+
+.text-white {
+  color: white;
+}
+
+.text-black {
+  color: black;
+}
+
+.text-muted {
+  color: #6c757d;
+}
+
+/* Componentes */
+
+.bg-f1f1f1 {
+  background-color: #f1f1f1;
+}
+
+.bg-333 {
+  background-color: #333;
+
+}
+
+.bg-white {
+  background-color: white;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+  color: white;
+  background-color: #007bff;
+  border: none;
+}
+
+.btn-agendar {
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  color: green;
+  background-color: #8bd48b;
+  border: 2px solid #8bd48b;
+  margin-bottom: 3em;
+}
+
+.btn-agendar:hover, .btn-agendar:focus {
+  background-color: #7ac97a;
+  border-color: #3a5a3a;
+  color: black;
+}
+
+.p-calendar .p-overlaypanel {
+  background-color: white !important;
+
+}
+
+
+
+
+.Logo {
+  height: 10vmin;
+  width: auto;
+  pointer-events: none;
+}
+
+.social-icon {
+  font-size: 1.25rem;
+
+  &:hover {
+    color: #007bff;
+  }
+
+  /* &.github {
+    color: #333;
+  } */
+
+}
+
+.link-utils {
+  color: #6c757d;
+  font-size: 0.8rem;
+}
+
+nav-link{
+  color: #007bff;
+}
+
+/* depois ver a melhor forma de instalar o boostrap */

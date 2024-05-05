@@ -2,8 +2,8 @@ import { Injectable, InternalServerErrorException, NotFoundException } from '@ne
 import { CreatePedidoDto } from './dto/create-pedido.dto';
 import { UpdatePedidoDto } from './dto/update-pedido.dto';
 import { PrismaService } from '../prisma/service/prisma.service';
-import { EmailService } from 'src/email/email.service';
-import { MessageDto } from 'src/email/dto/message-dto';
+import { EmailService } from '../email/email.service';
+import { MessageDto } from '../email/dto/message-dto';
 import { EMAIL_MESSAGE } from 'constants/email';
 
 @Injectable()
@@ -75,19 +75,39 @@ export class PedidoService {
       }
   }
 
-  async findAll() {
+  async findAll(clienteId: string) {
     return await this.prisma.pedido.findMany({
-      include:{
-        cliente: {
+      where:{clienteId},
+      select:{
+        id: true,
+        precoTotal: true,
+        
+        agendaPasseador:{
           select:{
-            nome: true,
-            sobrenome: true,
-            email: true,
+            data:true
           }
-        },    
-        agendaPasseador: true,
+        },
+        passeador:{
+          select: {
+            nome: true,
+            fotoPerfil:true,
+          }
+        },
+        cliente:{
+          select:{
+            nome:true,
+          }
+        },
+        passeio:{
+          select:{
+            realizado:true
+          }
+        }
       }
-    })
+    });
+
+    
+
   }
 
   async findOne(id: string) {
@@ -96,10 +116,11 @@ export class PedidoService {
         id
       },
       select:{
+        id:true,
         clienteId:false,
-        passeadorId:true,
         agendaPasseador:true,
-
+        precoTotal: true,
+        
         cliente:{
           select:{
             id: true,
@@ -107,8 +128,21 @@ export class PedidoService {
             sobrenome: true,
             email: true,
           }
-        }
-        
+        },
+        passeador:{
+          select:{
+            id:true,
+            nome: true,
+            sobrenome: true,
+            fotoPerfil: true,
+          }
+        },
+        pedidoPet:{
+          select:{
+            pet:true
+          }
+        },
+        passeio:true
       },
        
     })
