@@ -45,32 +45,32 @@ export const AgandaCalendar = () => {
    {
     startDate: new Date("2024-04-01T00:00:00"),
     endDate: new Date("2024-04-05T00:00:00"),
-    key: 'selection',
+    key: 'selection0',
   },
   {
     startDate: new Date("2024-04-02T00:00:00"),
     endDate: new Date("2024-04-05T00:00:00"),
-    key: 'selection',
+    key: 'selection1',
   },
   {
     startDate: new Date("2024-04-03T00:00:00"),
     endDate: new Date("2024-04-05T00:00:00"),
-    key: 'selection',
+    key: 'selection2',
   },
    {
     startDate: new Date("2024-04-01T00:00:00"),
     endDate: new Date("2024-04-05T00:00:00"),
-    key: 'selection',
+    key: 'selection3',
   },
   {
    startDate: new Date("2024-04-10T00:00:00"),
    endDate: new Date("2024-04-12T00:00:00"),
-   key: 'selection',
+   key: 'selection4',
  },
  {
-  startDate: new Date("2024-04-23T00:00:00"),
- endDate: new Date("2024-04-16T00:00:00"),
- key: 'selection',
+  startDate: new Date("2024-04-16T00:00:00"),
+  endDate: new Date("2024-04-23T00:00:00"),
+  key: 'selection5',
  
 },
   ]
@@ -82,7 +82,7 @@ export const AgandaCalendar = () => {
         ranges={selectionRange}
         onChange={handleSelect}
         showDateDisplay={false} 
-        rangeColors={['#3d91ff']}       
+        rangeColors={['#3d91ff', '#3ecf8e', '#fed14c']}       
       />
     </div>
   )

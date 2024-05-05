@@ -1,3 +1,99 @@
+body {
+  min-width: 420px;
+}
+
+.nav-link {
+  color: #1a73e8;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #0052cc;
+}
+
+.cliente-me-link {
+  color: #007bff;
+  text-decoration: none; /* Remove o sublinhado */
+  padding: 10px 20px;
+  transition: color 0.3s ease;
+}
+
+.cliente-me-link:hover {
+  color: #0056b3; /* Azul escuro */
+}
+
+@media (max-width: 1100px) {
+
+}
+
+@media (max-width: 780px) {
+ 
+}
+
+/* #8bd48b */
+/* DATEPIKER */
+
+.calendar-border {
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+}
+
+.p-endereco {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #8bd48b;
+}
+
+
+.p-calendar .p-inputtext {
+  color: #8bd48b;
+  background-color: #fff;
+  border-color: #ced4da;
+  border-radius: 0.25rem;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.p-calendar .p-inputtext:focus p-endereco:focus{
+  color: #495057;
+  background-color: #fff;
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.p-calendar .p-inputtext:disabled {
+  background-color: #e9ecef;
+}
+
+.p-calendar .p-inputtext:disabled, .p-calendar .p-inputtext[readonly] {
+  background-color: #e9ecef;
+  border-color: #ced4da;
+}
+
+.p-calendar-panel {
+  background-color: #fff;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  padding: 0.5rem;
+}
+
+.p-calendar-time {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.p-calendar-time .p-calendar-hour, .p-calendar-time .p-calendar-minute {
+  width: 48%;
+}
+
+
 .App {
   text-align: center;
 }

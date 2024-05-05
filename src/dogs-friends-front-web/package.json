@@ -11,6 +11,8 @@
     "axios": "^1.6.8",
     "dotenv": "^16.4.4",
     "dotenv-webpack": "^8.1.0",
+    "primeicons": "^7.0.0",
+    "primereact": "^10.6.4",
     "react": "^18.2.0",
     "react-cool-onclickoutside": "^1.7.0",
     "react-date-range": "^2.0.0-alpha.4",
@@ -25,6 +27,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "s": "if \"%OS%\" == \"Windows_NT\" (set PORT=3001 && react-scripts start) else (export PORT=3001 react-scripts start)",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
