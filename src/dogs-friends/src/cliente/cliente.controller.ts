@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Body, Controller, Get, Param, ParseIntPipe, ParseUUIDPipe, Put, Query, UseGuards, Patch } from "@nestjs/common";
+import { Body, Controller, Get, Param, ParseIntPipe, ParseUUIDPipe, Put, Query, UseGuards, Patch, Post } from "@nestjs/common";
 import { ClienteService } from "./cliente.service";
 import { EditClienteDto } from "./dto";
 import { GetUser } from "../decorador";
@@ -8,6 +8,7 @@ import { JwtGuard } from "../auth/guard";
 import { TelefoneDto } from "src/auth/dto/telefone.dto";
 import { EnderecoDto } from "src/auth/dto";
 import { Email } from "src/email/entities/email.entity";
+import { Favorito } from "./dto/create-favorite.dto";
 
 
 @UseGuards(JwtGuard)
@@ -30,11 +31,16 @@ export class ClienteController {
   }
 
   @Get('me')
-  getMe(@GetUser()cliente){
-    return this.clienteService.findMe(cliente.email);
+    getMe(@GetUser()cliente: Cliente){
+        return this.clienteService.getCliente(cliente.id);
+    }
 
-  }
 
+    @Post("favorito")
+    updateFavorite(@Body() favorito: Favorito){
+      console.log(favorito)
+      this.clienteService.updateFavorite(favorito.toogle, favorito.clienteId, favorito.passeadorId)
+    }
   
 
     @Get('passeador/:id')

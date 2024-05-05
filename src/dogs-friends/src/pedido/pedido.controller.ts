@@ -12,9 +12,9 @@ export class PedidoController {
     return this.pedidoService.create(createPedidoDto);
   }
 
-  @Get()
-  findAll() {
-    return this.pedidoService.findAll();
+  @Get('cliente/:clienteId')
+  findAll(@Param('clienteId', new ParseUUIDPipe()) clienteId: string ) {
+    return this.pedidoService.findAll(clienteId);
   }
 
   @Get(':id')

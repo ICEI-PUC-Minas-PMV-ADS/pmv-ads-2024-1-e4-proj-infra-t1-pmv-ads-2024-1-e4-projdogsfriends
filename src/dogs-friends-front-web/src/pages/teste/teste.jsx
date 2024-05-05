@@ -17,7 +17,7 @@ export const Teste = () => {
     "cpf": "987425396452",
 }
 const userLogin = {
-    "email": "novo2@gmail.com",
+    "email": "mail3@gmail.com",
     "senha": "123456",
 }
 
