@@ -80,6 +80,44 @@ export class ClienteService {
     }
   }
 
+
+  async getCliente(id: string) {
+    try {
+      return await this.prisma.cliente.findUnique({
+        where: {id},
+        select:{
+          id: true,
+          nome: true,
+          sobrenome:true,
+          sobreMim:true,
+          fotoPerfil:true,
+
+          enderecos: true,
+          favCliente: {
+            select:{
+              passeadorId:true,
+              passeador:{
+                select:{
+                  nome: true,
+                  sobrenome: true,
+                  fotoPerfil: true,
+                  enderecos: {
+                    select: {
+                      uf:true,
+                      cidade: true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      })
+    } catch (error) {
+      this.handleExeptions(error)
+    }
+  }
+
   async findAll() {
     return this.prisma.cliente.findMany(
       {
@@ -149,6 +187,7 @@ export class ClienteService {
       const cliente = await this.prisma.cliente.findUnique({
         where: { id },
         select: {
+          id: true,
           nome: true,
           sobrenome: true,
           sobreMim: true,
@@ -161,6 +200,7 @@ export class ClienteService {
               logradouro: true,
             },
           },
+         
           reviews: {
             select: {
               nota: true,
@@ -280,6 +320,30 @@ export class ClienteService {
     });
 
     return clientes;
+  }
+
+  
+  async updateFavorite(toogle: boolean, clienteId: string, passeadorId:string){
+    
+    try {
+      if(toogle){
+        await this.prisma.favorito.create({
+           data:{
+            clienteId,
+            passeadorId,
+           }
+         })
+         return
+       }
+       await this.prisma.favorito.delete({
+        where:{
+         passeadorId
+        },
+       })
+       return
+    } catch (error) {
+      this.handleExeptions(error)
+    }
   }
 
   private handleExeptions(error: any) {

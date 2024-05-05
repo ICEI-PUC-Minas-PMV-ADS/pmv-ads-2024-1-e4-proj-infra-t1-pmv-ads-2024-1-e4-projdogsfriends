@@ -2,9 +2,9 @@ import { Module } from '@nestjs/common';
 import { PedidoService } from './pedido.service';
 import { PedidoController } from './pedido.controller';
 import { PrismaService } from '../prisma/service/prisma.service';
-import { EmailModule } from 'src/email/email.module';
-import { SERVICE } from 'src/email/email-config';
-import { EmailService } from 'src/email/email.service';
+import { EmailModule } from '../email/email.module';
+import { SERVICE } from '../email/email-config';
+import { EmailService } from '../email/email.service';
 
 @Module({
   imports:[

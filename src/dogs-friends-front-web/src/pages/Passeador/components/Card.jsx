@@ -1,14 +1,8 @@
 import { AiOutlineHeart } from "react-icons/ai"; 
 import { Stars } from "../../../components/stars/stars"
-import { useNavigate } from 'react-router-dom';
 
 export const Card = ({client}) => {
       
-  const navigate = useNavigate();
-
-  const handleContratarClick = () => {
-    navigate('/user/agendamento/', { state: { client } });
-  };
 
   return (
     <div className="w-[100%] flex flex-col gap-4">
@@ -28,7 +22,7 @@ export const Card = ({client}) => {
             </div>
         </div>
 
-        <div onClick={handleContratarClick} className="flex flex-row gap-6 items-center px-2">
+        <div className="flex flex-row gap-6 items-center px-2">
             <button className="px-8 p-2 bg-blue-800 hover:bg-blue-700 text-zinc-100 text-sm
              rounded-full transition-all duration-300 hover:shadow-md">
               Contratar {client.nome}

@@ -3,8 +3,7 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import Container from "./components/Container";
 import { usePasseador } from "./hooks/usePasseador";
-import { useDispatch, useSelector } from "react-redux";
-import { login } from "../../store/slices/auth";
+
 
 
 const Passeador = () => {
@@ -16,7 +15,7 @@ const Passeador = () => {
   const url = `http://localhost:3000/cliente/passeador/${passeadorId}`
 
   const { client } = usePasseador(url)
- 
+  
   return (
     
     <Container client={client} activeMarker={activeMarker} setActiveMarker={setActiveMarker}/>

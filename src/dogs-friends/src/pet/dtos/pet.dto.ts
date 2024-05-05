@@ -3,8 +3,7 @@ export interface PetDto {
   idade: number;
   peso: number;
   raca: string;
-  especie: string;
   clienteId: string;
-  passeadorId: string;
-  pedidoId: string;
+  //passeadorId: string;
+  //pedidoId: string;
 }

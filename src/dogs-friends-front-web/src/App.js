@@ -7,17 +7,21 @@ import Header from "./components/Header";
 import {Toaster} from "react-hot-toast"
 
 import { Provider } from 'react-redux';
-import { store } from './store/store';
+
+import { persistor, store } from './store/store';
+import { PersistGate } from "redux-persist/integration/react";
 
 function App() {
   return (
     <Provider store={store}>
+     <PersistGate loading={null} persistor={persistor}> 
       <BrowserRouter>
         <Toaster />
           <Header />
             <Router />
           <Rodape />
       </BrowserRouter>
+      </PersistGate>
       </Provider>
   );
 }
