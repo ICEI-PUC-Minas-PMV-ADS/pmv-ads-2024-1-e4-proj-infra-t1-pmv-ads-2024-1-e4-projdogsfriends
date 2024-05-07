@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const usePasseador = (url) => {
+export const usePasseador = (url, token) => {
   const [client, setClient] = useState() 
   
   useEffect(() => {
@@ -10,7 +10,7 @@ export const usePasseador = (url) => {
           {   method: 'GET',
               headers: {
                   "Content-Type": "application/json",
-                  Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhYThmNmQ3YS1lOGIzLTRlYjYtOTQ3NS03MzFjNTFiM2UxZTgiLCJlbWFpbCI6Im1haWw2QGdtYWlsLmNvbSIsImlhdCI6MTcxMzQ4MTM4MywiZXhwIjoxNzEzNDgyMjgzfQ.zRPftDTmpdjBAtHTUEUP94Tbc4HZGnTwUcVtXRn9qBQ',
+                  Authorization: `Bearer ${token}`,
                   body:{}
               }
           });

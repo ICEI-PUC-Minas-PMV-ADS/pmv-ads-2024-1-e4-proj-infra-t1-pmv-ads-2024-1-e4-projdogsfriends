@@ -56,7 +56,7 @@ export class ClienteController {
       @Query('offset') offset: number = 0
       
       ){
-         
+      
      return this.clienteService.search(term, estado, +limit, +offset)
     }
 

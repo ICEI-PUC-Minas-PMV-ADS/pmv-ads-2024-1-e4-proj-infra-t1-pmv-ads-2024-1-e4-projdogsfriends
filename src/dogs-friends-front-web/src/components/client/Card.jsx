@@ -4,7 +4,6 @@ import { ButtonFavorite } from "../../pages/Passeador/components";
 
 export const Card = ({client, perfil=false}) => {
       
-  console.log(client)
   return (
     <div className="w-[100%] flex flex-col gap-4">
         <div className="flex w-full flex-col justify-center items-center">

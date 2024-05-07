@@ -14,7 +14,7 @@ model Cliente {
   cpf         String @unique
   email       String @unique  
   senha       String 
-  fotoPerfil  String?
+  fotoPerfil  String? @default("https://e7.pngegg.com/pngimages/949/339/png-clipart-avatar-profile-pic-masculine-man-human-character-person.png")
   isPasseador Boolean? @default(false)
   sobreMim    String?
   telefones   Telefone[]
