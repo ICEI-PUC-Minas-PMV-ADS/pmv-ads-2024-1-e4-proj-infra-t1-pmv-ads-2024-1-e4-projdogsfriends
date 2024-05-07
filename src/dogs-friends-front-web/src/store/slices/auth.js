@@ -52,23 +52,34 @@ export const tryLoginWithToken = (oldToken) => {
 export const createUser = (newUser) => {
 
 
-    return async(dispatch) => {
+    return async() => {
        try {
         // const imagePath = await saveImage(newUser.fotoPerfil);
         // newUser.fotoPerfil = imagePath;
 
-       const {status} = await api.post('auth/create', newUser, config)
-        if(status !== 201) return;
+       const {statusText} = await api.post('auth/create', newUser, config)
+       
+       if(statusText !== "Created"){
+
+
+          toast.success('Usuário cadastrado com sucesso!')
+
+        }
+
+        return statusText
+        
 
         
 
        // dispatch(login({email: newUser.email, senha: newUser.senha}))    
             
        } catch (error) {
+
         toast.error(error.response.data.message)
-        console.log(error.response.data.message)
+        
 
        }
+      
     }
 }
 

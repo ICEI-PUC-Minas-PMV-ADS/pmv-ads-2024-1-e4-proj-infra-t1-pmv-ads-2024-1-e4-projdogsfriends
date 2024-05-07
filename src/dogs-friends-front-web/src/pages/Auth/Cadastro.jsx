@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { createUser, login } from "../../store/slices/auth";
 import toast from "react-hot-toast";
 import { useNavigate } from 'react-router-dom';
+import { api } from "../../api/axios"
 
 
 
@@ -92,38 +93,32 @@ export const Cadastro = () => {
     }
 
     try {
-      const res = await dispatch(createUser(stringifyFormData));
+     const res = await dispatch(createUser(stringifyFormData));
+      console.log('response', res );
 
-       if(res){
+if(res === 'Created'){
+  toast.success('Usuário cadastrado com sucesso!');
 
+  setTimeout(() => {
+    navigate("/auth/login");
+}, 2000);
 
-        toast.success('Usuário cadastrado com sucesso!')
-        
-        return navigate('/auth/login')    
-
-
-       }
+}     
 
          
     
 
     } catch (error) {
       
-      if (error.response && error.response.data && error.response.data.message) {
-        // If the error has a message, you can access it here
-        const errorMessage = error.response.data.message;
-        console.log(errorMessage);
-        toast.error(errorMessage);
-      } else {
-        // If the error doesn't have a message, log the error object
-        console.error(error);
-        toast.error("Erro de cadastro");
+     
+        
+        console.log("Erro de cadastro");
       }
 
 
 
     };
-  }
+  
 
 
   return (

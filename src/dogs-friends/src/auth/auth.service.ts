@@ -50,7 +50,7 @@ export class AuthService {
         },
       });
 
-      return cliente;
+      return 'Sucesso';
     } catch (error) {
       if (error instanceof PrismaClientKnownRequestError) {
         if (error.code === 'P2002') {
