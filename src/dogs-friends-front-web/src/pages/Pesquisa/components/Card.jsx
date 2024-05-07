@@ -21,7 +21,7 @@ export const Card = ({ client, setActiveMarker, index }) => {
                  <h3 className=" font-semibold text-lg">{client.nome} {client.sobrenome}</h3>
                   <span className="text-2xl">♡</span>
                 </div>
-                <span className="font-semibold text-sm text-green-950">Belo Horizonte, MG</span>
+                <span className="font-semibold text-sm text-green-950">{client.enderecos[0].cidade}, {client.enderecos[0].uf}</span>
                 <span className="poppins">Amante dos animais responsável em busca de amigos peludos</span>
                 <div className="flex flex-row justify-between">
                

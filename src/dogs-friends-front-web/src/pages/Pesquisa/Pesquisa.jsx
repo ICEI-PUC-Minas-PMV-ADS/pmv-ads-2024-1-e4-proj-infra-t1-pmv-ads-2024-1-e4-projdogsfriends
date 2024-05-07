@@ -11,15 +11,13 @@ const Pesquisa = () => {
  
   const {token, user} = useSelector(state => state.auth)
 
-  console.log(user)
-
   function useQuery(){
     const { search } =useLocation();
     return React.useMemo(() => new URLSearchParams(search), [search])
   }
 
-  const [termo, setTermo] = useState("");
-  const [uf, setUf] = useState("MG")
+  const [termo, setTermo] = useState((user.enderecos.length > 0 && user.enderecos[0]) ? user.enderecos[0].cidade : "cidade");
+  const [uf, setUf] = useState((user.enderecos.length > 0 && user.enderecos[0]) ? user.enderecos[0].uf : "uf")
 
   const [activeMarker, setActiveMarker] = useState(0)
    
@@ -29,7 +27,7 @@ const Pesquisa = () => {
     if(!query.get("term")){
       if(user !== null && user.enderecos.length > 0 && user.enderecos[0] !== null && user.enderecos[0] !== undefined)
       {
-        setUf(user.enderecos.uf)
+        setUf(user.enderecos[0].uf)
         setTermo(user.enderecos[0].cidade)
       }
   }
@@ -41,8 +39,9 @@ const Pesquisa = () => {
 }, [query])
 
   const url = `http://localhost:3000/cliente/search?term=${termo}&estado=${uf}`
- 
   const {clients } = useSearchClient(url, token); 
+
+  console.log(url)
   
   return ( 
     
@@ -55,8 +54,9 @@ const Pesquisa = () => {
       setActiveMarker={setActiveMarker}>            
        
       
-       {
-          clients?.map((client, index) => (
+       { 
+        (clients.length > 0 && clients !== null) &&       
+          clients.map((client, index) => (
             <Card 
                   key={client.id} 
                   client={client} 

@@ -36,7 +36,8 @@ export const Login = () => {
         toast.success(`Bem-vindo, ${response.nome}!`)
        
         setTimeout(() => {
-          navigate("/user/pesquisa");
+       //   navigate("/user/pesquisa");
+       window.location = "http://localhost:3001/user/pesquisa"
       }, 2000);
       } else {
         toast.error("Erro ao fazer login. Verifique suas credenciais.");
