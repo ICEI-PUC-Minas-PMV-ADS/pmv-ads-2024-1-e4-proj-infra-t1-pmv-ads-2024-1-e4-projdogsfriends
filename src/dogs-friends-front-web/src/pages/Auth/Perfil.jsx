@@ -49,7 +49,7 @@ export const Perfil = () => {
 
 
 
-let image = 'https://i.pinimg.com/736x/a9/03/82/a903825e101323babefb26783e1c19af.jpg'
+let image = user.fotoPerfil ? user.fotoPerfil : 'https://e7.pngegg.com/pngimages/949/339/png-clipart-avatar-profile-pic-masculine-man-human-character-person.png'
 
 
     return (
@@ -114,7 +114,7 @@ let image = 'https://i.pinimg.com/736x/a9/03/82/a903825e101323babefb26783e1c19af
                                     Telefone
                                 </dt>
                                 <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                    {user.telefones.map((telefone, index) => (
+                                    {user.telefones?.map((telefone, index) => (
                                         <div key={index}>
                                             {getValueOrDefault(telefone, 'codigo')} {getValueOrDefault(telefone, 'numero')}
                                         </div>
@@ -126,7 +126,7 @@ let image = 'https://i.pinimg.com/736x/a9/03/82/a903825e101323babefb26783e1c19af
                                     Endereço
                                 </dt>
                                 <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                    {user.enderecos.map((endereco, index) => (
+                                    {user.enderecos?.map((endereco, index) => (
                                         <div key={index}>
                                             {getValueOrDefault(endereco, 'logradouro')} - {getValueOrDefault(endereco, 'numero')} - {getValueOrDefault( endereco, 'bairro')}
                                         </div>
@@ -142,7 +142,7 @@ let image = 'https://i.pinimg.com/736x/a9/03/82/a903825e101323babefb26783e1c19af
 
 
                                 <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                    {user.enderecos.map((endereco,index) => (
+                                    {user.enderecos?.map((endereco,index) => (
                                         <div key={index}>
                                           {` 
                                           ${getValueOrDefault(endereco, 'cidade')} - 

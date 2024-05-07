@@ -56,7 +56,7 @@ const Pesquisa = () => {
        
       
        {
-          clients.map((client, index) => (
+          clients?.map((client, index) => (
             <Card 
                   key={client.id} 
                   client={client} 
