@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import { getUser } from "../../store/slices/auth";
 import { useNavigate } from "react-router-dom";
+import { EditPerfil } from './EditPerfil';
 
 
 export const Perfil = () => {
@@ -160,11 +161,26 @@ let image =  'https://e7.pngegg.com/pngimages/949/339/png-clipart-avatar-profile
                             </div>
                         </dl>
                     </div>
+                  
+
+
+
                 </div>
+              
+                
 
             ) : (
                 <p>Nenhum usuário encontrado.</p>
             )}
+              <div className="">
+              <button
+            type="submit"
+            className="rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+            onClick={(() => navigate('../EditPerfil'))}
+          >
+            Atualizar dados
+          </button>
+              </div>
         </div>
     )
 }

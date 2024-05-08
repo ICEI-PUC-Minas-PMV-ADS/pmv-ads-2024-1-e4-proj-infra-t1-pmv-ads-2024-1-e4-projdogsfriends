@@ -92,7 +92,9 @@ export class ClienteService {
           sobreMim:true,
           fotoPerfil:true,
           email:true,
+          cpf:true,
           enderecos: true,
+          telefones:true,
           favCliente: {
             select:{
               passeadorId:true,
