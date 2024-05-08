@@ -69,7 +69,7 @@ export const EditPerfil = () => {
                                         name="isPasseador"
                                         type="checkbox"
                                         className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-600"
-                                        value={user.isPasseador}
+                                        value={user.isPasseador ? "Passeador" : "Cliente"}
                                         onChange={handleChange}
                                     />
                                 </div>
@@ -172,65 +172,58 @@ export const EditPerfil = () => {
                                 </div>
                             </div>
 
-<div className="col-span-5">
+                            <div className="col-span-5">
 
 
 
 
 
-                            {
-                                user.telefones?.map((telefones, index) => (
+                                {
+                                    user.telefones?.map((telefones, index) => (
 
 
-                                    <div key={index} className="flex">
+                                        <div key={index} className="flex">
 
-                                        <div key={index + "codigo"} className="mx-2 w-1/4">
-                                            <label htmlFor={`telefoneCodigo${index}`} className="block text-sm font-medium leading-6 text-gray-900">DDD:</label>
+                                            <div key={index + "codigo"} className="mx-2 w-1/4">
+                                                <label htmlFor={`telefoneCodigo${index}`} className="block text-sm font-medium leading-6 text-gray-900">DDD:</label>
 
-                                            <div className="mt-2">
-                                                <input
-                                                    id={`telefoneCodigo${index}`}
-                                                    name="telefones"
-                                                    type="text"
-                                                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
-                                                    value={telefones.codigo}
-                                                    onChange={(e) => handleChange(e, index, 'codigo')}
-                                                />
+                                                <div className="mt-2">
+                                                    <input
+                                                        id={`telefoneCodigo${index}`}
+                                                        name="telefones"
+                                                        type="text"
+                                                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
+                                                        value={telefones.codigo}
+                                                        onChange={(e) => handleChange(e, index, 'codigo')}
+                                                    />
+
+                                                </div>
 
                                             </div>
 
-                                        </div>
-
-                                        <div key={index + 'numero'} className="mx-2">
-                                            <label htmlFor={`telefoneNumero${index}`} className="block text-sm font-medium leading-6 text-gray-900">Número de telefone:</label>
-                                            <div className="mt-2">
-                                                <input
-                                                    id={`telefoneNumero${index}`}
-                                                    name="telefones"
-                                                    type="text"
-                                                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
-                                                    value={telefones.numero}
-                                                    onChange={(e) => handleChange(e, index, 'numero')}
-                                                />
+                                            <div key={index + 'numero'} className="mx-2">
+                                                <label htmlFor={`telefoneNumero${index}`} className="block text-sm font-medium leading-6 text-gray-900">Número de telefone:</label>
+                                                <div className="mt-2">
+                                                    <input
+                                                        id={`telefoneNumero${index}`}
+                                                        name="telefones"
+                                                        type="text"
+                                                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
+                                                        value={telefones.numero}
+                                                        onChange={(e) => handleChange(e, index, 'numero')}
+                                                    />
+                                                </div>
                                             </div>
+
+
                                         </div>
 
 
-                                    </div>
 
+                                    ))
+                                }
 
-
-                                ))
-                            }
-
-</div>
-
-
-
-
-
-
-
+                            </div>
 
 
 
@@ -240,66 +233,161 @@ export const EditPerfil = () => {
 
 
                             <div className="col-span-full">
-                                <label htmlFor="logradouro" className="block text-sm font-medium leading-6 text-gray-900">
-                                    Endereço
-                                </label>
-                                <div className="mt-2">
+
+                                {
+                                    user.enderecos?.map((enderecos, index) => (
+
+                                        <div key={index} className="">
+
+                                            <div key={index + "logradouro"} className="mx-2">
+                                                <label htmlFor={`logradouro${index}`} className="block text-sm font-medium leading-6 text-gray-900">Endereço:</label>
+
+                                                <div className="mt-2">
+                                                    <input
+                                                        id={`logradouro${index}`}
+                                                        name="enderecos"
+                                                        type="text"
+                                                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
+                                                        value={enderecos.logradouro}
+                                                        onChange={(e) => handleChange(e, index, 'logradouro')}
+                                                    />
+
+                                                </div>
+
+                                            </div>
+                                        </div>
 
 
-                                </div>
+
+
+                                    ))
+                                }
+
                             </div>
 
 
 
-
-
-
-
                             <div className="sm:col-span-3 sm:col-start-1">
-                                <label htmlFor="numero" className="block text-sm font-medium leading-6 text-gray-900">
-                                    Número
-                                </label>
-                                <div className="mt-2">
-
-                                </div>
+                                {
+                                    user.enderecos?.map((enderecos, index) => (
+                                        <div key={index} className="sm:col-span-3 sm:col-start-1">
+                                            <div key={index + 'numero'} className="mx-2">
+                                                <label htmlFor={`numero${index}`} className="block text-sm font-medium leading-6 text-gray-900">Número:</label>
+                                                <div className="mt-2">
+                                                    <input
+                                                        id={`numero${index}`}
+                                                        name="enderecos"
+                                                        type="text"
+                                                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
+                                                        value={enderecos.numero}
+                                                        onChange={(e) => handleChange(e, index, 'numero')}
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))
+                                }
                             </div>
 
 
 
                             <div className="sm:col-span-3">
-                                <label htmlFor="bairro" className="block text-sm font-medium leading-6 text-gray-900">
-                                    Bairro
-                                </label>
-                                <div className="mt-2">
+                                {
+                                    user.enderecos?.map((enderecos, index) => (
+                                        <div key={index} className="sm:col-span-3">
+                                            <div key={index + "bairro"} className="">
+                                                <label htmlFor={`bairro${index}`} className="block text-sm font-medium leading-6 text-gray-900">Bairro:</label>
 
-                                </div>
+                                                <div className="mt-2">
+                                                    <input
+                                                        id={`bairro${index}`}
+                                                        name="enderecos"
+                                                        type="text"
+                                                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
+                                                        value={enderecos.bairro}
+                                                        onChange={(e) => handleChange(e, index, 'bairro')}
+                                                    />
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))
+                                }
                             </div>
 
-                            <div className="sm:col-span-2 sm:col-start-1">
-                                <label htmlFor="cidade" className="block text-sm font-medium leading-6 text-gray-900">
-                                    Cidade
-                                </label>
-                                <div className="mt-2">
+                            <div className="sm:col-span-3 sm:col-start-1">
+                                {
+                                    user.enderecos?.map((enderecos, index) => (
+                                        <div key={index} className="">
+                                            <div key={index + "cidade"} className="">
+                                                <label htmlFor={`cidade${index}`} className="block text-sm font-medium leading-6 text-gray-900">Cidade:</label>
 
-                                </div>
-                            </div>
+                                                <div className="mt-2">
+                                                    <input
+                                                        id={`cidade${index}`}
+                                                        name="enderecos"
+                                                        type="text"
+                                                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
+                                                        value={enderecos.cidade}
+                                                        onChange={(e) => handleChange(e, index, 'cidade')}
+                                                    />
 
-                            <div className="sm:col-span-1">
-                                <label htmlFor="uf" className="block text-sm font-medium leading-6 text-gray-900">
-                                    U.F.
-                                </label>
-                                <div className="mt-2">
-
-                                </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))
+                                }
                             </div>
 
                             <div className="sm:col-span-2">
-                                <label htmlFor="cep" className="block text-sm font-medium leading-6 text-gray-900">
-                                    Cep
-                                </label>
-                                <div className="mt-2">
+                                {
+                                    user.enderecos?.map((enderecos, index) => (
+                                        <div key={index} className="">
+                                            <div key={index + "uf"}>
+                                                <label htmlFor={`uf${index}`} className="block text-sm font-medium leading-6 text-gray-900">UF:</label>
+                                                <div className="mt-2">
+                                                    <input
+                                                        id={`cidade${index}`}
+                                                        name="enderecos"
+                                                        type="text"
+                                                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
+                                                        value={enderecos.uf}
+                                                        onChange={(e) => handleChange(e, index, 'cidade')}
+                                                    />
 
-                                </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    ))
+                                }
+                            </div>
+
+                            <div className="sm:col-span-2">
+                                {
+                                    user.enderecos?.map((enderecos, index) => (
+                                        <div key={index} className="">
+                                            <div key={index + "cep"}>
+                                                <label htmlFor={`cep${index}`} className="block text-sm font-medium leading-6 text-gray-900">CEP:</label>
+                                                <div className="mt-2">
+                                                    <input
+                                                        id={`cep${index}`}
+                                                        name="enderecos"
+                                                        type="text"
+                                                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
+                                                        value={enderecos.cep}
+                                                        onChange={(e) => handleChange(e, index, 'cep')}
+                                                    />
+
+                                                </div>
+                                                </div>
+                                                </div>
+                                       
+                                            ))
+                                }
+
+                                        
                             </div>
 
 
