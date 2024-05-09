@@ -241,6 +241,7 @@ export class ClienteService {
 
       return rest;
     } catch (error) {
+      console.log(error)
       this.handleExeptions(error);
     }
   }

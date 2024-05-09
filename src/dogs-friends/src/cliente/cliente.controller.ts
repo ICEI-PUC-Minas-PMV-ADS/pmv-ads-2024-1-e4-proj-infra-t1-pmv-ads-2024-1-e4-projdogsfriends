@@ -45,6 +45,7 @@ export class ClienteController {
 
     @Get('passeador/:id')
     getPasseador(@Param('id', new ParseUUIDPipe()) id: string ){
+     
       return this.clienteService.findClientePasseador(id)
     }
  

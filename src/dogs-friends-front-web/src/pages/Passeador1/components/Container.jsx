@@ -5,6 +5,7 @@ import { AgandaCalendar } from "../../../components/calendar/AgendaCalendar";
 
 const Container = ({ client, activeMarker, setActiveMarker }) => {
   if (client === undefined || client === null) return <></>;
+console.log("Cliente: ", client)
   return (
     <>
     {/* <header className=" bg-white w-full fixed z-10">

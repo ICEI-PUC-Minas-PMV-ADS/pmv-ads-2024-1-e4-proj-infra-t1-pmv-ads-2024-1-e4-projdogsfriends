@@ -16,9 +16,10 @@ const Pesquisa = () => {
     return React.useMemo(() => new URLSearchParams(search), [search])
   }
 
-  const [termo, setTermo] = useState((user.enderecos.length > 0 && user.enderecos[0]) ? user.enderecos[0].cidade : "cidade");
-  const [uf, setUf] = useState((user.enderecos.length > 0 && user.enderecos[0]) ? user.enderecos[0].uf : "uf")
+  const [termo, setTermo] = useState((user.enderecos.length > 0 && user.enderecos[0]) ? user.enderecos[0].cidade : "");
+  const [uf, setUf] = useState((user.enderecos.length > 0 && user.enderecos[0]) ? user.enderecos[0].uf : "")
 
+  console.log(termo)
   const [activeMarker, setActiveMarker] = useState(0)
    
   const query = useQuery()

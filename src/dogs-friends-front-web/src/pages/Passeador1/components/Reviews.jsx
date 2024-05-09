@@ -2,7 +2,7 @@ import { Stars } from "../../../components/stars/stars"
 
 export const Reviews = ({reviews}) => {
   console.log(reviews)
-  if(reviews.lenght === 0) return (<div>nenhum review</div>)
+  if(reviews.length === 0) return (<div>nenhum review</div>)
   return (
     <div className="grid grid-cols-2 w-full  text-sm">
         {
