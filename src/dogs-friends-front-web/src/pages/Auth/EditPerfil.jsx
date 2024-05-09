@@ -7,6 +7,7 @@ import toast from "react-hot-toast";
 import { useNavigate } from 'react-router-dom';
 import { api } from "../../api/axios"
 import { getUser } from "../../store/slices/auth";
+import { updateUser } from "../../store/slices/auth";
 
 
 
@@ -17,9 +18,14 @@ export const EditPerfil = () => {
         return object && object[attribute] !== undefined ? object[attribute] : defaultValue;
     };
 
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(null)
+    const dispatch = useDispatch()
+    const navigate = useNavigate();
 
-    const [user, setUser] = useState("");
+    const [user, setUser] = useState({
+        isPasseador: true,
+    });
+    const stringifyUser = JSON.stringify(user);
 
     useEffect(() => {
         const fetchUser = async () => {
@@ -44,9 +50,51 @@ export const EditPerfil = () => {
         fetchUser();
     }, []);
 
-    const handleSubmit = () => { }
 
-    const handleChange = () => { }
+
+    const handleChange = (e) => {
+        const { name, value, type, checked, files, id } = e.target;
+        const val = type === 'checkbox' ? checked : type === 'file' ? URL.createObjectURL(files[0]) : value;
+
+
+        setUser(prevState => ({
+            ...prevState,
+            [name]: name === 'telefones' || name === 'enderecos' ? { ...prevState[name], [id]: val } : val
+        }));
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+
+
+        try {
+
+           const res = await dispatch(updateUser(stringifyUser))
+
+            toast.success('Informações salvas com sucesso!')
+            setTimeout(() => {
+                navigate("/auth/perfil");
+            }, 2000);
+
+
+
+            console.log("response", res)
+
+
+
+
+        } catch (error) {
+            console.log("error", error)
+            toast.error('Erro ao salvar informações!')
+            
+
+
+
+        }
+
+
+
+    }
 
 
     return (
@@ -69,7 +117,7 @@ export const EditPerfil = () => {
                                         name="isPasseador"
                                         type="checkbox"
                                         className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-600"
-                                        value={user.isPasseador ? "Passeador" : "Cliente"}
+                                        value={user.isPasseador}
                                         onChange={handleChange}
                                     />
                                 </div>
@@ -381,13 +429,13 @@ export const EditPerfil = () => {
                                                     />
 
                                                 </div>
-                                                </div>
-                                                </div>
-                                       
-                                            ))
+                                            </div>
+                                        </div>
+
+                                    ))
                                 }
 
-                                        
+
                             </div>
 
 
@@ -479,7 +527,7 @@ export const EditPerfil = () => {
                     <button
                         type="submit"
                         className="rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
-                        onClick={''}
+                        onClick={handleSubmit}
                     >
                         Salvar
                     </button>

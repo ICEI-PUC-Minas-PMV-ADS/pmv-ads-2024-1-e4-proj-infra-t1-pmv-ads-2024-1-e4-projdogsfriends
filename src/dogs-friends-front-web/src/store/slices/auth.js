@@ -65,7 +65,7 @@ export const createUser = (newUser) => {
           toast.success('Usuário cadastrado com sucesso!')
 
         }
-
+       
         return statusText
         
 
@@ -82,6 +82,41 @@ export const createUser = (newUser) => {
       
     }
 }
+
+export const updateUser = async (user) => {
+  
+  
+    const token = localStorage.getItem("access_token") 
+    
+
+    try{
+      const headers = {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      }
+      
+      const {status} = await api.put('cliente/edit',user, {headers})
+      if(status === 200){
+        toast.success('Usuário atualizado com sucesso!')
+       
+      }
+  
+      return status
+    
+
+
+
+    }catch(error){
+
+      toast.error(error.response.data.message)
+      console.log(error)
+    }
+
+
+ }
+  
+  
+
 
 export const getUser = async(token) => {
     try {
@@ -127,4 +162,6 @@ const saveImage = async (image) => {
       throw error;
     }
   };
+
+
   

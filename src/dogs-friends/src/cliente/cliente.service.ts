@@ -95,6 +95,7 @@ export class ClienteService {
           cpf:true,
           enderecos: true,
           telefones:true,
+          isPasseador:true,
           favCliente: {
             select:{
               passeadorId:true,
