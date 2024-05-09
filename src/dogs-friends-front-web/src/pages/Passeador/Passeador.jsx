@@ -16,7 +16,7 @@ const Passeador = () => {
   const url = `http://localhost:3000/cliente/passeador/${passeadorId}`
 
   const { client } = usePasseador(url, token)
-  
+  console.log(client)
   return (
     
     <Container client={client} activeMarker={activeMarker} setActiveMarker={setActiveMarker}/>

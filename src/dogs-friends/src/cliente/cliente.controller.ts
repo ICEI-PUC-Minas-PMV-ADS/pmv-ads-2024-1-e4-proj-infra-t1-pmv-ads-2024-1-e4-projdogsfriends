@@ -42,9 +42,9 @@ export class ClienteController {
       this.clienteService.updateFavorite(favorito.toogle, favorito.clienteId, favorito.passeadorId)
     }
   
-
     @Get('passeador/:id')
     getPasseador(@Param('id', new ParseUUIDPipe()) id: string ){
+     
       return this.clienteService.findClientePasseador(id)
     }
  
