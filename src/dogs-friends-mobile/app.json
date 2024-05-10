@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "dogs-friends-mobile",
+    "slug": "dogs-friends-mobile",
+    "version": "1.0.0",
+    "plugins": [
+      "expo-font"
+    ]
+  }
+}

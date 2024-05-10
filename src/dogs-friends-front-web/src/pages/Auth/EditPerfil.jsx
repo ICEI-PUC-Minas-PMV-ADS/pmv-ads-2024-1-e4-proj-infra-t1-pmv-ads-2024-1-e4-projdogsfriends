@@ -69,7 +69,7 @@ export const EditPerfil = () => {
 
         try {
 
-           const res = await dispatch(updateUser(stringifyUser))
+           const res = await updateUser(stringifyUser)
 
             toast.success('Informações salvas com sucesso!')
             setTimeout(() => {
