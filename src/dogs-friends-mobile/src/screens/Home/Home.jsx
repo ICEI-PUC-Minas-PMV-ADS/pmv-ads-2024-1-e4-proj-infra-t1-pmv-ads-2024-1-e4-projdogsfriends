@@ -6,6 +6,7 @@ import { Auth } from "../../api/Auth"
 
 const Home = () => {
   const authController = new Auth()
+  const clienteController = new Cliente()
   // authController.removeToken()
   //const clienteController = new Cliente()
   
@@ -34,7 +35,10 @@ const Home = () => {
             }
 
   const login = async() => {
-    await startLogin(data)
+    //await startLogin(data)
+    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NzU3ZjBkZS1hMTVlLTQ4OTQtOWU5OC01NDE1MGE3NDE4MDMiLCJlbWFpbCI6Im1haWwzQGdtYWlsLmNvbSIsImlhdCI6MTcxNTU3NTU5NCwiZXhwIjoxNzE1NTc2NDk0fQ.XOg7hST1n1YOEhrWnZL3M_C1_g8kcirmdYEC-MO2x6E"
+    const res = await clienteController.findClientePasseador("6757f0de-a15e-4894-9e98-54150a741803", token)
+    console.log("res ===>", JSON.stringify(res, 2, 1))
   }
 
   return (
