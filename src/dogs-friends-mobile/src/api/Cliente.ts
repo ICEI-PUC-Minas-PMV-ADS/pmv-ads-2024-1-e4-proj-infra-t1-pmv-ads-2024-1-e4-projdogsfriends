@@ -44,5 +44,25 @@ export class Cliente {
         throw error
     }
    }
+
+   async getPedidos(userId:string){
+    try{
+      const {data} = await  api.get(`pedido/cliente/${userId}`)
+      return data
+    }catch(error){
+        console.log("error ===>" , error)
+        throw error
+    }
+   }
+
+   async getPedido(pedidoId: string){
+    try{
+        const {data} = await api.get(`pedido/${pedidoId}`)
+        return data
+    }catch(error){
+        console.log("error ===>" , error)
+        throw error
+    }
+   }
 }
 

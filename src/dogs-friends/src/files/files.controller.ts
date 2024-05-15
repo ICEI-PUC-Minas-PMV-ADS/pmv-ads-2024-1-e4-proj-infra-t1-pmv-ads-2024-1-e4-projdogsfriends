@@ -21,7 +21,7 @@ export class FilesController {
   }
 
   @Post('upload')
-  @UseInterceptors(FileInterceptor('file', {
+  @UseInterceptors(FileInterceptor('image', {
     fileFilter: fileFilter,
     //limits: { fileSize: 2024}
     storage: diskStorage({
@@ -30,10 +30,11 @@ export class FilesController {
     })
   }))
   uploadImage( @UploadedFile() file: Express.Multer.File  ){
-
+    console.log("Passando")
     if( !file ) throw new BadRequestException('Make sure that the file is an image!')
 
     const secureUrl = `${ file.filename }`
+    console.log("secureUrl", secureUrl)
     return { secureUrl }
   }
 
