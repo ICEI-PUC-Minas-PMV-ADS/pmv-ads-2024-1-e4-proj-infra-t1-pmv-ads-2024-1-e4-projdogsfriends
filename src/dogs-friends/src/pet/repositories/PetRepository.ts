@@ -19,6 +19,15 @@ export class PetRepository {
       const pet = await this.prisma.pet.findUnique({
         where: {
           id
+        },
+        select:{
+          id:true,
+          nome: true,
+          idade: true,
+          peso: true,
+          clienteId: true,
+
+          imagens:true
         }
       });
       if(!pet)  return new NotFoundException('Pet not found')

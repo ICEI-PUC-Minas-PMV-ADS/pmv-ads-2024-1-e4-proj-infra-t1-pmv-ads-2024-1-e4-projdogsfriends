@@ -1,0 +1,1 @@
+export const URL_IMAGE_BASE=`http://${process.env.API_IP}:3000/files/file/`
