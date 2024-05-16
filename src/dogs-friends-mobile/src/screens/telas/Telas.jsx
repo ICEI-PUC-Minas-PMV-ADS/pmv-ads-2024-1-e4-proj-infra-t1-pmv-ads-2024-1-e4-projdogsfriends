@@ -5,6 +5,7 @@ import * as ImagePicker from 'expo-image-picker';
 
 import { imgFormat } from "../../utils";
 import { File } from "../../api/Files";
+import { URL_IMAGE_BASE } from "../../constants/constants";
 
 const FileController = new File()
 
@@ -41,7 +42,7 @@ const Telas = () => {
     <View style={styles.container}>
       <Button title="Pick an image from camera roll" onPress={pickImage} />    
       {
-       image && <Image source={{uri: `http://localhost:3000/files/file/${image}`}} style={{width:500, height:600}}/>
+       image && <Image source={{uri: `${URL_IMAGE_BASE}${image}`}} style={{width:500, height:600}}/>
       }
   </View>
   )
