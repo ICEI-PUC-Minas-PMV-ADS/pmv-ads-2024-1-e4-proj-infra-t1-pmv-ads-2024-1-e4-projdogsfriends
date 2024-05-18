@@ -17,6 +17,16 @@ export class Auth {
         }
     }
     
+    async teste(){
+        try{
+            const {data} = await api.get('auth/teste')
+            console.log(data)
+        }catch(error){
+            console.log(process.env.API_IP)
+            console.log("error ===>", error)
+            throw error
+        }
+    }
 
 
     async setAccessToken(token: string){
