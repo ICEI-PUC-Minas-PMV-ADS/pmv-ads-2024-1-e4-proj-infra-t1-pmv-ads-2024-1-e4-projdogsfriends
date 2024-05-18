@@ -30,6 +30,7 @@ const PetDetail = () => {
   const getPet = async() =>{
     try {
       const res = await petRepository.getPet("433d280a-67b1-40c5-a24c-6e827d032d52")
+      console.log(res)
       setPet(res)
     } catch (error) {
       console.log(error)

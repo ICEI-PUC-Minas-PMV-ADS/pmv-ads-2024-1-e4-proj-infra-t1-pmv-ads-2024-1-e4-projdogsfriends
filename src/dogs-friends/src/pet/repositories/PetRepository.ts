@@ -9,8 +9,16 @@ export class PetRepository {
   constructor(private readonly prisma: PrismaService) { }
 
   async create(petDto: PetDto): Promise<any> {
+    const {imagens, ...pet} = petDto
     return this.prisma.pet.create({
-      data: petDto
+      data: {
+        ...pet,
+        imagens:{
+          create: imagens.map(imagem => (
+            imagem
+          ))
+        }
+      }
     })
   }
 

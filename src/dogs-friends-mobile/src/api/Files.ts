@@ -29,7 +29,7 @@ export class File{
             if(response.status !== 201){               
                 throw result;
             }
-                
+             
             return result.secureUrl;
 
         } catch (error) {
