@@ -6,6 +6,9 @@ import Dashboard from "./Dashboard/Dashboard";
 import Pedido from "./Pedido/Pedido";
 import ListaPedidos from "./ListaPedidos/ListaPedidos";
 import AddPet from "./AddPet/AddPet";
+import Pesquisa from "./Pesquisa/Pesquisa";
+import Map from "./Map/Map";
+import Agendamento from "./Agendamento/Agendamento";
 export {
     Home,
     Login,
@@ -14,5 +17,8 @@ export {
     AddPet,
     Dashboard,
     Pedido,
-    ListaPedidos
+    ListaPedidos,
+    Pesquisa,
+    Map,
+    Agendamento
 }

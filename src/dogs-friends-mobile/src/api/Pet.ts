@@ -12,4 +12,16 @@ export class Pet {
             throw error
         }
     }
+
+    async addPet(pet:IPet){
+
+        try {
+          const response = await api.post(`pet/`, pet)
+          return response  
+        } catch (error) {
+            console.log("error ===>" , error)
+            throw error
+        }
+
+    }
 }
