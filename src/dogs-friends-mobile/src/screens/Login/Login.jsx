@@ -1,11 +1,49 @@
 import React, { useState } from 'react'
+import { useNavigation } from "@react-navigation/native"
 import { Alert, Button, Image, Pressable, SafeAreaView, StyleSheet, Switch, Text, TextInput, View } from 'react-native'
-
+import { Auth } from "../../api/Auth"
 const Login = () => {
+  const  navigation  = useNavigation()
   const [click, setClick] = useState(false);
-  const { username, setUsername } = useState("");
-  const { password, setPassword } = useState("");
+  
   const logo = require('../../../assets/images/logo.png');
+
+  const [formData, setFormData] = useState({
+    email: '',
+    senha: ''
+  })
+
+
+
+  const handleLogin = async () => {
+console.log('email',formData.email);
+console.log('senha', formData.senha);
+
+    try {
+      const auth = new Auth();
+      
+      await auth.login({ formData }); 
+      navigation.navigate('Home');
+     
+    } catch (error) {
+      console.log('Erro ao fazer login:', error);
+      Alert.alert('Erro', 'Erro ao fazer login. Verifique suas credenciais e tente novamente.');
+    }
+  };
+
+  const handleChange = (name, value) => {
+    
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value,
+      
+    }));
+    
+
+
+  };
+
+
   return (
 
     <SafeAreaView style={styles.container}>
@@ -13,9 +51,9 @@ const Login = () => {
       <Image source={logo} style={styles.image} resizeMode='contain' />
       <Text style={styles.title}>Bem Vindo!</Text>
       <View style={styles.inputView}>
-        <TextInput style={styles.input} placeholder='EMAIL' value={username} onChangeText={setUsername} autoCorrect={false} required
+        <TextInput style={styles.input} placeholder='EMAIL' value={formData.email} onChangeText={(text)=>handleChange('email',text)} autoCorrect={false} required
           autoCapitalize='none' />
-        <TextInput style={styles.input} placeholder='SENHA' secureTextEntry value={password} onChangeText={setPassword} autoCorrect={false} required
+        <TextInput style={styles.input} placeholder='SENHA' secureTextEntry value={formData.senha} onChangeText={(text)=>handleChange('senha',text)} autoCorrect={false} required
           autoCapitalize='none' />
       </View>
       <View style={styles.rememberView}>
@@ -31,7 +69,7 @@ const Login = () => {
       </View>
 
       <View style={styles.buttonView}>
-        <Pressable style={styles.button} onPress={() => Alert.alert("clicou")}>
+        <Pressable style={styles.button} onPress={handleLogin}>
           <Text style={styles.buttonText}>Entrar</Text>
         </Pressable>
 
@@ -40,7 +78,7 @@ const Login = () => {
 
       <View style={styles.rememberView} >
         <Text style={styles.footerText}>Não tem cadastro? </Text>
-        <Pressable onPress={() => Alert.alert("cadastrar nova nenha")}>
+        <Pressable onPress={() => navigation.navigate('Cadastro')}>
           <Text style={styles.signup}>Cadastre-se</Text>
         </Pressable>
 

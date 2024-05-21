@@ -3,7 +3,7 @@ import React from 'react';
 import UploadImage from '../../components/cadastro/UploadImage'
 
 import { Alert, Button, Image, Pressable, ScrollView, StyleSheet, Switch, Text, TextInput, View } from 'react-native'
-
+//teste
 const Cadastro = () => {
   const [formData, setFormData] = useState({
     isPasseador: false,
