@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigation } from "@react-navigation/native"
 import { Alert, Button, Image, Pressable, SafeAreaView, StyleSheet, Switch, Text, TextInput, View } from 'react-native'
-import { Auth } from "../../api/Auth"
+import { useAuth } from "../../hooks/useAuth"
 const Login = () => {
   const  navigation  = useNavigation()
   const [click, setClick] = useState(false);
@@ -20,10 +20,10 @@ console.log('email',formData.email);
 console.log('senha', formData.senha);
 
     try {
-      const auth = new Auth();
+      const {startLogin} = useAuth();
       
-      await auth.login({ formData }); 
-      navigation.navigate('Home');
+      await startLogin({ formData }); 
+      //navigation.navigate('Home');
      
     } catch (error) {
       console.log('Erro ao fazer login:', error);
