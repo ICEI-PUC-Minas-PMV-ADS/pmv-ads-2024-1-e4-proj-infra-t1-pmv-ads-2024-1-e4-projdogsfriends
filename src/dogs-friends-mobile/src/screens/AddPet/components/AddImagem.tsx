@@ -31,16 +31,19 @@ export const AddImagem = ({imagens, setImagens}) =>  {
  
   
     
-        
+        //EEF0FF
     return (
      <View style={styles.container}>
 
+ 
         <TouchableOpacity style={styles.addContent}
             onPress={() => pickImage()}
             activeOpacity={0.9}
         >
-            
-            <Text>addImagem</Text>
+            <Image source={require("./../../../../assets/images/dogup.png")} 
+            resizeMode='contain'
+            style={{width:50, height: 100,}}/>
+            <Text>Add Imagem</Text>
         </TouchableOpacity>
 
         {

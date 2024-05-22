@@ -21,6 +21,7 @@ export const styles = StyleSheet.create({
   search: {
     marginVertical: 20,
     marginHorizontal: 10,
+    height: 400,
     zIndex: 1,
   },
   bgtexture: {

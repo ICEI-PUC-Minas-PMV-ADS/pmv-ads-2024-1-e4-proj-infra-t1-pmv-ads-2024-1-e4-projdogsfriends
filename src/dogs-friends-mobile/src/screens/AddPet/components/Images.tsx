@@ -11,9 +11,10 @@ export const Images = ({imagens, setImagens}) => {
 
     return (
         <View>
+             <View style={styles.imagesContent}>
              {
                 imagens.map((image) => (
-                    <View key={image.uri}>
+                    <View key={image.uri} style={styles.imageContent}>
                         <Image source={{uri: image.uri}}
                              style={styles.imageToUpload} />
                         <TouchableOpacity
@@ -24,6 +25,7 @@ export const Images = ({imagens, setImagens}) => {
                     </View>
                 ))
              }
+             </View>
         </View>
     )
 }
