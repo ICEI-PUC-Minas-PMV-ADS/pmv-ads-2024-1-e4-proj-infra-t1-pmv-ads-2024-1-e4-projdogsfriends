@@ -2,9 +2,11 @@ import React, { useState } from 'react'
 import { useNavigation } from "@react-navigation/native"
 import { Alert, Button, Image, Pressable, SafeAreaView, StyleSheet, Switch, Text, TextInput, View } from 'react-native'
 import { useAuth } from "../../hooks/useAuth"
+import { string } from 'yup'
 const Login = () => {
   const  navigation  = useNavigation()
   const [click, setClick] = useState(false);
+  const {startLogin, user} = useAuth();
   
   const logo = require('../../../assets/images/logo.png');
 
@@ -16,14 +18,14 @@ const Login = () => {
 
 
   const handleLogin = async () => {
-console.log('email',formData.email);
-console.log('senha', formData.senha);
+  
+
 
     try {
-      const {startLogin} = useAuth();
-      
-      await startLogin({ formData }); 
-      //navigation.navigate('Home');
+     
+      console.log(startLogin(formData))
+      await startLogin(formData); 
+     navigation.navigate('Dashboard');
      
     } catch (error) {
       console.log('Erro ao fazer login:', error);
