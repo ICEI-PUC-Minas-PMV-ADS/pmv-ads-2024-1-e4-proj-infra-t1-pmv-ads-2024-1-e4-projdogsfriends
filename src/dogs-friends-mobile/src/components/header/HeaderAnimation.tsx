@@ -4,10 +4,11 @@ import { HeaderContainer } from './HeaderContainer'
 import { DrawerScreenProps } from '@react-navigation/drawer'
 
 interface Props extends DrawerScreenProps<any, any>{
-    children: any
+    children: any;
+    search?: any;
 }
 
-export const HeaderAnimation = ({route, navigation, children}:Props) => {
+export const HeaderAnimation = ({route, navigation, children, search}:Props) => {
   const [scrollY, setScrollY] = useState(new Animated.Value(0))
   return (
     <SafeAreaView>
@@ -39,7 +40,7 @@ export const HeaderAnimation = ({route, navigation, children}:Props) => {
             }
         ]}>
           <HeaderContainer route={route} navigation={navigation}> 
-            <View></View>
+            { search }
           </HeaderContainer>      
         </Animated.View>
     

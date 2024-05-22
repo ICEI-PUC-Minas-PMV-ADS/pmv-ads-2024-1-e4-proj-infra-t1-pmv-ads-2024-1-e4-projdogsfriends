@@ -7,17 +7,18 @@ export const styles = StyleSheet.create({
 
 
     container:{
-        width: width,
-
+        width: width-30,
+        
         justifyContent:"center",
-        alignItems: "center"
+        alignItems: "center",
+        gap: 12
     },
 
     addContent:{
         width: width * 0.3,
         height: height * 0.15,
 
-        backgroundColor: "#AAABD5",
+        backgroundColor: "#EEF0FF",
         borderWidth: 0.5,
         borderStyle: "dashed",
         borderRadius: 7,
@@ -41,13 +42,42 @@ export const styles = StyleSheet.create({
     },
 
     imageToUpload:{
-        width: width * 0.15,
+        width: width * 0.14,
         height: height * 0.07,
 
-        borderRadius: width * 0.15,
+        borderRadius: 10,
         borderWidth: 1,
         borderStyle: "dashed"
-    }
+    },
 
+    imageContent:{
+        justifyContent:"center",
+        alignItems: "center",
+        flexDirection:'column',
+    },
+    imagesContent:{
+        flexDirection: 'row',
+        gap:10,
+    },
+
+    inputContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginBottom: 10,
+        borderWidth: 1,
+        borderColor: 'gray',
+        borderRadius: 5,
+        paddingHorizontal: 10,
+        height: 40,
+        width: '100%',
+      },
+
+      imageView:{
+        position:"absolute",
+        width: width,
+        height: 200,
+        alignItems:"center",
+        backgroundColor: "#EEF0FF"
+      }
 
 })

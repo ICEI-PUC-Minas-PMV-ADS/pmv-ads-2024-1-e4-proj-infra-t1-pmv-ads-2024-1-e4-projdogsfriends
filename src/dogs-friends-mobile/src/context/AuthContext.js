@@ -32,6 +32,7 @@ export function AuthProvider({children}){
 
    const startLogin = async(dataAccess) => {
     try {
+
         const {access_token} = await authController.login(dataAccess);
         setToken(access_token)
     } catch (error) {
@@ -41,7 +42,7 @@ export function AuthProvider({children}){
 
 const login = async(token) => {
     try {
-        console.log("token", token)
+         
         const response = await clientController.getCliente(token)
         await authController.setAccessToken(token)
  

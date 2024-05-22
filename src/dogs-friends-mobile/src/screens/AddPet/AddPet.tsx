@@ -6,6 +6,7 @@ import { AddImagem } from "./components/AddImagem"
 import { AddForm } from "./components/AddForm"
 import { File } from "../../api/Files"
 import { Pet } from "../../api/Pet"
+import { styles } from "./styles"
 
 const fileRepo = new File()
 const petRepo = new Pet()
@@ -49,7 +50,8 @@ const AddPet = ({route, navigation}: Props) => {
   return (
     <HeaderAnimation route={route} navigation={navigation}>
    
-     <View>
+     <View style={styles.container}>
+          <Text style={{fontFamily: "semibold"}}>Cadastrar Pet</Text>
           <AddImagem imagens={imagens} setImagens={setImagens}/>
           <AddForm setPet={setPet}/>
      </View>

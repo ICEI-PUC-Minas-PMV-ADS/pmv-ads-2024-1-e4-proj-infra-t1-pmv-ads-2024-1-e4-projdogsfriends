@@ -25,14 +25,15 @@ export const AddForm = ({setPet}) => {
     }
 
     return (
-        <View>
+        <View style={{marginTop: 20}}>
+        <Text>{errors.nome ? errors.nome.message : "Nome do Pet"}</Text>
            <Controller 
               control={control}
               name="nome"
               render={({field: {onChange, onBlur, value}}) => (  
 
                 <TextInput
-                 // style={[styles.input ]}
+                  style={[styles.inputContainer ]}
                   placeholder="Nome do Pet"
                   placeholderTextColor="gray"
                   onChangeText={onChange}
@@ -41,14 +42,14 @@ export const AddForm = ({setPet}) => {
 
           )}
           />
-
+      <Text>{errors.raca ? errors.raca.message : "Raça"}</Text>
             <Controller 
               control={control}
               name="raca"
               render={({field: {onChange, onBlur, value}}) => (  
 
                 <TextInput
-                 // style={[styles.input ]}
+                  style={[styles.inputContainer ]}
                   placeholder="Raça"
                   placeholderTextColor="gray"
                   onChangeText={onChange}
@@ -58,30 +59,31 @@ export const AddForm = ({setPet}) => {
           )}
           />
 
+      <Text>{errors.idade ? errors.idade.message : "Idade"}</Text>
         <Controller 
               control={control}
               name="idade"
               render={({field: {onChange, onBlur, value}}) => (  
 
                 <TextInput
-                 // style={[styles.input ]}
+                  style={[styles.inputContainer ]}
                   keyboardType="numeric"
                   placeholder="Idade"
                   placeholderTextColor="gray"
                   onChangeText={onChange}
                   value={value}
                 />
-
+            
           )}
           />
-
+        <Text>{errors.peso ? errors.peso.message : "Peso"}</Text>
         <Controller 
               control={control}
               name="peso"
               render={({field: {onChange, onBlur, value}}) => (  
 
                 <TextInput
-                 // style={[styles.input ]}
+                  style={[styles.inputContainer ]}
                   placeholder="Peso"
                   keyboardType="numeric"
                   placeholderTextColor="gray"
