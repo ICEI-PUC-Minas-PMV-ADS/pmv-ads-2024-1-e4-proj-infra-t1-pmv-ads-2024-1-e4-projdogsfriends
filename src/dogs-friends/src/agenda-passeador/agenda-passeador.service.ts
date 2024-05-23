@@ -29,9 +29,9 @@ export class AgendaPasseadorService {
 
   }
 
-  findAll(passeadorId: string) {
+  async findAll(passeadorId: string) {
     try {
-      return this.prisma.agendaPasseador.findMany({
+      return await this.prisma.agendaPasseador.findMany({
         where:{passeadorId}
       });
     } catch (error) {
