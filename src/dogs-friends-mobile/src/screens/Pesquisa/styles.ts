@@ -11,6 +11,6 @@ export const styles = StyleSheet.create({
         zIndex: 1,
         borderRadius: 5,
         backgroundColor: "#FFFFFF",
-        
+        gap:20
     }
 })

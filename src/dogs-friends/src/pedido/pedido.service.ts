@@ -130,6 +130,8 @@ export class PedidoService {
             sobrenome: true,
             email: true,
             fotoPerfil:true,
+
+            enderecos: true,
           }
         },
         passeador:{

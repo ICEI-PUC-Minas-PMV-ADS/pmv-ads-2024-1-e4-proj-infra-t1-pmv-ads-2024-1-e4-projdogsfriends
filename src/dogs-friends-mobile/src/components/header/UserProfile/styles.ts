@@ -1,10 +1,20 @@
 import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
+  card: {
+    gap: 10,
+    borderWidth:0.4,
+    borderColor: "#BBB8B8",
+    borderRadius: 10,
+    paddingVertical:10,
+    paddingHorizontal:5,
+
+  },
   content: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 10,
+    
   },
   profileImgContainer: {
     width: 40,
