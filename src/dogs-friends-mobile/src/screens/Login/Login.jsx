@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useNavigation } from "@react-navigation/native"
 import { Alert, Button, Image, Pressable, SafeAreaView, StyleSheet, Switch, Text, TextInput, View } from 'react-native'
 import { useAuth } from "../../hooks/useAuth"
-import { string } from 'yup'
+
 const Login = () => {
   const  navigation  = useNavigation()
   const [click, setClick] = useState(false);
@@ -14,6 +14,10 @@ const Login = () => {
     email: '',
     senha: ''
   })
+
+
+
+
 
 
 
