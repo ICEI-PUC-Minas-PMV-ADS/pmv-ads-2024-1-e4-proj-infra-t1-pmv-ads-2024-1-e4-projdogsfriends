@@ -2,9 +2,16 @@ import { useState } from 'react';
 import React from 'react';
 import UploadImage from '../../components/cadastro/UploadImage'
 
+import { useNavigation } from '@react-navigation/native';
+import {Auth} from '../../api/Auth'
+import {api} from '../../api/axios/axios'
+
 import { Alert, Button, Image, Pressable, ScrollView, StyleSheet, Switch, Text, TextInput, View } from 'react-native'
-//teste
+
+
 const Cadastro = () => {
+  const navigation  = useNavigation();
+
   const [formData, setFormData] = useState({
     isPasseador: false,
     email: '',
@@ -87,6 +94,33 @@ const Cadastro = () => {
       isPasseador: value
     });
   };
+
+  
+const authInstance = new Auth();
+
+const create = async () =>{
+  try{
+    
+  const data = await authInstance.create(stringifyFormData);
+   console.log("data ===>", data)
+
+    if (data === 'Sucesso') {
+
+      // Se a resposta for 200, navegar para a tela de login
+      navigation.navigate('Login');
+    } else {
+      // Se a resposta não for 200, exibir mensagem de erro
+      Alert.alert('Erro', 'Ocorreu um erro ao cadastrar o usuário.');
+    }
+   
+  }catch(error){
+    console.log("error ===>", error)
+    Alert.alert('Erro', 'Ocorreu um erro ao cadastrar o usuário.');
+    throw error
+  }
+ 
+
+}
   
 
 return(
@@ -154,7 +188,7 @@ return(
  
 
   <View style={styles.buttonView}>
-    <Pressable style={styles.button} onPress={() => console.log(stringifyFormData)}>
+    <Pressable style={styles.button} onPress={create}>
       <Text style={styles.buttonText}>Salvar</Text>
     </Pressable>
 

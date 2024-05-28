@@ -16,6 +16,21 @@ export class Auth {
             throw error
         }
     }
+
+    async create(data: any){
+        try{
+            const response = await api.post('auth/create', data,{
+                headers: { 
+                    'Content-Type': 'application/json'
+                  },
+            })
+            return response.data
+        }catch(error){
+            console.log("error ===>", error.response.data.message)
+            throw error
+            
+        }
+    }
     
     async teste(){
         try{
