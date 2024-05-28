@@ -1,10 +1,13 @@
-import { Image, Text, View } from "react-native"
+import { Image, Text, View, TouchableOpacity } from "react-native"
 import { styles } from "../header/UserProfile/styles"
+import { useNavigation } from "@react-navigation/native"
+
 
 export const Card = ({passeador}) => {
- 
+  const navigation = useNavigation()
+  console.log(passeador)
    return (
-    <View style={styles.card}>
+    <TouchableOpacity style={styles.card} onPress={() => navigation.navigate("Passeador", {passeadorId: passeador.id})}>
         <View style={styles.content}>
             <View>
                {
@@ -30,6 +33,6 @@ export const Card = ({passeador}) => {
                 </View>
             </View>
         </View>
-    </View>
+    </TouchableOpacity>
    )
 }

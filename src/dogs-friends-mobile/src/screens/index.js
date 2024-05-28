@@ -9,6 +9,8 @@ import AddPet from "./AddPet/AddPet";
 import Pesquisa from "./Pesquisa/Pesquisa";
 import Map from "./Map/Map";
 import Agendamento from "./Agendamento/Agendamento";
+import Passeador from "./Passeador/Passeador";
+
 export {
     Home,
     Login,
@@ -20,5 +22,6 @@ export {
     ListaPedidos,
     Pesquisa,
     Map,
-    Agendamento
+    Agendamento,
+    Passeador
 }
