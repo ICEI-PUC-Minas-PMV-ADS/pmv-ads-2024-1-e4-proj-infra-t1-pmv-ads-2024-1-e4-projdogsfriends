@@ -27,9 +27,9 @@ const Login = () => {
 
     try {
      
-      console.log(startLogin(formData))
+      console.log(formData)
       await startLogin(formData); 
-     navigation.navigate('Dashboard');
+    // navigation.navigate('Dashboard');
      
     } catch (error) {
       console.log('Erro ao fazer login:', error);

@@ -30,7 +30,7 @@ const ListaPedidos = ({route, navigation}:Props) => {
     <HeaderAnimation route={route} navigation={navigation}>
        <View style={styles.container}>
           <Text style={{ fontFamily: "bold", fontSize: 32, color: "#515151"}}>Lista de Pedidos</Text>
-          <View>
+          <View style={{gap:10}}>
              {
               listaPedidos.map((pedido) => (
                 <Card key={pedido.id} pedido={pedido} />

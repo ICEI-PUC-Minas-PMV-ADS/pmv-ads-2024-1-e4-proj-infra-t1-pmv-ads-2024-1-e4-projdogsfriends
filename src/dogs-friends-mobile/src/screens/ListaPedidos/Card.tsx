@@ -7,18 +7,22 @@ export const Card = ({ pedido }) => {
   const navigation = useNavigation();
  
   return (
-    <View style={styles.card}>
+    <TouchableOpacity style={styles.card}
+    onPress={() => navigation.navigate("Pedido",{ pedidoId: pedido.id })}
+    >
         <View>
-            <Image source={{uri: pedido.passeador.fotoPerfil}} 
-                style={{width: 100, height: 100, borderRadius: 50}} />
+            <Image source={{uri: pedido.cliente.fotoPerfil}} 
+                style={{width: 70, height: 70, borderRadius: 40}} />
         </View>
-        <View>
-            <Text>{pedido.passeador.nome}</Text>
+        <View style={{padding: 5, width: "80%", height:"100%"}}>
+            <Text>{pedido.cliente.nome}, requisitou o seus serviços</Text>
 
-            <TouchableOpacity onPress={() => navigation.navigate("Pedido",{ pedidoId: pedido.id })}>
+            <TouchableOpacity onPress={() => navigation.navigate("Pedido",{ pedidoId: pedido.id })}
+              style={{alignSelf:"flex-end"}}
+            >
               <Text>Visualizar</Text>
             </TouchableOpacity>
         </View>
-    </View>
+    </TouchableOpacity>
   )
 }
