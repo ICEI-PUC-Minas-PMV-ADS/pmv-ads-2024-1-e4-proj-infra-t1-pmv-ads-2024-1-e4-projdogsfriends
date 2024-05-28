@@ -96,6 +96,8 @@ export class PedidoService {
         cliente:{
           select:{
             nome:true,
+            sobrenome: true,
+            fotoPerfil:true
           }
         },
         passeio:{
@@ -127,6 +129,9 @@ export class PedidoService {
             nome: true,
             sobrenome: true,
             email: true,
+            fotoPerfil:true,
+
+            enderecos: true,
           }
         },
         passeador:{
@@ -139,7 +144,21 @@ export class PedidoService {
         },
         pedidoPet:{
           select:{
-            pet:true
+          
+            pet:{
+             select:{
+              id:true,
+              nome: true,
+              raca:true,
+              idade:true,
+              
+              imagens:{
+                select:{
+                  url:true
+                }
+              }
+             }
+            }
           }
         },
         passeio:true

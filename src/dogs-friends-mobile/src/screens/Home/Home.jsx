@@ -1,66 +1,172 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native"
+import { Dimensions, Image, ImageBackground, StyleSheet, Text, TouchableOpacity, View } from "react-native"
 import { Cliente } from "../../api/Cliente"
 import { useEffect } from "react"
 import { useAuth } from "../../hooks/useAuth"
 import { Auth } from "../../api/Auth"
+import { useNavigation } from "@react-navigation/native"
 
+const width = Dimensions.get("window").width
+const height = Dimensions.get("window").height
+
+const authRepo = new Auth()
 const Home = () => {
-  const authController = new Auth()
-  const clienteController = new Cliente()
-  // authController.removeToken()
-  //const clienteController = new Cliente()
-  
-  // useEffect(() =>{
-  //   (
-  //       async() => {
-  //           const data = {
-  //             "email": "mail3@gmail.com",
-  //             "senha": "123456",
-  //         }
-  //           try{
-  //           const res = await  clienteController.getCliente("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NzU3ZjBkZS1hMTVlLTQ4OTQtOWU5OC01NDE1MGE3NDE4MDMiLCJlbWFpbCI6Im1haWwzQGdtYWlsLmNvbSIsImlhdCI6MTcxNTM2NjQ5MywiZXhwIjoxNzE1MzY3MzkzfQ.bRn72LBPxmrPUdqMyvzT3OdLCoEo3DrnONpaNFUF818")
-  //           console.log(res)  
-  //           }catch(err){
-  //               console.log(err)
-  //           }
-  //       }
-  //   )()
-  // },[])
-
-  const {startLogin, user} = useAuth()
-  console.log(user)
-  const data = {
-                "email": "mail3@gmail.com",
-                "senha": "123456",
-            }
-
-  const login = async() => {
-    //  await startLogin(data)
-    //await authController.teste();
-    // const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NzU3ZjBkZS1hMTVlLTQ4OTQtOWU5OC01NDE1MGE3NDE4MDMiLCJlbWFpbCI6Im1haWwzQGdtYWlsLmNvbSIsImlhdCI6MTcxNTU3NTU5NCwiZXhwIjoxNzE1NTc2NDk0fQ.XOg7hST1n1YOEhrWnZL3M_C1_g8kcirmdYEC-MO2x6E"
-    // const res = await clienteController.findClientePasseador("6757f0de-a15e-4894-9e98-54150a741803", token)
-    // console.log("res ===>", JSON.stringify(res, 2, 1))
-  }
-
+  const navigation = useNavigation()
+  //authRepo.removeToken()
   return (
-    <View style={{flex:1, justifyContent:"center",alignItems:"center"}}>
-        <TouchableOpacity onPress={() => login()}>
-          <Text style={styles.text}>Login</Text>
-        </TouchableOpacity>
-        <Text>
-          user:
-          {
-            JSON.stringify(user)
-          }
-        </Text>
+    <View>
+        
+        
+        <View>
+          <ImageBackground source={require('../../../assets/images/bghome.png')}
+            style={styles.bghome} />
+        </View>
+
+      <View style={styles.logo}>
+        <Image source={require("../../../assets/images/logo.png")} style={styles.imgLogo} resizeMode="contain"/>
+
+      </View>
+
+     <View style={styles.actions}>
+       <View style={styles.info}>
+          <Text style={styles.title}>Precisa de Alguém Para Passear Com Seu Pet?</Text>
+
+          <Text style={styles.subtitle}>Cadastre-se ou faça login para encontrar pessoas dispostas a passear e dar carinho e atenção ao seu Pet.</Text>  
+        </View>
+        <View style={styles.content}>
+                <TouchableOpacity style={styles.btnCadastro}
+                  onPress={() => navigation.navigate("Cadastro")}
+                >
+                    <Text style={styles.textCadastro}>Cadastre-se</Text>    
+                </TouchableOpacity> 
+               
+                <TouchableOpacity style={styles.btnLogin}
+                   onPress={() => navigation.navigate("Login")}
+                >
+                    <Text style={styles.textLogin}>Login</Text>    
+                </TouchableOpacity> 
+       </View>
+   
+     </View> 
     </View>
   )
 }
 
 const styles = StyleSheet.create({
-  text:{
-    fontFamily: "bold"
-  }
+  bghome:{
+    width:"100%",
+    height:"96%", 
+    zIndex:1,
+  },
+
+  info:{
+    width: "100%",
+    
+    marginTop: 20,
+    paddingHorizontal:20
+  },
+
+  logo:{
+    position:"absolute",
+    zIndex:12,
+    backgroundColor: "#EFEFEF",
+    alignSelf:"center",
+    top:height * 0.04,   
+    width: 75,
+    height:75,
+    borderRadius: 40,
+    borderWidth:1,
+    borderColor: "#999"
+  },
+  imgLogo:{
+    width: "100%",
+    height: "100%",
+    borderRadius: 40,
+  },
+  title:{
+    textAlign:"center",
+    fontFamily: "bold",
+    fontSize: 24,
+    
+  },
+  subtitle:{
+    fontFamily: "light",
+    fontSize: 12,
+    textAlign:"center",
+    marginTop:10
+  },
+
+  actions:{
+    position: "absolute",
+    alignSelf: "center",
+    top: height * 0.57,    
+    zIndex:10,
+    width: "100%",
+    height: height * 0.42,
+    backgroundColor: "#FFFFFF",
+    borderRadius: 12,
+    paddingHorizontal: 6,
+    alignItems: "center",
+    flexDirection: "column",
+    gap:24
+  },
+
+  content:{
+    width: "100%",
+    justifyContent:"center",
+    alignItems: "center" ,
+    gap: 10,
+  
+  },
+
+  btnCadastro:{
+    width:"90%",
+    height: 54,
+    justifyContent: "center",
+    alignItems:"center",
+    borderWidth: 1,
+    borderRadius: 5,
+    borderColor: "#8CCB9F",
+    backgroundColor:"#308AAD",
+
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.20,
+    shadowRadius: 1.5,
+
+    elevation: 2,
+},
+
+btnLogin:{
+  width:"90%",
+  height: 54,
+  justifyContent: "center",
+  alignItems:"center",
+  borderWidth: 1,
+  borderRadius: 5,
+  borderColor: "#8CCB9F",
+  backgroundColor:"#ADC8D2",
+  shadowColor: "#000",
+  shadowOffset: {
+    width: 0,
+    height: 2,
+  },
+  shadowOpacity: 0.20,
+  shadowRadius: 1.5,
+
+  elevation: 2,
+},
+textCadastro:{
+    fontFamily:"bold",
+    color: "#FFFFFF"
+},
+textLogin:{
+  fontFamily:"bold",
+  color: "#FFFFFF"
+},
 })
+
 
 export default Home

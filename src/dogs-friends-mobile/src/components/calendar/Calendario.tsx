@@ -1,26 +1,48 @@
+import { useEffect, useState } from "react";
 import { View } from "react-native";
 import { Calendar } from "react-native-calendars";
 
-export const Calendario = () => {
-  
-    const datas = {
-        '2024-05-23': {
+export const Calendario = ({datas}) => {
+  const [datasCal, setDatasCal] = useState({}
+
+  )
+  useEffect(() => {
+   const getDiasAtend = () => {
+    let data = {}
+    for(let i = 0; i < datas.length; i++){
+      data[datas[i]] = {
         marked: true,
         dotColor: 'green',
         selected: true,
         selectedColor: 'green',
         selectedTextColor:'white',
         disableTouchEvent: false,
-      },
-      '2024-05-22': {
-        marked: true,
-        dotColor: 'green',
-        selected: true,
-        selectedColor: 'green',
-        selectedTextColor:'white',
-        disableTouchEvent: false,
-      },
+     }
     }
+    setDatasCal(data)
+   }
+
+   if(datas.length > 0) getDiasAtend();
+  },[])
+
+    // const datas = {
+    //     '2024-05-23': {
+    //     marked: true,
+    //     dotColor: 'green',
+    //     selected: true,
+    //     selectedColor: 'green',
+    //     selectedTextColor:'white',
+    //     disableTouchEvent: false,
+    //   },
+    //   '2024-05-22': {
+    //     marked: true,
+    //     dotColor: 'green',
+    //     selected: true,
+    //     selectedColor: 'green',
+    //     selectedTextColor:'white',
+    //     disableTouchEvent: false,
+    //   },
+    // }
 
   return (
     <View>
@@ -40,7 +62,7 @@ export const Calendario = () => {
             disableAllTouchEventsForDisabledDays
             disableAllTouchEventsForInactiveDays
             
-            markedDates={datas}
+            markedDates={datasCal}
 
             />
    </View>
