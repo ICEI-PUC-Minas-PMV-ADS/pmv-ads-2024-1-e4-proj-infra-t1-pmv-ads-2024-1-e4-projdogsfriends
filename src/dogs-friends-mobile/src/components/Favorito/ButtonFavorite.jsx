@@ -12,7 +12,7 @@ export const ButtonFavorite = ({passeadorId}) => {
   console.log(passeadorId)
   useEffect(() => {
     const id = user.favCliente.filter(p => p.passeadorId == passeadorId)
-    
+    console.log(id)
     if(id.length > 0)
         setFavorite(true)
   },[user])
@@ -41,8 +41,8 @@ export const ButtonFavorite = ({passeadorId}) => {
         justifyContent:"center", alignItems: "center"}}>
        {
         favorite ? 
-              <FontAwesome name="heart-o" size={20} color="black" />
-            : <FontAwesome name="heart" size={20} color="red" />
+            <FontAwesome name="heart" size={20} color="red" />
+            : <FontAwesome name="heart-o" size={20} color="black" />
        }
    </TouchableOpacity>
   )

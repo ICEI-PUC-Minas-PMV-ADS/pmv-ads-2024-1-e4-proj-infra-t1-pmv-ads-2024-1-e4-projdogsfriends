@@ -6,6 +6,7 @@ export const styles = StyleSheet.create({
         backgroundColor: "#FFFFFF",
         bottom: 30,
         paddingVertical: 20,
+        paddingHorizontal:24,
     },
     card:{
         flexDirection:"row",
@@ -15,7 +16,6 @@ export const styles = StyleSheet.create({
         width:"100%",
         justifyContent: "center",
         alignItems: "center",
-        paddingHorizontal: 20
     },
 
     btnContratar:{

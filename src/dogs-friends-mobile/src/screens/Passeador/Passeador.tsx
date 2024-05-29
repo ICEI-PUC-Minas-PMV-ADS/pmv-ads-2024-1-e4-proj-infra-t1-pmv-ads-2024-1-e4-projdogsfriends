@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 import { useAuth } from "../../hooks/useAuth"
 import { styles } from "./styles"
 import { Card } from "./Card"
+import { Reviews } from "./Reviews"
 
 const clienteRepo = new Cliente()
 
@@ -33,6 +34,20 @@ const Passeador = ({route, navigation}) => {
         passeador &&
         <View style={styles.container}>
              <Card passeador={passeador} />
+
+          <View style={{marginTop: 12}}>
+             <Text style={{fontFamily: "semibold", fontSize: 18}}>Sobre Mim:</Text> 
+             <Text numberOfLines={6} style={{fontFamily:"light", textAlign:"justify"}}>{passeador.sobreMim}</Text>
+          </View>
+
+          <View style={{marginTop: 12}}>
+            <Text style={{fontFamily: "semibold", fontSize: 18}}>Reviews</Text> 
+            {
+              passeador.reviews && 
+                <Reviews reviews={passeador.reviews}/>
+            }
+          </View>
+
         </View>
        }
     </HeaderAnimation>
