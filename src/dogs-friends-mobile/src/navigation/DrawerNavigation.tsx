@@ -1,5 +1,5 @@
 import { DrawerContentComponentProps, DrawerContentScrollView, createDrawerNavigator } from "@react-navigation/drawer"
-import { BottomNavigation } from "./BottomNavigation"
+ 
 import { Home, Login, Dashboard, PetDetail, Cadastro, Pedido, ListaPedidos, AddPet, Pesquisa, Map, Agendamento, Passeador, Confirmar } from "../screens"
  
 import Telas from "../screens/telas/Telas"
@@ -15,6 +15,7 @@ export const DrawerNavigation = () => {
     screenOptions={{headerShown:false, drawerStyle:{
       backgroundColor: "#FFFFFF"
     }}}>       
+        
         <Drawer.Screen name="Dashboard" component={Dashboard} />
         <Drawer.Screen name="PetDetail" component={PetDetail} />
         <Drawer.Screen name="Passeador" component={Passeador} />
@@ -30,14 +31,14 @@ export const DrawerNavigation = () => {
 
 
         <Drawer.Screen name="Agendamento" component={Agendamento} />
-        <Drawer.Screen name="BottomNavigation" component={BottomNavigation} />
+   
     </Drawer.Navigator>
   )
 }
 
 
 const Menu = ( props: DrawerContentComponentProps) => {
-  const { user, token, setToken, setUser } = useAuth();
+  const { user, token, setToken, setUser, logout } = useAuth();
  // const authController = new Auth();
   const navigation = useNavigation();
 
@@ -58,10 +59,18 @@ const Menu = ( props: DrawerContentComponentProps) => {
         resizeMode="cover"
         /> */}
         <View style={styles.profileImgContainer}>
-            {/* <Image 
-                source={{uri: `${publicFiles}/${user.fotoPerfil}`}}
+           {
+            user.fotoPerfil ?
+              <Image 
+                source={{uri: user.fotoPerfil}}
                 style={styles.profileImg} 
-            />            */}
+              />   
+              :
+              <Image 
+              source={require("../../assets/images/imgperfil.png")}
+              style={styles.profileImg} 
+          />   
+           }        
         </View>
         <Text style={styles.userName}>Olá {user.nome}</Text>
       </View> 
@@ -73,28 +82,25 @@ const Menu = ( props: DrawerContentComponentProps) => {
         </TouchableOpacity>
         <TouchableOpacity style={styles.ItemMenu}  onPress={() => navigation.navigate("Pesquisa")}>
          
-          <Text>Pesquisar</Text>
-        </TouchableOpacity>
+         <Text>Pesquisar</Text>
+         </TouchableOpacity>
+
+         <TouchableOpacity style={styles.ItemMenu}  onPress={() => navigation.navigate("AddPet")}>    
+          <Text>Adicionar Pet</Text>
+         </TouchableOpacity>
+
         <TouchableOpacity style={styles.ItemMenu}  onPress={() => navigation.navigate("ListaPedidos")}>
           
           <Text>Pedidos</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.ItemMenu}  onPress={() => navigation.navigate("Remedios")}>
-          
-          <Text>Medicação</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.ItemMenu}  onPress={() => logout()}>
-           
-          <Text>Calendario</Text>
-        </TouchableOpacity>
-
+       
           <View style={{}}>
               <TouchableOpacity style={styles.ItemMenu}  onPress={() => navigation.navigate("Settings")}>
                
                 <Text>Configurações</Text>
               </TouchableOpacity>
 
-              <TouchableOpacity style={styles.ItemMenu}  onPress={() => {}}>
+              <TouchableOpacity style={styles.ItemMenu}  onPress={() => logout()}>
                 
                 <Text>Sair</Text>
               </TouchableOpacity>

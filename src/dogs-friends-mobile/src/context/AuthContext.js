@@ -40,6 +40,11 @@ export function AuthProvider({children}){
     }
 }
 
+const logout = () => {
+    setUser(null)
+    setToken(null)
+}
+
 const login = async(token) => {
     try {
          
@@ -58,7 +63,8 @@ const login = async(token) => {
         user,
         setUser,
         token,
-        startLogin
+        startLogin,
+        logout
     }
 
     return <AuthContext.Provider value={data}>{ children }</AuthContext.Provider>

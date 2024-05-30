@@ -7,6 +7,7 @@ import { AddForm } from "./components/AddForm"
 import { File } from "../../api/Files"
 import { Pet } from "../../api/Pet"
 import { styles } from "./styles"
+import { useAuth } from "../../hooks/useAuth"
 
 const fileRepo = new File()
 const petRepo = new Pet()
@@ -17,11 +18,13 @@ const AddPet = ({route, navigation}: Props) => {
 
   const [imagens, setImagens] = useState([])
   const [pet, setPet] = useState(null)
+  const { user } = useAuth()
 
+ 
   
   const sendPet = async() => {
     const petToSend = pet 
-    petToSend.clienteId = "6757f0de-a15e-4894-9e98-54150a741803"
+    petToSend.clienteId = user.id
 
     const imgsToSend = imagens.map(async (img) => (
       {url: await fileRepo.upload(img)}
@@ -36,7 +39,10 @@ const AddPet = ({route, navigation}: Props) => {
 
     try {
       const res = await petRepo.addPet(petToSend)
-      if(res.status == 201) Alert.alert("Pet cadastrado com sucesso")
+      if(res.status == 201){
+        Alert.alert("Pet cadastrado com sucesso")
+        navigation.navigate("Dashboard")
+      }
       
     } catch (error) {
       console.log(error)
