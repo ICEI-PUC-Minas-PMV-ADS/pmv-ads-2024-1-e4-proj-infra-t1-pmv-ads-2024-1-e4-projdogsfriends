@@ -10,6 +10,7 @@ import Pesquisa from "./Pesquisa/Pesquisa";
 import Map from "./Map/Map";
 import Agendamento from "./Agendamento/Agendamento";
 import Passeador from "./Passeador/Passeador";
+import Confirmar from "./Agendamento/Confirmar";
 
 export {
     Home,
@@ -23,5 +24,6 @@ export {
     Pesquisa,
     Map,
     Agendamento,
-    Passeador
+    Passeador,
+    Confirmar
 }

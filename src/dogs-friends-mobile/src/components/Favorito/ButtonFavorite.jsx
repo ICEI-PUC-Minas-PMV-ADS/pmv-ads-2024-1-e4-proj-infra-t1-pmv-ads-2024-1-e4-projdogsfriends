@@ -9,13 +9,14 @@ export const ButtonFavorite = ({passeadorId}) => {
   const [favorite, setFavorite] = useState(false)
   const {user, token} = useAuth();
 
-  console.log(passeadorId)
+ 
   useEffect(() => {
-    const id = user.favCliente.filter(p => p.passeadorId == passeadorId)
-    console.log(id)
+    const id = user.favCliente.filter(p => p.passeadorId === passeadorId)
+   
     if(id.length > 0)
         setFavorite(true)
-  },[user])
+  },[passeadorId])
+
  
   const toogleFavorite = () => {
    try {

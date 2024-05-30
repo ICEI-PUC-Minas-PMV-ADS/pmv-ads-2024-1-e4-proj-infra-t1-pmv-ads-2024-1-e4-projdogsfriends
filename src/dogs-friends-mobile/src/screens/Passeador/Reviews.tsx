@@ -40,7 +40,7 @@ export const Reviews = ({ reviews }) => {
                         <Text>{dataBr(review.createdAt)}</Text>
                     </View>
                     <View>
-                    <Text>{review.comentario}</Text>
+                    <Text style={{fontFamily:"light"}}>{review.comentario}</Text>
                     </View>
                 </View>
           

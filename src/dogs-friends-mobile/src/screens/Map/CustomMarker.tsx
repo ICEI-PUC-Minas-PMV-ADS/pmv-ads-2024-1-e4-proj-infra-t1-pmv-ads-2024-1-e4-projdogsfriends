@@ -7,28 +7,26 @@ function CustomMarker(
     id,
     latitude,
     longitude,
-    color
+    color,
+    passeador
   }) {
 
   return (
     <Marker
       identifier={id}
       key={id}
-      //Definindo as coordenadas do marcador
+ 
       coordinate={{
         latitude: latitude,
         longitude: longitude,
       }}
-      /* 
-        Permite que os marcadores personalizados monitorem alterações visuais e sejam redesenhados,
-        para obter maior performance é recomendado deixar a propriedade desativada
-      */
+       
       tracksViewChanges={false}
       
     >
-      {/* Adicionando uma cor personalizada de acordo com as props */}
+       
       <View style={styles.markerWrapper}>
-        {/* Adicionando uma cor personalizada de acordo com as props */}
+         
         <View style={[
           styles.markerBody,
           {
@@ -45,12 +43,19 @@ function CustomMarker(
         ]}>
         </View>
       </View>
-      {/* Caso queira customizar totalmente a aparência de um Callout através de seus filhos, atribua à ele a propriedade tooltip=true */}
+    
       <View style={styles.calloutContainer}>        
-      <Image source={{uri: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/340px-Default_pfp.svg.png"}} 
-                    style={{width: 70, height: 70, borderRadius:50}} />
-          <Text style={styles.title}>Nome Pessador</Text>
-          <Text>Cidade: Belo horizonte</Text>
+        {
+          passeador.fotoPerfil ? 
+          <Image source={{uri: passeador.fotoPerfil}} 
+          style={{width: 70, height: 70, borderRadius:50}} />
+          :
+          <Image source={{uri: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/340px-Default_pfp.svg.png"}} 
+          style={{width: 70, height: 70, borderRadius:50}} />
+        }
+          <Text style={styles.title}>{passeador.nome} {passeador.sobrenome}</Text>
+          <Text>{passeador.endereco.cidade}</Text>
+          <Text>{passeador.endereco.logradouro}</Text>
         
         
      </View>

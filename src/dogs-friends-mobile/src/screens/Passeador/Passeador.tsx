@@ -1,4 +1,4 @@
-import { Text, View } from "react-native"
+import { Text, TouchableOpacity, View } from "react-native"
 import { HeaderAnimation } from "../../components/header/HeaderAnimation"
 import { Cliente } from "../../api/Cliente"
 import { useEffect, useState } from "react"
@@ -13,9 +13,26 @@ const Passeador = ({route, navigation}) => {
   const {passeadorId} = route.params  
   const {token} = useAuth()
   const [passeador, setPasseador] = useState({})
+  const [latLon, setLatLon] = useState({})
+
+  console.log(passeadorId)
+  const getLocation = async() => {
+    try {
+      const api = `https://us1.locationiq.com/v1/search?key=pk.2805096de05256abdc29f3de5498f645&q=${passeador.enderecos[0].numero},${passeador.enderecos[0].logradouro},${passeador.enderecos[0].cidade},${passeador.enderecos[0].uf}&format=json&`
+      const local = await fetch(api)
+      const res = await local.json()
+
+      console.log(JSON.stringify(res, null, 2))
+      setLatLon({lat: Number(res[0].lat), lon: Number(res[0].lon)})
+    } catch (error) {
+      
+    }
+  }
+
+
 
   const getPasseador = async() => {
-    try{
+    try{        
         const res = await clienteRepo.findClientePasseador(passeadorId, token)
         setPasseador(res);  
     }catch(error){
@@ -26,7 +43,13 @@ const Passeador = ({route, navigation}) => {
   useEffect(() => {
     if(passeadorId)
       getPasseador()
-  },[])  
+  },[passeadorId])  
+
+  useEffect(() => {
+   if(passeador.enderecos !=null && passeador.enderecos[0].cidade !== '') 
+    getLocation() 
+  },[passeador])
+
 
   return (
     <HeaderAnimation route={route} navigation={navigation} >
@@ -47,6 +70,18 @@ const Passeador = ({route, navigation}) => {
                 <Reviews reviews={passeador.reviews}/>
             }
           </View>
+
+       
+         <TouchableOpacity onPress={
+            () => navigation.navigate("Map",
+              {latlon: latLon, 
+                passeadorInfo:
+                  {nome:passeador.nome, 
+                   sobrenome: passeador.sobrenome,
+                   fotoPerfil: passeador.fotoPerfil,
+                   endereco: passeador.enderecos[0]}})}>
+            <Text>Map</Text>
+         </TouchableOpacity>
 
         </View>
        }

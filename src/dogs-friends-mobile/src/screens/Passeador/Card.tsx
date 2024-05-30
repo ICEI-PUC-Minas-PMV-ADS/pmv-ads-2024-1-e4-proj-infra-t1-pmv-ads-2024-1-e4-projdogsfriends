@@ -3,8 +3,11 @@ import { styles } from "./styles"
 import { Stars } from "../../components/stars/stars"
 import { TouchableOpacity } from "react-native-gesture-handler"
 import { ButtonFavorite } from "../../components/Favorito/ButtonFavorite"
+import { useNavigation } from "@react-navigation/native"
 
 export const Card = ({passeador}) => {
+  const navigate = useNavigation()
+
   return (
     <View style={styles.content}>
        <View style={styles.card}>
@@ -29,7 +32,7 @@ export const Card = ({passeador}) => {
               </View>   
 
             <View style={{flexDirection: "row", gap:10}}>
-                <TouchableOpacity style={styles.btnContratar}>
+                <TouchableOpacity style={styles.btnContratar} onPress={() => navigate.navigate("Agendamento", {passeadorId: passeador.id, passeador:passeador})}>
                     <Text style={styles.textBtnContratar}>Contratar {passeador.nome}</Text>
                 </TouchableOpacity>
 

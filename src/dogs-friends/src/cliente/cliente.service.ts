@@ -215,6 +215,7 @@ export class ClienteService {
               cidade: true,
               bairro: true,
               logradouro: true,
+              numero: true
             },
           },
          
