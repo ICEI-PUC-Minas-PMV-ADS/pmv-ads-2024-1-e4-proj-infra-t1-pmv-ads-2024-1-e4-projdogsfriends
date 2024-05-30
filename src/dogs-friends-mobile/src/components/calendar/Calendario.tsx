@@ -2,10 +2,9 @@ import { useEffect, useState } from "react";
 import { View } from "react-native";
 import { Calendar } from "react-native-calendars";
 
-export const Calendario = ({datas}) => {
-  const [datasCal, setDatasCal] = useState({}
-
-  )
+export const Calendario = ({datas, setDataSel}) => {
+  const [datasCal, setDatasCal] = useState({})
+ 
   useEffect(() => {
    const getDiasAtend = () => {
     let data = {}
@@ -23,7 +22,7 @@ export const Calendario = ({datas}) => {
    }
 
    if(datas.length > 0) getDiasAtend();
-  },[])
+  },[datas])
 
     // const datas = {
     //     '2024-05-23': {
@@ -51,6 +50,7 @@ export const Calendario = ({datas}) => {
             onDayPress={date => {
                 console.log(date);
                 const {year, month, day} = date;
+                setDataSel(date.dateString)
                
             }}
             //onMonthChange={() => {Alert.alert("movendo")}}

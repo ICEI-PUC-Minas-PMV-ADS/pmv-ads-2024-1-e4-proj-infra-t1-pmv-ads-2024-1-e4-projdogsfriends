@@ -64,5 +64,33 @@ export class Cliente {
         throw error
     }
    }
+
+
+   async createPedido(
+    precoTotal: number, 
+    agendaPasseadorId: string,
+    clienteId: string,
+    passeadorId:string,
+    pets: string[]){
+    try {
+     const res = await api.post("/pedido", {
+            precoTotal,
+            agendaPasseadorId,
+            clienteId,
+            passeadorId,
+            pets
+        },
+    {
+        headers:{
+            "Content-Type": "application/json"
+        }
+    })
+      
+     return res
+    } catch (error) {
+        console.log("error ===>" , error)
+        throw error
+    }
+   }
 }
 

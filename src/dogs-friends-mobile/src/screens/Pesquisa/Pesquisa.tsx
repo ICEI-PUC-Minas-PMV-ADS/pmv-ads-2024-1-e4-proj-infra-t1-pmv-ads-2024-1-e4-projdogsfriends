@@ -9,6 +9,7 @@ import { FlatList } from "react-native-gesture-handler";
 import { Card } from "../../components/search/Card";
 import { styles } from "./styles";
 import { HeaderAnimation } from "../../components/header/HeaderAnimation";
+import { useAuth } from "../../hooks/useAuth";
 
 interface Props extends DrawerScreenProps<any, any>{}
 const clienteRepo = new Cliente();
@@ -48,14 +49,14 @@ const getUf = (state: string) => {
 }
 
 const Pesquisa = ({route, navigation}:Props) => {
+  const {user, token} = useAuth()
   const [selectedItem, setSelectedItem] = useState(null);
   const [passeadores, setPasseadores] = useState([])
 
   const searchSelected = async(city: string, state:string) => {
      
     try {
-      const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NzU3ZjBkZS1hMTVlLTQ4OTQtOWU5OC01NDE1MGE3NDE4MDMiLCJlbWFpbCI6Im1haWwzQGdtYWlsLmNvbSIsImlhdCI6MTcxNTM2NjQ5MywiZXhwIjoxNzE1MzY3MzkzfQ.bRn72LBPxmrPUdqMyvzT3OdLCoEo3DrnONpaNFUF818"
-     
+          
       const response = await clienteRepo.search(city, getUf(state), 10, 0, token)
       setPasseadores(response)
       
