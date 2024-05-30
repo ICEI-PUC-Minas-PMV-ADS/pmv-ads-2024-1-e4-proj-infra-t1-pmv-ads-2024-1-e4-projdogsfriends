@@ -1,9 +1,11 @@
-import { Image, Text, View } from "react-native"
+import { Image, Text, TouchableOpacity, View } from "react-native"
 import { URL_IMAGE_BASE } from "../../constants/constants"
 import { ScrollView } from "react-native-gesture-handler"
+import { useNavigation } from "@react-navigation/native"
 
 export const ListaPets = ({pets}) => {
-    
+  const navigation = useNavigation()  
+  console.log(JSON.stringify(pets, null, 2))
   return (
     <View>
         <ScrollView
@@ -13,7 +15,8 @@ export const ListaPets = ({pets}) => {
             >
         {
             pets.map((pet) => (
-                <View key={pet.id}  style={{marginRight:10}}>
+                <TouchableOpacity onPress={() => navigation.navigate("PetDetail", {petId: pet.id})}
+                     key={pet.id}  style={{marginRight:10}}>
                    <View>
                         {
                              pet.imagens[0] ? 
@@ -25,7 +28,7 @@ export const ListaPets = ({pets}) => {
                     <View>
                        <Text> {pet.nome}</Text>
                     </View>
-                </View>
+                </TouchableOpacity>
             ))
         }
         </ScrollView>

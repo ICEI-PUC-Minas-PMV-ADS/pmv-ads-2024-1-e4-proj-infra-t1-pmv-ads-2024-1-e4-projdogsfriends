@@ -12,10 +12,18 @@ export const UserProfile = () => {
    <View style={styles.content}>
     
     <View style={styles.profileImgContainer}>
-        <Image 
-            source={require('../../../../assets/images/imgperfil.png')}
-            style={styles.profileImg} 
-        />           
+    {
+            user.fotoPerfil ?
+              <Image 
+                source={{uri: user.fotoPerfil}}
+                style={styles.profileImg} 
+              />   
+              :
+              <Image 
+              source={require("../../../../assets/images/imgperfil.png")}
+              style={styles.profileImg} 
+          />   
+           }              
     </View>
     <Text style={styles.userName}>Olá {user.nome}</Text>
    </View>
