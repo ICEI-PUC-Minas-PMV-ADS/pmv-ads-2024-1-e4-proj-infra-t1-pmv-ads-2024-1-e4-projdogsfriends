@@ -78,10 +78,15 @@ const Pesquisa = ({route, navigation}:Props) => {
       
          <View style={styles.container}>
           {
-            passeadores.length > 0 &&
+            passeadores.length > 0 ?
             passeadores.map((passeador, index) => (
               <Card key={index} passeador={passeador}/>
             ))
+            :(
+              <View style={{height: "60%",justifyContent: "center", alignItems: "center"}}>
+                <Text style={{fontFamily:"bold", fontSize: 24, textAlign:'center', color:"#9E9E9E"}}>Comece pesquisando em uma cidade</Text>
+              </View>
+            )
           }
           {/* <FlatList
             data={passeadores}

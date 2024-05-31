@@ -66,6 +66,10 @@ export default function Agendamento({route, navigation}: Props){
            {
             <Calendario datas={datas} setDataSel={setDataSel}/>
            }
+            <View style={{marginHorizontal: 20, marginVertical: 10}}>
+             <Text>Data: { dataSel }</Text>
+             <Text>Horario: { horario }</Text>
+            </View>
           </View>
           <View>
             <ScrollView style={{   }}

@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 5,
     borderColor: "#FFFFFF",
-    backgroundColor:"#3C97B8",
+    backgroundColor:"#1E5FC9",
     alignSelf: "center",
     shadowColor: "#000",
     shadowOffset: {
