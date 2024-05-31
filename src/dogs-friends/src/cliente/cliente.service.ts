@@ -96,6 +96,20 @@ export class ClienteService {
           enderecos: true,
           telefones:true,
           isPasseador:true,
+          pets:{
+            select:{
+              id:true,
+              nome: true,
+              idade: true,
+              raca: true,
+
+              imagens:{
+                select:{
+                  url: true
+                }
+              }
+            }
+          },
           favCliente: {
             select:{
               passeadorId:true,
@@ -201,6 +215,7 @@ export class ClienteService {
               cidade: true,
               bairro: true,
               logradouro: true,
+              numero: true
             },
           },
          

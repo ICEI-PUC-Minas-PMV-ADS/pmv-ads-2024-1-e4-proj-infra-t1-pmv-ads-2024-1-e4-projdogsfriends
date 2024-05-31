@@ -9,8 +9,16 @@ export class PetRepository {
   constructor(private readonly prisma: PrismaService) { }
 
   async create(petDto: PetDto): Promise<any> {
+    const {imagens, ...pet} = petDto
     return this.prisma.pet.create({
-      data: petDto
+      data: {
+        ...pet,
+        imagens:{
+          create: imagens.map(imagem => (
+            imagem
+          ))
+        }
+      }
     })
   }
 
@@ -19,6 +27,16 @@ export class PetRepository {
       const pet = await this.prisma.pet.findUnique({
         where: {
           id
+        },
+        select:{
+          id:true,
+          nome: true,
+          idade: true,
+          raca: true,
+          peso: true,
+          clienteId: true,
+
+          imagens:true
         }
       });
       if(!pet)  return new NotFoundException('Pet not found')

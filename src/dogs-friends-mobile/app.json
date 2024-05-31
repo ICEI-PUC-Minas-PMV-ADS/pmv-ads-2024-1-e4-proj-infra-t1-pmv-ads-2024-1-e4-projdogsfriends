@@ -1,0 +1,27 @@
+{
+  "expo": {
+    "name": "dogs-friends-mobile",
+    "slug": "dogs-friends-mobile",
+    "version": "1.0.0",
+    "android":{
+      "package": "com.dogsfriendsmobile",
+     
+      "config":{
+        "googleMaps": {
+          "apiKey": "AIzaSyDBVUrQ1CuaSEUuhoejP8qz-FiguqIoiKw"
+        }
+      }
+    },
+    "plugins": [
+      "expo-font",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "The app accesses your photos to let you share them with your friends."
+        }
+      ]
+
+      
+    ]
+  }
+}
