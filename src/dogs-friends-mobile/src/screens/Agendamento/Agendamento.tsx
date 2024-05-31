@@ -5,6 +5,7 @@ import { Calendario } from "../../components/calendar/Calendario";
 import { useEffect, useState } from "react";
 import { Agenda } from "../../api/Agenda";
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
+import { styles } from "./styles";
 
 interface Props extends DrawerScreenProps<any, any>{}
 
@@ -65,6 +66,10 @@ export default function Agendamento({route, navigation}: Props){
            {
             <Calendario datas={datas} setDataSel={setDataSel}/>
            }
+            <View style={{marginHorizontal: 20, marginVertical: 10}}>
+             <Text>Data: { dataSel }</Text>
+             <Text>Horario: { horario }</Text>
+            </View>
           </View>
           <View>
             <ScrollView style={{   }}
@@ -87,9 +92,9 @@ export default function Agendamento({route, navigation}: Props){
               </ScrollView>
           </View>
 
-          <View>
-            <TouchableOpacity onPress={() => nextPage()}>
-              <Text>Confirmar</Text>
+          <View style={{width: "100%", marginTop: 20}}>
+            <TouchableOpacity style={styles.btnConfirmar} onPress={() => nextPage()}>
+              <Text style={{fontFamily: "semibold", color: "#FFFFFF"}}>Confirmar</Text>
             </TouchableOpacity>
           </View>
 

@@ -18,7 +18,7 @@ export const Card = ({passeador}) => {
                 style={{width: 70, height: 70, borderRadius:50}} />
             
                 ): (  
-                    <Image source={{uri: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/340px-Default_pfp.svg.png"}} 
+                    <Image source={require("../../../assets/images/imgperfil.png")} 
                     style={{width: 70, height: 70, borderRadius:50}} />
                    )
                }

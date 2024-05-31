@@ -11,7 +11,7 @@ export const BottomNavigation = () => {
         <Tab.Navigator screenOptions={{headerShown: false}}>
             <Tab.Screen name="Dashboard" options={{tabBarIcon: ()=> <AntDesign name="home" size={24} color="black" />}} component={Drawer} />
             <Tab.Screen name="Pesquisa" options={{tabBarIcon: ()=> <AntDesign name="search1" size={24} color="black" />}} component={Pesquisa} />
-            <Tab.Screen name="ListPedidos" options={{tabBarIcon: ()=> <Feather name="list" size={24} color="black" />}} component={ListaPedidos} />
+            <Tab.Screen name="Pedidos" options={{tabBarIcon: ()=> <Feather name="list" size={24} color="black" />}} component={ListaPedidos} />
         </Tab.Navigator>
     )
 }

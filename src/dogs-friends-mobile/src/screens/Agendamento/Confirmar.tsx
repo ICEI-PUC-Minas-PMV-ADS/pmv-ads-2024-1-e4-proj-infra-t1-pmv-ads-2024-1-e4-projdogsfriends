@@ -68,10 +68,11 @@ const Confirmar = ({route, navigation}) => {
             </View>
            </View>
 
-            <TouchableOpacity onPress={() => createPedido()}>
-              <Text>Confirmar</Text>
-            </TouchableOpacity>
-
+           <View style={{width: "100%", marginTop: 20}}>
+              <TouchableOpacity style={styles.btnConfirmar}  onPress={() => createPedido()}>
+              <Text style={{fontFamily: "semibold", color: "#FFFFFF"}}>Confirmar</Text>
+              </TouchableOpacity>
+            </View>
             </View>
         </View>     
     </HeaderAnimation>

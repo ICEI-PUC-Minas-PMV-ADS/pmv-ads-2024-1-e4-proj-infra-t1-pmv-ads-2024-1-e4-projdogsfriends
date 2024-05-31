@@ -32,6 +32,7 @@ export class PetRepository {
           id:true,
           nome: true,
           idade: true,
+          raca: true,
           peso: true,
           clienteId: true,
 
