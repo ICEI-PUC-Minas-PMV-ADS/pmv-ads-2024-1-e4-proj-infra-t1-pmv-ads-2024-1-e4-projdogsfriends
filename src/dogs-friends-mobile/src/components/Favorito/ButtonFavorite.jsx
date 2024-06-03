@@ -15,6 +15,8 @@ export const ButtonFavorite = ({passeadorId}) => {
    
     if(id.length > 0)
         setFavorite(true)
+    else 
+        setFavorite(false)
   },[passeadorId])
 
  
