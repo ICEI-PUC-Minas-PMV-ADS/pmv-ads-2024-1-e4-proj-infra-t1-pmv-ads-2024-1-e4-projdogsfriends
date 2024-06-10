@@ -1,5 +1,7 @@
 import axios from "axios";
-const url = `http://${process.env.API_IP}:3000/`;
+import { API_IP } from "../../env.api";
+
+const url = `http://${API_IP}:3000/`;
 export const api = axios.create({
     baseURL: url
 })
