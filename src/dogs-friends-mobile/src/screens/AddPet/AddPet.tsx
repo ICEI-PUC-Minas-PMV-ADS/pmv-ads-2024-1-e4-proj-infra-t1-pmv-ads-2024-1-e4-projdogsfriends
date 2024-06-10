@@ -8,9 +8,11 @@ import { File } from "../../api/Files"
 import { Pet } from "../../api/Pet"
 import { styles } from "./styles"
 import { useAuth } from "../../hooks/useAuth"
+import { Cliente } from "../../api/Cliente"
 
 const fileRepo = new File()
 const petRepo = new Pet()
+const cliente = new Cliente()
 
 interface Props extends DrawerScreenProps<any, any>{}
 
@@ -18,7 +20,7 @@ const AddPet = ({route, navigation}: Props) => {
 
   const [imagens, setImagens] = useState([])
   const [pet, setPet] = useState(null)
-  const { user } = useAuth()
+  const { user, setUser, token } = useAuth()
 
  
   
@@ -40,6 +42,8 @@ const AddPet = ({route, navigation}: Props) => {
     try {
       const res = await petRepo.addPet(petToSend)
       if(res.status == 201){
+        const resp = await cliente.getCliente(token)
+        setUser(resp)
         Alert.alert("Pet cadastrado com sucesso")
         navigation.navigate("Dashboard")
       }
