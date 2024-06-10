@@ -4,10 +4,12 @@ import { useAuth } from "../../hooks/useAuth";
 import { View, Text } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { api } from "../../api/axios/axios";
+import { Cliente } from "../../api/Cliente";
 
+const cliente = new Cliente()
 export const ButtonFavorite = ({passeadorId}) => {
   const [favorite, setFavorite] = useState(false)
-  const {user, token} = useAuth();
+  const {user, setUser, token} = useAuth();
 
  
   useEffect(() => {
@@ -20,9 +22,9 @@ export const ButtonFavorite = ({passeadorId}) => {
   },[passeadorId])
 
  
-  const toogleFavorite = () => {
+  const toogleFavorite = async () => {
    try {
-    api.post("cliente/favorito", {
+    await api.post("cliente/favorito", {
         toogle: !favorite,
         clienteId: user.id,
         passeadorId
@@ -32,6 +34,9 @@ export const ButtonFavorite = ({passeadorId}) => {
             'Authorization': `Bearer ${token}`
         }
     })
+    const result = await cliente.getCliente(token)
+    setUser(result)
+    
     setFavorite(() => !favorite)
    } catch (error) {
     console.log(error)
