@@ -1,58 +1,84 @@
 # Plano de Testes de Usabilidade
 
-O teste de usabilidade permite avaliar a qualidade da interface com o usuário da aplicação interativa. O Plano de Testes de Software é gerado a partir da especificação do sistema e consiste em casos de testes que deverão ser executados quando a implementação estiver parcial ou totalmente pronta.
+As fontes abaixo serão úteis na elaboração do artefato "Plano de Testes de Usabilidade". Os testes de usabilidade avaliam não apenas a experiência dos usuários durante a interação com o sistema, mas também como as funcionalidades e as regras de negócio influenciam na interação entre usuário e sistema. O objetivo é verificar se o tipo de informação, a linguagem, o design das páginas e a plataforma tecnológica utilizada proporcionam a melhor experiência de uso possível.
 
-## 1. Objetivo do Teste
-Objetivo Geral: Avaliar a facilidade de uso, eficiência e satisfação dos usuários ao interagir com o aplicativo móvel.
+Os testes têm como metas obter respostas para os seguintes aspectos:
 
-### Objetivos Específicos:
+ -  O sistema é intuitivo e fácil de usar?
+ - O sistema é responsivo?
+ -  Os usuários conseguem alcançar seus objetivos com poucos cliques?
+ - A navegação é agradável e fluida?
+ - Os usuários podem gerenciar seu agendamentos  com facilidade?
 
- - Identificar problemas de usabilidade no design e navegação.
- - Avaliar o desempenho do aplicativo em tarefas específicas.
- - Coletar feedback sobre a experiência geral do usuário.
+As áreas consideradas neste teste de usabilidade serão as seguintes:
 
-### 2. Escopo do Teste
-Funcionalidades a Serem Testadas:
+ - Participantes: Serão envolvidos 8 indivíduos com idades entre 18 e 40 anos, apresentando uma variedade de perfis sociais.
+ - Ferramenta de Coleta de Dados: Será utilizado um registro de impressões durante a execução do teste.
+ - Equipe de Acompanhamento: O teste será acompanhado por um facilitador/observador.
+ - Relatório: O facilitador/observador registrará todas as observações relevantes em um relatório específico para posterior análise pela equipe de desenvolvimento.
 
-- Processo de login/registro.
-- Navegação principal.
-- Funcionalidade de busca.
-- Funcionalidade de Pedido de prestação de serviço.
+# Planejamento de realização de testes com usuários, definindo as operações que os mesmos devem realizar
+
+<table>
+  <tr>
+    <td align="center" width="100">Caso de Teste</td>
+    <td align="center" width="800">01 - Verificar responsividade</td>
+  </tr>
+  <tr>
+    <td align="center"></td>
+    <td align="left">Passos</td>
+  </tr>
+  <tr>
+    <td align="center"></td>
+    <td align="left">1) Acessar a aplicação</td>
+  </tr>
+  <tr>
+    <td align="center"></td>
+    <td align="left">2) Efetuar o cadastro como usuário</td>
+  </tr>
+  <tr>
+    <td align="center"></td>
+    <td align="left">3) Pesquisar por Passeadores </td>
+     </tr>
+  <tr>
+    <td align="center"></td>
+    <td align="left">4) Realizar Agendamentos</td>
+  </tr>
+  <tr>
+    <td align="center"></td>
+    <td align="left">5) Visualizar  Agendamentos </td>
+  </tr>
+  <tr>
+  <td align="center"></td>
+    <td align="left">6) Aceitar ou Recusar Agendamentos </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td align="center" width="100">Caso de Teste</td>
+    <td align="center" width="800">02 - Verificar responsividade</td>
+  </tr>
+    <tr>
+    <td align="center" width="100">Objetivo do teste</td>
+    <td align="center" width="800">Avaliar se comporta de maneira correta em diferentes proporções de telas</td>
+  </tr>
+    <tr>
+    <td align="center"></td>
+    <td align="left">Passos</td>
+  </tr>
+  <tr>
+    <td align="center"></td>
+    <td align="left">1) Acessar o app em mais de um dispositivo</td>
+  </tr>
+    <tr>
+    <td align="center"></td>
+    <td align="left">2) Realizar Login.</td>
+  </tr>
+    <tr>
+    <td align="center" width="100">Critérios de Êxito</td>
+    <td align="center" width="800">O usuário deve considerar a experiência fluida, performática e assertiva em ambos os dispositivos</td>
+  </tr>
+</table>
 
 
-### 3. Cenários de Teste
-
- Login/Registro: 
- - Tentar criar uma nova conta.
- - Fazer login com uma conta existente.
-
- Navegação:
- - Encontrar uma funcionalidade específica.
- - Navegar entre diferentes seções do aplicativo.
-
-Funcionalidade de Busca:
-- Buscar por pessoas que prestam o serviço no bairro ou cidade especificado.
-
-Pedido:
-- Efetuar pedido de prestação de serviço, com dada e horario escolhidos pelo usuário.
-
-### 4. Metodologia
-Métodos de Coleta de Dados:
-
-- Observação Direta: Monitorar os usuários enquanto realizam as tarefas.
-- Gravação de Tela: Capturar interações para análise posterior.
-- Entrevistas Pós-Tarefa: Perguntar aos usuários sobre sua experiência após cada tarefa.
-- Questionários: Coletar feedback quantitativo sobre a experiência geral.
-Ambiente de Teste:
-
-- Realizar os testes em um ambiente controlado, mas que simule o contexto real de uso.
-- Fornecer dispositivos móveis similares aos que os usuários utilizam no dia a dia.
-
-### 5. Métricas de Usabilidade
-Métricas a Serem Coletadas:
-
-- Eficiência: Tempo necessário para completar cada tarefa.
-- Efetividade: Percentual de tarefas completadas com sucesso.
-- Satisfação: Avaliação subjetiva dos usuários sobre a facilidade de uso (através de questionários como o SUS - System Usability Scale).
-- Erros: Número e tipo de erros cometidos pelos usuários.
-- Facilidade de Aprendizado: Tempo necessário para os novos usuários se familiarizarem com o aplicativo.
