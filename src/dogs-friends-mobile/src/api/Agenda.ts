@@ -10,4 +10,15 @@ export class Agenda {
             throw error
         }
     }
+
+    static async addAgenda(data: any){
+        try {
+          const res = await api.post('/agenda-passeador', data)
+          console.log(res)
+          return res
+        } catch (error) {
+            console.log("error ===>", error)
+            throw error
+        }
+    }
 }
