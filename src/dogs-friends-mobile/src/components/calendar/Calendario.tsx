@@ -54,7 +54,7 @@ export const Calendario = ({datas, setDataSel}) => {
                
             }}
             //onMonthChange={() => {Alert.alert("movendo")}}
-            initialDate={'2024-05-30'}
+            initialDate={'2024-06-30'}
             minDate={'2023-12-31'}
             maxDate={'2025-06-31'}
             hideExtraDays={true}

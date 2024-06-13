@@ -5,18 +5,20 @@ import { Cliente } from "../../api/Cliente"
 import { useEffect, useState } from "react"
 import { Card } from "./Card"
 import { styles } from "./styles"
+import { useAuth } from "../../hooks/useAuth"
 
 interface Props extends DrawerScreenProps<any, any>{}
 const clienteRepo = new Cliente()
 
 const ListaPedidos = ({route, navigation}:Props) => {
+  const {user} = useAuth()
   const [listaPedidos, setListaPedidos] = useState([])
 
   useEffect(() => {
     (async () => {
       if(listaPedidos.length === 0){
         try {
-          const res = await clienteRepo.getPedidos("6757f0de-a15e-4894-9e98-54150a741803")
+          const res = await clienteRepo.getPedidos(user.id)
           setListaPedidos(res)
         } catch (error) {
           

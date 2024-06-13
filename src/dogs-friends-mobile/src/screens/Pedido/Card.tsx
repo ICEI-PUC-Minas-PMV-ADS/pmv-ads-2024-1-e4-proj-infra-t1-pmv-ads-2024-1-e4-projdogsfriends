@@ -25,7 +25,8 @@ export const Card = ({ pedido }) => {
                                   pet.imagens[0].url ? 
                                  <Image source={{uri:  pet.imagens[0].url}} style={{width: 50, height: 50, borderRadius:25}} />
                                    : (
-                                        <Text>Imagem</Text>
+                                    <Image source={require("../../../assets/images/imgperfil.png")} 
+                                    style={{width: 50, height: 50, borderRadius:25}} />
                                     )
                                    
                                 }
