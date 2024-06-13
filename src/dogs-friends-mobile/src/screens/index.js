@@ -11,6 +11,7 @@ import Map from "./Map/Map";
 import Agendamento from "./Agendamento/Agendamento";
 import Passeador from "./Passeador/Passeador";
 import Confirmar from "./Agendamento/Confirmar";
+import AgendaPasseador from "./Agenda/Agenda";
 
 export {
     Home,
@@ -25,5 +26,6 @@ export {
     Map,
     Agendamento,
     Passeador,
-    Confirmar
+    Confirmar,
+    AgendaPasseador
 }

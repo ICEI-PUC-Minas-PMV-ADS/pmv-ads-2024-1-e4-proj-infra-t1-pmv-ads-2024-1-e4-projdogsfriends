@@ -1,6 +1,6 @@
 import { DrawerContentComponentProps, DrawerContentScrollView, createDrawerNavigator } from "@react-navigation/drawer"
  
-import { Home, Login, Dashboard, PetDetail, Cadastro, Pedido, ListaPedidos, AddPet, Pesquisa, Map, Agendamento, Passeador, Confirmar } from "../screens"
+import { Home, Login, Dashboard, PetDetail, Cadastro, Pedido, ListaPedidos, AddPet, Pesquisa, Map, Agendamento, Passeador, Confirmar, AgendaPasseador } from "../screens"
  
 import Telas from "../screens/telas/Telas"
 import { Dimensions, Image, StyleSheet, Text, TouchableOpacity, View } from "react-native"
@@ -24,6 +24,7 @@ export const DrawerNavigation = () => {
         <Drawer.Screen name="ListaPedidos" component={ListaPedidos} />
         <Drawer.Screen name="Pesquisa" component={Pesquisa} />
         <Drawer.Screen name="Confirmar" component={Confirmar} />
+        <Drawer.Screen name="Agenda" component={AgendaPasseador} />
 
           <Drawer.Group >
              <Drawer.Screen name="Map" component={Map} />
@@ -93,6 +94,10 @@ const Menu = ( props: DrawerContentComponentProps) => {
           
           <Text>Pedidos</Text>
         </TouchableOpacity>
+
+        <TouchableOpacity style={styles.ItemMenu}  onPress={() => navigation.navigate("Agenda")}>    
+          <Text>Minha Agenda</Text>
+         </TouchableOpacity>
        
           <View style={{}}>
               <TouchableOpacity style={styles.ItemMenu}  onPress={() => navigation.navigate("Settings")}>
