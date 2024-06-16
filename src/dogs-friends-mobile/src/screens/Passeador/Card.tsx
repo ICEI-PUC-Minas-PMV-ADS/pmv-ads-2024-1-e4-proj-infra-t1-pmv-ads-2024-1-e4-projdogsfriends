@@ -4,6 +4,7 @@ import { Stars } from "../../components/stars/stars"
 import { TouchableOpacity } from "react-native-gesture-handler"
 import { ButtonFavorite } from "../../components/Favorito/ButtonFavorite"
 import { useNavigation } from "@react-navigation/native"
+import { URL_IMAGE_BASE } from "../../constants/constants"
 
 export const Card = ({passeador}) => {
   const navigate = useNavigation()
@@ -15,7 +16,7 @@ export const Card = ({passeador}) => {
         <View>
                 {
                     passeador.fotoPerfil ?
-                    (  <Image source={{uri: passeador.fotoPerfil}} style={{width:120, height: 120, borderRadius: 5}} /> )
+                    (  <Image source={{uri: `${URL_IMAGE_BASE}${passeador.fotoPerfil}`}}  style={{width:120, height: 120, borderRadius: 5}} /> )
                     : (<Image source={{uri: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/340px-Default_pfp.svg.png"}} style={{width:120, height: 120, borderRadius: 5}} /> )
                 }           
             </View>

@@ -2,6 +2,7 @@ import { Image, Text, View } from "react-native"
 import { styles } from "./styles"
 import { TouchableOpacity } from "react-native-gesture-handler"
 import { useNavigation } from "@react-navigation/native"
+import { URL_IMAGE_BASE } from "../../constants/constants"
 
 export const Card = ({ pedido }) => {
   const navigation = useNavigation();
@@ -11,7 +12,7 @@ export const Card = ({ pedido }) => {
     onPress={() => navigation.navigate("Pedido",{ pedidoId: pedido.id })}
     >
         <View>
-            <Image source={{uri: pedido.cliente.fotoPerfil}} 
+            <Image source={{uri: `${URL_IMAGE_BASE}${pedido.cliente.fotoPerfil}`}} 
                 style={{width: 70, height: 70, borderRadius: 40}} />
         </View>
         <View style={{padding: 5, width: "80%", height:"100%"}}>

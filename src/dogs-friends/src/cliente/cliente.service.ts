@@ -7,6 +7,7 @@ import {
 } from '@nestjs/common';
 import { PrismaService } from '../prisma/service/prisma.service';
 import { EditClienteDto } from './dto';
+import { UpdateClienteDto } from './dto/update-cliente.dto';
 
 @Injectable()
 export class ClienteService {
@@ -362,6 +363,21 @@ export class ClienteService {
        return
     } catch (error) {
       this.handleExeptions(error)
+    }
+  }
+
+  async updatePhoto(updatePhoto: UpdateClienteDto){
+    try {
+      const client = await this.prisma.cliente.update({
+        where:{id: updatePhoto.id},
+        data: {
+          fotoPerfil: updatePhoto.fotoPerfil
+        }
+      })
+      return client.fotoPerfil
+      return client
+    } catch (error) {
+      
     }
   }
 

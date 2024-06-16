@@ -1,5 +1,6 @@
 import { Image, Text, View, TouchableOpacity } from "react-native"
 import { styles } from "./styles"
+import { URL_IMAGE_BASE } from "../../constants/constants"
  
 
 export const Card = ({ pedido }) => {
@@ -9,7 +10,7 @@ export const Card = ({ pedido }) => {
         <Text style={{fontFamily: "bold", color: "#757575"}}>Pedido</Text>
         <View style={{paddingHorizontal: 20}}>
             <View style={styles.clienteInfo}>
-                <Image source={{uri : pedido.cliente.fotoPerfil}} style={{ width: 100, height:100, borderRadius:4}} />
+                <Image source={{uri: `${URL_IMAGE_BASE}${pedido.cliente.fotoPerfil}`}}  style={{ width: 100, height:100, borderRadius:4}} />
                 <Text>Cliente: { pedido.cliente.nome } { pedido.cliente.sobrenome }</Text>
                 <Text>{ pedido.cliente.email }</Text>
             </View>

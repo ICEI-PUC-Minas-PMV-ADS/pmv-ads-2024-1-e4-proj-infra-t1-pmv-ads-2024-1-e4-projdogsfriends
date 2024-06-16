@@ -1,6 +1,7 @@
 import { Image, Text, View, TouchableOpacity } from "react-native"
 import { styles } from "../header/UserProfile/styles"
 import { useNavigation } from "@react-navigation/native"
+import { URL_IMAGE_BASE } from "../../constants/constants"
 
 
 export const Card = ({passeador}) => {
@@ -13,8 +14,8 @@ export const Card = ({passeador}) => {
                {
                 passeador.fotoPerfil ? 
                 (
-
-                <Image source={{uri: passeador.fotoPerfil}} 
+                    
+                <Image source={{uri: `${URL_IMAGE_BASE}${passeador.fotoPerfil}`}} 
                 style={{width: 70, height: 70, borderRadius:50}} />
             
                 ): (  
