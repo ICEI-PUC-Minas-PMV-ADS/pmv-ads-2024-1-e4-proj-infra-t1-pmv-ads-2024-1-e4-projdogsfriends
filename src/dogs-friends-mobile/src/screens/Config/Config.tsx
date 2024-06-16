@@ -15,9 +15,10 @@ const clienteRepo = new Cliente()
 
 const Config = ({route, navigation}) => {
 
-  const [image, setImage] = useState({})
+    const { user, setUser, token } = useAuth()
+    
+  const [image, setImage] = useState(`${user.fotoPerfil}`)
 
-  const { user, setUser, token } = useAuth()
 
   console.log(user)
   const pickImage = async () => {
@@ -37,9 +38,12 @@ if (!result.canceled) {
       const foto = await fileRepo.upload(file)
       const data = await clienteRepo.updatePhoto(foto, user.id, token)
       if(data.status === 200){
-        user.fotoPerfil = foto
+          let profile = user        
+          profile.fotoPerfil = foto
+         setImage(foto) 
+         setUser(profile)
       }
-      setUser(user)
+     
       
     }catch(err){
       console.log(err)
@@ -56,7 +60,7 @@ if (!result.canceled) {
                 {
                     user.fotoPerfil ?
                     <Image 
-                        source={{uri: `${URL_IMAGE_BASE}${user.fotoPerfil}`}}
+                        source={{uri: `${URL_IMAGE_BASE}${image}`}}
                         style={styles.profileImg} 
                     />   
                     :
