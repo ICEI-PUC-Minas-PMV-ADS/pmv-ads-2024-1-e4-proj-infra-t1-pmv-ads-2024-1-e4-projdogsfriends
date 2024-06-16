@@ -9,6 +9,7 @@ import { TelefoneDto } from "src/auth/dto/telefone.dto";
 import { EnderecoDto } from "src/auth/dto";
 import { Email } from "src/email/entities/email.entity";
 import { Favorito } from "./dto/create-favorite.dto";
+import { UpdateClienteDto } from "./dto/update-cliente.dto";
 
 
 @UseGuards(JwtGuard)
@@ -60,5 +61,8 @@ export class ClienteController {
      return this.clienteService.search(term, estado, +limit, +offset)
     }
 
-    
+    @Patch("updatePhoto")
+    updatePhoto(@Body() updateCliente: UpdateClienteDto){
+      this.clienteService.updatePhoto(updateCliente)
+    }
 }

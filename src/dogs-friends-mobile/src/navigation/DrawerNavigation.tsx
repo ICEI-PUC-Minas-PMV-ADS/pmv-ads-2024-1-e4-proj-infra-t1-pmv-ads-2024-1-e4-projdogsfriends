@@ -1,11 +1,12 @@
 import { DrawerContentComponentProps, DrawerContentScrollView, createDrawerNavigator } from "@react-navigation/drawer"
  
-import { Home, Login, Dashboard, PetDetail, Cadastro, Pedido, ListaPedidos, AddPet, Pesquisa, Map, Agendamento, Passeador, Confirmar, AgendaPasseador } from "../screens"
+import { Home, Login, Dashboard, PetDetail, Cadastro, Pedido, ListaPedidos, AddPet, Pesquisa, Map, Agendamento, Passeador, Confirmar, AgendaPasseador, Config } from "../screens"
  
 import Telas from "../screens/telas/Telas"
 import { Dimensions, Image, StyleSheet, Text, TouchableOpacity, View } from "react-native"
 import { useAuth } from "../hooks/useAuth"
 import { useNavigation } from "@react-navigation/native"
+import { URL_IMAGE_BASE } from "../constants/constants"
 
 export const DrawerNavigation = () => {
   const Drawer = createDrawerNavigator()
@@ -25,6 +26,7 @@ export const DrawerNavigation = () => {
         <Drawer.Screen name="Pesquisa" component={Pesquisa} />
         <Drawer.Screen name="Confirmar" component={Confirmar} />
         <Drawer.Screen name="Agenda" component={AgendaPasseador} />
+        <Drawer.Screen name="Config" component={Config} />
 
           <Drawer.Group >
              <Drawer.Screen name="Map" component={Map} />
@@ -63,7 +65,7 @@ const Menu = ( props: DrawerContentComponentProps) => {
            {
             user.fotoPerfil ?
               <Image 
-                source={{uri: user.fotoPerfil}}
+                source={{uri: `${URL_IMAGE_BASE}${user.fotoPerfil}`}}
                 style={styles.profileImg} 
               />   
               :
@@ -100,7 +102,7 @@ const Menu = ( props: DrawerContentComponentProps) => {
          </TouchableOpacity>
        
           <View style={{}}>
-              <TouchableOpacity style={styles.ItemMenu}  onPress={() => navigation.navigate("Settings")}>
+              <TouchableOpacity style={styles.ItemMenu}  onPress={() => navigation.navigate("Config")}>
                
                 <Text>Configurações</Text>
               </TouchableOpacity>

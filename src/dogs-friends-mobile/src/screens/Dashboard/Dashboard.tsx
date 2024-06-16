@@ -10,6 +10,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler'
 import { ListaPets } from './ListaPets'
 import { Favoritos } from './Favoritos'
 import { Cliente } from '../../api/Cliente'
+import { URL_IMAGE_BASE } from '../../constants/constants'
 
 interface Props extends DrawerScreenProps<any, any>{}
 const clienteRepo = new Cliente()
@@ -64,7 +65,7 @@ const Dashboard = ({route, navigation}: Props) => {
                     passeador.fotoPerfil ? 
                     (
 
-                    <Image source={{uri: passeador.fotoPerfil}} 
+                    <Image source={{uri: `${URL_IMAGE_BASE}${passeador.fotoPerfil}`}} 
                     style={{width: 70, height: 70, borderRadius:50}} />
                 
                     ): (  

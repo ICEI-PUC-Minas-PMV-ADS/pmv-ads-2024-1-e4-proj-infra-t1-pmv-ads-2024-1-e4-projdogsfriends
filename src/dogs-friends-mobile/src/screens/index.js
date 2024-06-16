@@ -12,6 +12,7 @@ import Agendamento from "./Agendamento/Agendamento";
 import Passeador from "./Passeador/Passeador";
 import Confirmar from "./Agendamento/Confirmar";
 import AgendaPasseador from "./Agenda/Agenda";
+import Config from "./Config/Config";
 
 export {
     Home,
@@ -27,5 +28,6 @@ export {
     Agendamento,
     Passeador,
     Confirmar,
-    AgendaPasseador
+    AgendaPasseador,
+    Config
 }
