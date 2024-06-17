@@ -43,8 +43,8 @@ const Confirmar = ({route, navigation}) => {
                 <View>
                 <View style={{flexDirection: "row", width: "100%", justifyContent: "center", alignItems:"center", marginTop: 20}}>
                 {
-                    user.pets.map((pet) => (
-                        <View >
+                    user.pets.map((pet, index) => (
+                        <View key={index}>
                            {
                             pet.imagens ? (
                               <View style={{}}>

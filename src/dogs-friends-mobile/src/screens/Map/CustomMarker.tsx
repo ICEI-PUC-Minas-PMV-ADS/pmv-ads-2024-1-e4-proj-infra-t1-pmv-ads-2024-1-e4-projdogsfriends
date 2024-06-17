@@ -1,6 +1,7 @@
 import { Callout, Marker } from 'react-native-maps';
 import { StyleSheet, View, Text, Image } from 'react-native';
 import React from 'react';
+import { URL_IMAGE_BASE } from '../../constants/constants';
 
 function CustomMarker(
   {
@@ -47,7 +48,7 @@ function CustomMarker(
       <View style={styles.calloutContainer}>        
         {
           passeador.fotoPerfil ? 
-          <Image source={{uri: passeador.fotoPerfil}} 
+          <Image source={{uri: `${URL_IMAGE_BASE}${passeador.fotoPerfil}`}} 
           style={{width: 70, height: 70, borderRadius:50}} />
           :
           <Image source={{uri: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/340px-Default_pfp.svg.png"}} 
