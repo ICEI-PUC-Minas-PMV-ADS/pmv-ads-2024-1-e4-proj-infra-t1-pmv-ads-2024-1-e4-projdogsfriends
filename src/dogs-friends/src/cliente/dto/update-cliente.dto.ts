@@ -6,4 +6,8 @@ export class UpdateClienteDto extends PartialType(AuthDto){
     @IsString()
     @IsNotEmpty()
     id: string
+
+    senhaAtual?: string
+
+    novaSenha?: string
 }

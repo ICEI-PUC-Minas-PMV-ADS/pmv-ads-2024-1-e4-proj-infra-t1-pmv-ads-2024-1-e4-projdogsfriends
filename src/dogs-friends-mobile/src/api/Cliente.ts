@@ -82,6 +82,20 @@ export class Cliente {
     }
    }
 
+   async updatePass(data: any, token: string){
+    try {
+        const response = await api.patch("cliente/updatePassword", data,{
+            headers:{
+                Authorization: `Bearer ${token}`
+            }
+        })
+        return response 
+    } catch (error) {
+        console.log("error ===>" , error)
+        throw error
+    }
+   }
+
 
    async createPedido(
     precoTotal: number, 

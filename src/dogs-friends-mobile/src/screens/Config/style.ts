@@ -46,12 +46,13 @@ export const styles = StyleSheet.create({
           titleInputs:{
             alignSelf:"flex-start",
             fontSize: widthScreen * 0.05,
-            fontWeight: "500"
+            fontWeight: "500",
+            marginLeft: 20,
           },
 
 
   btnConfirmar:{
-    width:"100%",
+    width:"90%",
     height: 54,
     justifyContent: "center",
     alignItems:"center",

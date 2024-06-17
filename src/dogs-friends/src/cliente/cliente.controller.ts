@@ -61,8 +61,14 @@ export class ClienteController {
      return this.clienteService.search(term, estado, +limit, +offset)
     }
 
+    @Patch("updatePassword")
+    updatePassword(@Body() updateCliente: UpdateClienteDto){
+      this.clienteService.updatePassword(updateCliente)
+    }
+
     @Patch("updatePhoto")
     updatePhoto(@Body() updateCliente: UpdateClienteDto){
       this.clienteService.updatePhoto(updateCliente)
     }
 }
+//$argon2id$v=19$m=65536,t=3,p=4$fGLSsJnw1eZqktujJDqTCQ$MoXM4U6Gg6BYqxjovoqNsdvz+zHMYq5i2k0y57qzOWs

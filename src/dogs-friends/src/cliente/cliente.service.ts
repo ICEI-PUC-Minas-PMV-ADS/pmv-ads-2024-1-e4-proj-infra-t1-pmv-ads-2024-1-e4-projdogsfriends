@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
 import {
   BadRequestException,
+  ForbiddenException,
   Injectable,
   InternalServerErrorException,
   NotFoundException,
@@ -8,6 +9,7 @@ import {
 import { PrismaService } from '../prisma/service/prisma.service';
 import { EditClienteDto } from './dto';
 import { UpdateClienteDto } from './dto/update-cliente.dto';
+import * as argon from 'argon2';
 
 @Injectable()
 export class ClienteService {
@@ -375,9 +377,31 @@ export class ClienteService {
         }
       })
       return client.fotoPerfil
-      return client
+  
     } catch (error) {
       
+    }
+  }
+
+  async updatePassword(updateClient: UpdateClienteDto){
+    try {
+      const client = await this.prisma.cliente.findUnique(
+        {where: {id: updateClient.id}})
+      
+        const match = await argon.verify(client.senha, updateClient.senhaAtual)
+        if(!match) throw new ForbiddenException('Credentials not valid');
+
+        const novaSenha = await argon.hash(updateClient.novaSenha);
+
+        await this.prisma.cliente.update({
+          where:{id: updateClient.id},
+          data:{
+            senha: novaSenha
+          }
+        })
+      return {message: "password updated"}  
+    } catch (error) {
+      this.handleExeptions(error)
     }
   }
 
