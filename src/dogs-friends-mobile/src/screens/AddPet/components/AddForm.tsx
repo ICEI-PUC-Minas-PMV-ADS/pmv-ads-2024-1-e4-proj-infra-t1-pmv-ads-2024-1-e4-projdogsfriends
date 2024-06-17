@@ -1,8 +1,7 @@
 import { Controller, useForm } from "react-hook-form";
-import { Text, TextInput, View } from "react-native"
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup"
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { Text, TextInput, View,TouchableOpacity } from "react-native"
 import { styles } from "./styles";
 
  

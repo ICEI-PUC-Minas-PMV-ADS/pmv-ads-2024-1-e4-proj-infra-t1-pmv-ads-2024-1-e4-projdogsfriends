@@ -19,6 +19,7 @@ const Dashboard = ({route, navigation}: Props) => {
   const { user, token } = useAuth()
   const [passeadores,setPasseadores] = useState([]) 
 
+  console.log(token)
   const getPasseadores = async() => {
     try {
       const response = await clienteRepo.search(user.enderecos[0].cidade, user.enderecos[0].uf, 10,0,token)

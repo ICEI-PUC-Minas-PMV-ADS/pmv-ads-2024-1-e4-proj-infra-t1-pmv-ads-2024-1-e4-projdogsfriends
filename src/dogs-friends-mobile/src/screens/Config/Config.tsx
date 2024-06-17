@@ -1,8 +1,11 @@
-import { Text, View, Image, TextInput, TouchableOpacity } from "react-native"
+import { Text, View, Image, TextInput, TouchableOpacity, Alert } from "react-native"
 import { HeaderAnimation } from "../../components/header/HeaderAnimation"
 import { useAuth } from "../../hooks/useAuth"
 import * as ImagePicker from 'expo-image-picker';
 import { imgFormat } from "../../utils"; 
+import { Controller, useForm } from "react-hook-form";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup"
 
 import { styles } from "./style"
 import { useState } from "react";
@@ -13,14 +16,51 @@ import { URL_IMAGE_BASE } from "../../constants/constants";
 const fileRepo = new File()
 const clienteRepo = new Cliente()
 
+const Schema = yup.object({
+  senha: yup.string().min(6).required("Informe sua senha atual"),
+  novaSenha: yup.string().min(6).required("Adicione uma senha"),
+  ConfirmaNovaSenha: yup.string().min(6).required("Confirme sua nova senha "),
+})
+
+
 const Config = ({route, navigation}) => {
 
     const { user, setUser, token } = useAuth()
+
+    const handleUpdatePass = async(data: any) => {
+      let dataPass:any = {}
+      dataPass.id = user.id
+      dataPass.senhaAtual = data.senha
+      dataPass.novaSenha = data.novaSenha
+
+      console.log(dataPass)
+      if(data.novaSenha !== data.ConfirmaNovaSenha){
+        Alert.alert("O campo nova senha e confirmar nova senha devem ser iguais")
+        return
+      }
+      try {
+        const response = await clienteRepo.updatePass(dataPass, token)
+        if(response.status === 200){
+          Alert.alert("Senha atualizada com sucesso!")
+          return
+        }else{
+          Alert.alert("Não foi possivel atualizar a senha")
+          return
+        }
+      } catch (error) {
+        Alert.alert("Não foi possivel atualizar a senha")
+        return
+      }
+    }
+
+    const  { control, handleSubmit, formState: {errors} } = useForm({
+      resolver: yupResolver(Schema)
+    })
     
   const [image, setImage] = useState(`${user.fotoPerfil}`)
 
 
-  console.log(user)
+
   const pickImage = async () => {
 
     let result = await ImagePicker.launchImageLibraryAsync({
@@ -78,27 +118,66 @@ if (!result.canceled) {
          </View>
          
 
-         <View style={styles.inputs}>
+         <View >
                   
-                  <Text style={styles.titleInputs}>Alterar Senha</Text>
+         <Text style={styles.titleInputs}>Alterar Senha</Text>
+
+        <View style={styles.inputs}>
+            <Text style={{alignSelf:"flex-start"}}>{errors.senha ? errors.senha.message : "Senha"}</Text>
+           <Controller 
+              control={control}
+              name="senha"
+              render={({field: {onChange, onBlur, value}}) => (  
 
                   <TextInput
                     style={styles.inputPass}
                     placeholder="Senha Atual"
+                    placeholderTextColor="gray"
+                    secureTextEntry
+                    onChangeText={onChange}
+                    value={value}
                   />
+
+                )}
+                />
+
+          <Text style={{alignSelf:"flex-start"}}>{errors.novaSenha ? errors.novaSenha.message : "Nova Senha"}</Text>
+           <Controller 
+              control={control}
+              name="novaSenha"
+              render={({field: {onChange, onBlur, value}}) => (  
                 
                   <TextInput
                     style={styles.inputPass}
                     placeholder="Nova Senha"
+                    placeholderTextColor="gray"
+                    secureTextEntry
+                    onChangeText={onChange}
+                    value={value}
+                    />
+                  )}
                   />
-                  
+
+          <Text style={{alignSelf:"flex-start"}}>{errors.ConfirmaNovaSenha ? errors.ConfirmaNovaSenha.message : "Confirmar Senha"}</Text>
+           <Controller 
+              control={control}
+              name="ConfirmaNovaSenha"
+              render={({field: {onChange, onBlur, value}}) => (  
                   <TextInput
                     style={styles.inputPass}
                     placeholder="Confirmar Senha"
-                  />  
+                    secureTextEntry
+                    placeholderTextColor="gray"
+                    onChangeText={onChange}
+                    value={value}
+                    />  
+              
+            )}
+            />
+              </View>
                    
-                   <View style={{width: "100%", marginTop: 20}}>
-            <TouchableOpacity style={styles.btnConfirmar} onPress={() => {}}>
+          <View style={{width: "100%", marginTop: 20}}>
+            <TouchableOpacity style={styles.btnConfirmar} onPress={handleSubmit(handleUpdatePass)}>
               <Text style={{fontFamily: "semibold", color: "#FFFFFF"}}>ALTERAR</Text>
             </TouchableOpacity>
           </View>
