@@ -1,6 +1,6 @@
 export const EMAIL_CONFIG_OPTIONS = 'EMAIL_CONFIG_OPTIONS';
 
 export const EMAIL_MESSAGE = {
-    BODY: "solicitou seus serviços...",
+    BODY: "Alguém solicitou seus serviços serviços...",
     SUBJECT: "DogFriend solicitou seus serviços"
 }

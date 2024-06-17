@@ -1,5 +1,6 @@
 import { Image, Text, View } from "react-native"
 import { Stars } from "../../components/stars/stars"
+import { URL_IMAGE_BASE } from "../../constants/constants";
 
 export const Reviews = ({ reviews }) => {
     
@@ -20,7 +21,7 @@ export const Reviews = ({ reviews }) => {
                  <View>
                     {
                         review.fotoCliente ?
-                            <Image source={{uri: review.fotoCliente}} 
+                            <Image source={{uri: `${URL_IMAGE_BASE}${review.fotoCliente}`}} 
                                 style={{width: 50, height: 50, borderRadius: 25}} />
                             :
                             <Image source={{uri: review.fotoCliente}} 

@@ -17,8 +17,8 @@ export const Card = ({ pedido }) => {
 
             <View style={{flexDirection: "row", width: "100%", justifyContent: "center", alignItems:"center", marginTop: 20}}>
                 {
-                    pedido.pedidoPet.map(({pet}) => (
-                        <View >
+                    pedido.pedidoPet.map(({pet}, index) => (
+                        <View key={index}>
                            {
                             pet.imagens ? (
                               <View style={{}}>

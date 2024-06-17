@@ -66,7 +66,7 @@ export class PedidoService {
       
       });
       
-     // this.sendEmailToPasseador(pedidoResult.passeadorId)
+      this.sendEmailToPasseador(pedidoResult.passeadorId)
       
       return pedidoResult;
 
@@ -174,8 +174,6 @@ export class PedidoService {
         where:{ id: passeadorId },
         select:{ email: true }
       })
-
-      console.log(passeador.email)
 
       const mensagem = new MessageDto(
         EMAIL_MESSAGE.BODY,
