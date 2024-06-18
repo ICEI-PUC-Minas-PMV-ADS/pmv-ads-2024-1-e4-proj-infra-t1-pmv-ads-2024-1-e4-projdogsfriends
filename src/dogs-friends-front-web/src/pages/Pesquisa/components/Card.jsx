@@ -13,7 +13,7 @@ export const Card = ({ client, setActiveMarker, index }) => {
               <div className="rounded">
                 <img 
                   className=" rounded lg:w-32 h-32 w-full object-cover"                
-                  src={`${client.fotoPerfil}`} />
+                  src={`http://localhost:3000/files/file/${client.fotoPerfil}`} />
               </div>
 
               <div className=" flex flex-col gap-[2px] h-full p-2 lg:p-0 w-full">

@@ -427,7 +427,7 @@ if(res === 'Created'){
               </label>
               <div className="mt-2 flex items-center gap-x-3">
                 {formData.fotoPerfil ? (
-                  <img src={formData.fotoPerfil} alt='Foto de perfil' className='h-12 w-12 rounded-full' />
+                  <img src={"http://localhost:3000/files/file/"+formData.fotoPerfil} alt='Foto de perfil' className='h-12 w-12 rounded-full' />
                 ) : (
                   <UserCircleIcon className="h-12 w-12 text-gray-300" aria-hidden="true" />)}
 

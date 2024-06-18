@@ -12,7 +12,7 @@ export const CardPedido = ({ pedido }) => {
                 <div className="flex w-32 h-24 justify-center">
                   <img 
                     className=" rounded-full w-24 h-24 object-cover"                
-                    src={`${pedido.passeador.fotoPerfil}`} />
+                    src={`http://localhost:3000/files/file/${pedido.passeador.fotoPerfil}`} />
                 </div>
   
                 <div className=" flex flex-col gap-[2px] h-full p-2 lg:p-0 w-full">

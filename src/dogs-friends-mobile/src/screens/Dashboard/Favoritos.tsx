@@ -22,7 +22,7 @@ export const Favoritos = ({favoritos}) => {
                                     style={{width: 100, height: 100, borderRadius:5}} />
                             </View>
                             <View>
-                                <Text>{ passeador.passeador.nome } {passeador.passeador.sobrenome}</Text>
+                                <Text>{ passeador.passeador.nome } </Text>
                                 <Text>{passeador.passeador.enderecos[0].cidade}</Text>
                             </View>
                         </View>
