@@ -43,7 +43,7 @@ export default function Map({
                 <div>
                 <div className="flex flex-col">
                     <img className="w-32 h-32 object-cover rounded"
-                    src={`${client.fotoPerfil}`} />
+                    src={`http://localhost:3000/files/file/${client.fotoPerfil}`} />
                       <div className=" items-start">
                         <h3 className="text-sm font-semibold text-zinc-700">{ client.nome } {client.sobrenome}</h3>
                         <p>Apaixonado por cães</p>

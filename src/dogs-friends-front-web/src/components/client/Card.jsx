@@ -9,7 +9,7 @@ export const Card = ({client, perfil=false}) => {
         <div className="flex w-full flex-col justify-center items-center">
             <div className="rounded-full">
                 <img 
-                     src={client.fotoPerfil} alt={`${client.nome}`}
+                     src={"http://localhost:3000/files/file/"+client.fotoPerfil} alt={`${client.nome}`}
                      className="w-24 h-24 object-cover rounded-full"
                     />
             </div>

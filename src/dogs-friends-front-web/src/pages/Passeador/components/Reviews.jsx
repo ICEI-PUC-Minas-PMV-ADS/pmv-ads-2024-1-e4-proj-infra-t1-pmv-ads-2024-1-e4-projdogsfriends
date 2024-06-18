@@ -13,7 +13,7 @@ export const Reviews = ({reviews}) => {
                        <div className="w-[62px]">
                             <img 
                                 className="w-[42px] h-[42px] object-cover rounded-full"
-                                src={`${review.fotoCliente}`} alt="" 
+                                src={`http://localhost:3000/files/file/${review.fotoCliente}`} alt="" 
                                 />
                         </div>
                         <div className="flex flex-col w-full">

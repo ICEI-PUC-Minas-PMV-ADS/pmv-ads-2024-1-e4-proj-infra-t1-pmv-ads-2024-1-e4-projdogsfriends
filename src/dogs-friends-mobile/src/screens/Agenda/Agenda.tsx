@@ -70,6 +70,7 @@ const AgendaPasseador = ({route, navigation}) => {
         <Text style={{padding:20 , fontFamily: "semibold", fontSize: 24, color: "#262626"}}>Agenda</Text>
           <View>
              <Calendario datas={datas} setDataSel={setDataSel} all_days={false}/>            
+             <Text style={{marginLeft:"10%"}}>Data Selecionada: {dataSel}</Text> 
            </View>
 
            <View style={{width: "100%", marginTop: 20}}>

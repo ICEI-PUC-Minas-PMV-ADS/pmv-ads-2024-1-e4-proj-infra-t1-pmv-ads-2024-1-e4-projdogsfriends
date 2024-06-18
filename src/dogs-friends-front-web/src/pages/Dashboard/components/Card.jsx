@@ -10,7 +10,7 @@ export const Card = ({favorito}) => {
         <div className="relative mx-4 mt-4 overflow-hidden rounded-xl w-[120px]
         bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
             <img className="w-full h-full object-cover"
-                src={favorito.passeador.fotoPerfil}
+                src={"http://localhost:3000/files/file/"+favorito.passeador.fotoPerfil}
                 alt="ui/ux review check"
             />
 
