@@ -11,8 +11,8 @@ export enum SERVICE {
 }
 
 export const GMAIL_CONFIG: EmailConfig = {
-    from: "pbela27360@gmail.com",
-    password: "hpgp rsna ejfx szbb",
+    from: "",
+    password: "",
     service: SERVICE.GMAIL
 }    
 
