@@ -1,3 +1,7 @@
 # Apresentação da Solução
 
-Faça uma apresentação de um resumo de todos o processo de desenvolvimento e no final apresente a solução desenvolvida, usando um pequeno vídeo.
+### Video
+
+Clique no link abaixo para visualizar o vídeo
+
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/5b91sx0OvTw/0.jpg)](https://www.youtube.com/watch?v=5b91sx0OvTw](https://www.youtube.com/watch?v=5b91sx0OvTw) "Projeto de Aplicação Distribuída Dog's Friend")
